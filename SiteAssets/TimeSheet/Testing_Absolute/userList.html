@@ -1,0 +1,89 @@
+﻿<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+<head>
+ <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
+
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:_dlc_DocId msdt:dt="string">ADMIN-1645029823-1451</mso:_dlc_DocId>
+<mso:_dlc_DocIdItemGuid msdt:dt="string">5e0c88ee-a376-4f70-ae5f-4ad95c660c72</mso:_dlc_DocIdItemGuid>
+<mso:_dlc_DocIdUrl msdt:dt="string">https://adaptindia.sharepoint.com/sites/Titan_2_2_1_DEV/_layouts/15/DocIdRedir.aspx?ID=ADMIN-1645029823-1451, ADMIN-1645029823-1451</mso:_dlc_DocIdUrl>
+<mso:MediaServiceImageTags msdt:dt="string"></mso:MediaServiceImageTags>
+<mso:lcf76f155ced4ddcb4097134ff3c332f msdt:dt="string"></mso:lcf76f155ced4ddcb4097134ff3c332f>
+<mso:TaxCatchAll msdt:dt="string"></mso:TaxCatchAll>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor msdt:dt="string">Amit Kumar</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor>
+<mso:Order msdt:dt="string">145100.000000000</mso:Order>
+<mso:_ExtendedDescription msdt:dt="string"></mso:_ExtendedDescription>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author msdt:dt="string">Amit Kumar</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author>
+<mso:ContentTypeId msdt:dt="string">0x010100888F714E82EDFB4390B58950E6EEDFE5</mso:ContentTypeId>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+<title></title></head>
+<body>
+
+<input type="button" value="Get Employee" onclick="SelGroupUsrs();" >
+<hr>
+
+<div class="table-responsive">          
+  <table class="table">
+<thead>
+<tr>
+	<th>SR.NO</th>
+	<th>NAME</th>
+	<th>EMAIL</th>
+	<th>LOGIN</th>
+</tr>
+</thead>
+<tbody id="userdata">
+</tbody>
+
+</table>
+</div>
+
+
+
+<script type="">
+
+function SelGroupUsrs()    
+{debugger;
+	$.ajax({  
+        async: false,  
+        url:  _spPageContextInfo.webAbsoluteUrl +"/_api/Web/SiteUsers",  
+       // url: "https://adaptindia.sharepoint.com/api/v2/users",
+        method: "GET",  
+        headers: {  
+            "Accept": "application/json; odata=verbose"  
+        },  
+        success: function(data) { 
+        debugger 
+            if (data.d.results.length > 0) { 
+            	var accountName=[]; 
+            	var tableItemsHTML ="";
+                for (var i = 0; i < data.d.results.length; i++) {  
+                    accountName.push(data.d.results[i].LoginName); 
+                    tableItemsHTML += "<tr><td>"+i+"</td><td>"+data.d.results[i].Title+"</td><td>"+data.d.results[i].Email+"</td><td>"+data.d.results[i].LoginName+"</td>";				
+				tableItemsHTML +='</tr>';				 
+                   // GetUserProperties(accountName.replace("#", "%23"));  
+                }
+                
+                $("#userdata").append(tableItemsHTML);
+                
+  
+            }  
+        },  
+        error: function(data) {  
+             
+        }  
+    });  
+}
+
+
+
+
+
+
+</script>
+</body>
+</html>

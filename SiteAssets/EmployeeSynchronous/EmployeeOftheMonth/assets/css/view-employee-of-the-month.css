@@ -1,0 +1,736 @@
+#s4-bodyContainer {
+  font-family: BasierSquare-Regular !important;
+  font-size: 12px !important;
+  color: #4a4a4a !important;
+  line-height: 1.42857143 !important;
+}
+body {
+  font-family: BasierSquare-Regular !important;
+  font-size: 12px !important;
+  color: #4a4a4a !important; 
+}
+@font-face {
+  font-family: BasierSquare-Regular;
+  src: url('../font/BasierSquare-Regular.woff'); 
+}
+
+
+.tile_box{
+ position:relative;	
+ box-shadow:none !important;	
+ border:1px solid #d5d5d5 !important;
+}
+
+.user_text{
+font-size: 16px;
+font-weight: 600;
+margin: 5px 0;
+}
+
+/*.tile_box:before{
+    content: '';
+    width: 100%;
+    height: 36%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-image: url(../ImageGallery/employee-left-leaf.png);
+    background-size: 66%;
+    background-repeat: no-repeat;
+    opacity: 0.2;
+    background-position:right;
+}*/
+
+#itemCollection .tile_box {
+    /* min-height: 320px !important; */
+    min-height: 210px !important;
+}
+
+.row:after, .row:before {
+  content: " ";
+  display: table;
+  clear: both;
+}
+.span6 {
+  float: left;
+  width: 80%;
+  
+}
+
+.emojionearea-standalone {
+  float: right;
+}
+
+.emojionearea-editor{
+	min-height: 4em !important;
+}
+
+
+
+.pl-0{padding-left:0px !important;}
+.pr-0{padding-right:0px !important;}
+.pt-5{padding-top:5px;}
+.pt-10{padding-top:10px;}
+.pb-5{padding-bottom:5px;}
+.pb-10{padding-bottom:10px;}
+	.mt-5 {margin-top:5px;}
+.mt-10{margin-top:10px;}
+.mt-20{margin-top:20px;}
+.mb-5{margin-bottom:5px;}
+.p-10{padding:10px;}
+.p-0{padding:0px !important;}
+.pt-0{padding-top:0px;}
+.pb20 {
+    padding-bottom: 20px !important;
+}
+
+.shadow3 {
+    box-shadow: 0px -3px 25px -1px #dfdede;
+}
+
+.main-area {
+    background: #fff !important;
+    -webkit-box-shadow: 0px 5px 23px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 5px 23px 0px rgba(0, 0, 0, 0.1) ;
+    border-radius: 4px;
+    margin-bottom: 90px;
+	padding:20px;
+}
+
+.mb-0 {margin-bottom:0px;}
+
+	
+	
+.tile_box {
+    background-color: #fff;
+    height: 180px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+    border-radius: 10px;
+    padding: 5px 10px;
+    border: 1px solid #efefef00;
+    min-height: 167px;
+}
+
+.recognition-view-detail-button a {
+    font-size: 12px;
+    padding: 5px 10px;
+    color: #666;
+    background-color: transparent;
+    border: 1px solid #666 !important;
+    border-radius: 10px;
+    cursor: pointer;
+    line-height: 28px;
+}
+.recognition-view-detail-button a:hover {
+    color: #fff !important;
+    background-color: #333 !important;
+    border: 1px solid #333 !important;
+}
+	
+.recognition-popup-name {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 0px;
+}
+.recognition-popup-designation {
+    font-size: 17px;
+    margin-bottom: 0px;
+}
+.recognition-popup-area-image{
+	display: inline-block;
+}    
+.recognition-popup-area-image img{
+	border-radius: 4px;
+}
+
+.recognition-comment-area {
+    width: 80%;
+    float: left;
+    resize: none !important;
+    min-height: 50px !important;
+}
+.recognition-comment-btn {
+    width: 18%;
+    height: 54px;
+    margin-right: 0px;
+    margin-left: 10px !important;
+}	
+.recognition-popup-title-text {
+    color: #000;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+.recognition-popup-description-text {
+    color: #000;
+    font-size: 15px;
+	text-align: justify;
+}
+.recognition-popup-like-button a {
+    font-size: 23px;
+    color: #ff9e20;
+    background-color: transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.recognition-popup-like-button a:hover {
+    color: #e08207;
+}
+.recognition-popup-like-button p {
+    display: inline-block;
+    font-size: 16px;
+}
+	
+.owl-carousel-recognition-popup {
+    width: 100% !important;
+}
+.recognition-popup .owl-nav .owl-prev:after,
+.recognition-popup .owl-nav .owl-prev:after, .recognition-popup .owl-nav .owl-next:after {
+	content: '';
+    position: absolute;
+    margin: auto;
+    left: 49%;
+    bottom: -45px;
+    width: 35px;
+    height: 35px;
+}
+
+.recognition-popup .owl-nav .owl-prev:after {
+  background-image: url("images/c_ar.png")!important;
+  background-repeat: no-repeat;
+  background-size: 35px 35px;
+  -webkit-transform: rotate(180deg) translate(20px,0px);
+      -ms-transform: rotate(180deg) translate(20px,0px);
+          transform: rotate(180deg) translate(20px,0px);
+}
+
+.recognition-popup .owl-nav .owl-next:after{
+  background-image: url(images/c_ar.png)!important;
+    background-repeat: no-repeat;
+    background-size: 35px;
+    right: 47%;
+    bottom: -44px;
+    width: 35px;
+    height: 35px;
+}
+.recognition-popup .owl-nav button{
+  font-size: 0!important
+}
+
+.recognition-popup .owl-nav{
+  height: 0;
+}
+
+.recognition-popup .item {
+	padding: 5px;
+    border: 1px solid #ddd;
+}
+.owl-carousel.owl-carousel-recognition-popup .owl-item img {
+    display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.recognition-popup.owl-theme .owl-dots {
+    text-align: center !important;
+	margin-top: 10px !important;
+}
+
+a.recognition-popup-show-button  {
+    display: block;
+    font-size: 12px;
+    padding: 5px 10px;
+    color: #666;
+    background-color: transparent;
+    border: 1px solid #666 !important;
+    border-radius: 10px;
+    cursor: pointer;
+	float: left;
+}
+a.recognition-popup-show-button:hover {
+    color: #fff !important;
+    background-color: #333 !important;
+    border: 1px solid #333 !important;
+}
+	
+a.recognition-popup-hide-button  {
+    display: block;
+    font-size: 12px;
+    padding: 5px 10px;
+    color: #666;
+    background-color: transparent;
+    border: 1px solid #666 !important;
+    border-radius: 10px;
+    cursor: pointer;
+	float: left;
+}
+a.recognition-popup-hide-button:hover {
+    color: #fff !important;
+    background-color: #333 !important;
+    border: 1px solid #333 !important;
+}
+.text-bold {
+    font-weight: 600;
+}
+.marginTop {
+        margin-top: 65px;
+        margin-bottom: 8px;
+    }
+.user_text {
+        color: #1d6ec0;
+        text-align: center;
+    }
+   .user_pic_content {
+        margin-top: 55px;
+    }
+
+    .marginTop60 {
+        margin-top: 60px;
+    }
+
+    .marginTop70 {
+        margin-top: 70px;
+    }
+    
+    .tile_box .center-block {
+    overflow: visible;
+}
+.chip-panel {
+    overflow-x: auto;
+}
+.chip-box {
+    display: flex;
+    padding: 0 0 3px 15px;
+}
+.chip-box .upload-chip:hover {
+    cursor: pointer;
+}
+.upload-chip:hover{
+	background-color: #f2f2f2;
+}
+.upload-chip{
+	border-radius: 20px;
+    border: 1px solid #d2d2d2;
+    padding: 4px 10px;
+    margin-right: 4px;
+    font-size: 12px;
+    height: 28px;
+    white-space: nowrap;
+    background-color: #ffffff;
+}
+   
+#itemCollection .user_pic{
+	text-align:left !important;
+	height:80px !important;
+    width:80px !important;
+    border-radius: 50% !important;
+}
+
+#itemCollection .tile_box .user_pic img{
+
+ border-radius: 50% !important;
+ border: 1px solid #828282;
+ box-shadow: 0px 8px 13px -7px #4aa0f7;	
+ height:80px !important;
+ width:80px !important;
+
+}
+#itemCollection .my_rec_content{
+ text-align:left !important;	
+}
+
+#itemCollection .my_rec_content .user_text{
+ text-align:left !important;	
+}
+
+#itemCollection .tile_box{
+
+/* background: linear-gradient(to bottom ,#ff9e2000,#25a8f714) !important;
+background: -webkit-linear-gradient(to bottom ,#ff9e2000,#25a8f714) !important;
+background: -moz-linear-gradient(to bottom ,#ff9e2000,#25a8f714) !important;
+background: -o-linear-gradient(to bottom ,#ff9e2000,#25a8f714) !important; */
+ background: url(../ImageGallery/employee-left-leaf.png), url(../ImageGallery/employee-right-leaf.png), linear-gradient(0deg, rgba(255,255,255,1) 255%, rgba(255,255,255,1) 255%);
+ background-position: left -5% top 0%, right -5% top 0%;
+ background-repeat: no-repeat;
+ background-size: 14%, 14%, 100%;
+ 
+}
+
+.modal-header .close-round{
+ 
+ min-width: 1em !important;
+ background: #fff;
+ color: #000;	
+
+} 
+
+.modal-header .close-round:hover{
+ 
+ min-width: 1em !important;
+ background: #000;
+ color: #fff;	
+
+}
+
+
+/* #month_year{
+    padding: 3px 13px;
+    font-size: 15px;
+    display: inline-block;
+    margin:10px 0 18px 0;
+    position: relative;
+    left: -11px;	
+} */
+
+#itemCollection .tile_box{
+ position:relative;	
+}
+
+#itemCollection .my_recognation .tile_box h4{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100% !important;	
+}
+
+#OfficeLocation{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    position: relative;
+    max-width: 20.5ch;	
+}
+
+#itemCollection .my_rec_content span.manag_depart,
+#itemCollection .my_rec_content #OfficeLocation{
+ float:left !important;
+ display:inline-block;
+ 	
+}	
+#itemCollection .my_rec_content span.manag_depart{
+width:auto !important;
+padding: 0 10px 0 0;
+border-right: 1px solid #4c4c4c;	
+
+}
+
+#itemCollection .my_rec_content #OfficeLocation{
+ width:auto !important;	
+ padding:0 5px;
+}
+
+.my_rec_dtl_btn{
+ position:absolute !important;
+ /* top: 25%; */
+ bottom: 8% !important;
+ right: 5% !important; 
+}
+
+.Rec_Status{
+   left: 13px;
+   /*bottom: 30px;*/
+   bottom: 15px;	
+}
+
+.my_rec_edt_del_box{
+    /* top:150px !important; */
+    top: 0px !important;
+}
+
+.tile_box .my_rec_edt_del_box a{
+ position:relative;
+ top:18px; 
+ border-radius: 50% !important;
+    text-align: center;
+    font-size: 15px !important;
+    background: linear-gradient(to bottom,#eeeded ,#b3b2b2);
+    background: -webkit-linear-gradient(to bottom,#eeeded ,#b3b2b2);
+    background: -moz-linear-gradient(to bottom,#eeeded ,#b3b2b2);
+    background: -ms-linear-gradient(to bottom,#eeeded ,#b3b2b2);
+    border: 1px solid #7d7d7dc9 !important;
+    box-shadow: inset 0px 1px 0px #fff;
+    color: #333233;
+    padding: 8px 10px !important;
+    transition: 0.5s;
+    cursor: pointer;
+    opacity:0;    
+}
+
+.tile_box .my_rec_edt_del_box a:nth-child(2){
+ transition-delay:0.1s;	
+}
+
+.tile_box:hover .my_rec_edt_del_box a{
+ top:0px; 
+ opacity:1;	
+ 	
+}
+
+
+
+.department-header ol li{
+	display:block !important;
+}
+
+
+
+
+
+ol.breadcrumb li h4{
+  font-size:24px !important;	
+}
+
+.Rec-inner-card-btn-item{
+
+ margin-top:10px;
+ display: -webkit-box;
+ display: -moz-box;
+ display: -webkit-flex;
+ display: -ms-flexbox;
+ 
+ justify-content:center;	
+ -o-justify-content:center;	
+ -moz-justify-content:center;	
+ -webkit-justify-content:center;	
+ -ms-justify-content:center;	
+ 
+ position: absolute;
+ bottom: 8px;
+ left: 10px;
+ 
+}
+
+.Rec-inner-card-btn-item li{
+
+ padding:5px;
+ display: -webkit-box;
+ display: -moz-box;
+ display: -webkit-flex;
+ display: -ms-flexbox;
+ display: flex;
+
+ align-items: center;
+ -ms-align-items: center;
+ -webkit-align-items: center;
+ -moz-align-items: center;
+ -o-align-items: center;
+
+}
+
+.Rec-inner-card-btn-item li a{
+  	padding:0 !important;
+  	margin:0 !important;
+  	font-size:15px !important;
+  	cursor:default;
+}
+
+.Rec-inner-card-btn-item li a:focus,
+.Rec-inner-card-btn-item li a:hover{
+	background-color:transparent !important;
+}
+
+.Rec-inner-card-btn-item li img{
+	width:18px;
+}
+
+.input-group-addon img{
+	width:18px;
+}
+.recognition-form-group {
+    display: flex;
+    max-width: 330px;
+}
+
+/* new css added on dec 2022 */
+
+	.panel-heading-recognition-employee {
+    /* padding: 10px 0px 7px 0px !important; */
+    padding: 6px 0px 7px 0px !important;
+    border: none !important;
+    background-color: transparent !important;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: 1;
+    color: #333;
+}
+.recognition-employee-month {
+    /* padding: 12px 6px; */
+    padding: 8px 7px;
+    border-radius: 0px 9px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 1px;
+    background-color: #494948 !important;
+    width: 100%;
+}
+.panel-body-recognition {
+    padding: 0px 0px 0px 0px;
+}
+.recognition-type {
+    line-height: 1.42857143 !important;
+    font-size: 18px;
+    font-weight: 400;
+    width: calc(100% - 70px);
+    color: #000;
+    margin: 0px 0px 20px 0px !important;
+}
+.recognition-type>a {
+    color: #000;
+}
+.recognition-type>a:hover {
+    color: #2a6496;
+}
+.recognition-content {
+    text-align: left;
+}
+.recognition-title {
+    font-size: 16px;
+    color: #000;
+    font-weight: 400;
+    margin-top: -2px;
+    margin-bottom: 0px !important;
+    word-break: break-word;
+}
+.recognition-title>a {
+    cursor: pointer;
+    color: #000;
+}
+.recognition-title>a:hover {
+    color: #2a6496;
+}
+.recognition-content p {
+    margin: 5px 0px;
+    text-align: left;
+    font-size: 12px;
+    color: #000;
+    word-break: break-word;
+}
+.ellipsis-1, .ellipsis-2, .ellipsis-3 {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+}
+.ellipsis-1 {
+    -webkit-line-clamp: 1;
+}
+.ellipsis-2 {
+    -webkit-line-clamp: 2;
+}
+.welcome-image-div img {
+    max-width: 95px;
+    height: 95px !important;
+    box-shadow: none !important;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 50% !important;
+    border: 1px solid #828282;
+    margin: 0px auto 0px 0px;
+    overflow: hidden !important;
+}
+
+/* new css added 17-07-2023 onwards */
+
+.welcome-image-div img {
+    margin: 0px 0px 0px auto;
+}
+#itemCollection .tile_box {
+    padding: 15px 15px;
+    min-height: 260px !important;
+}
+.recognition-type>a {
+    color: #1d6ec0;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+#OfficeLocation {
+    max-width: 32.5ch;
+}
+.recognition-content #Department {
+    -webkit-line-clamp: 2;
+}
+.recognition-title {
+    margin-bottom: 10px !important;
+}
+.recognition-content p {
+    margin-bottom: 10px;
+    margin-top: 0px;
+}
+.recognition-content #OfficeLocation {
+    margin-bottom: 0px !important;
+}
+.Rec_Status {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 2px 8px;
+    color: #fff;
+    border-radius: 5px;
+}
+.Rejected-info {
+	background: #ff0000;	
+}
+.draft-info {
+    background: #1d6ec0;
+}
+.draft-pending {
+    background: #FFC90E;
+}
+.rec-status-hide {
+    display: none;
+}
+.tile_box .my_rec_edt_del_box a:hover span>i {
+    color: #000;
+}
+
+
+/* responsive css start */
+
+@media (max-width: 768px) and (min-width: 320px){
+
+.owl-carousel.owl-carousel-recognition-popup .owl-item img {
+    display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+}
+}
+
+.recognition-form-group .input-group-addon {
+    border-radius: 0;
+    padding: 6px;
+    width: 34px;
+    background: #1d6ec0;
+    border-color: #1d6ec0;
+}
+@media (max-width: 768px) {
+        .marginTop {
+            margin-top: 65px;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .top10_m {
+            margin-top: 10px;
+        }
+
+.my_recognition_add_new_btn button{
+	padding:5px 12px !important;
+	font-size:13px !important;
+
+}
+.recognition-form-group{
+  margin-bottom: 15px;	
+}
+
+ 
+}

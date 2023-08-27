@@ -1,0 +1,76 @@
+
+  <script src="https://cdn.jsdelivr.net/npm/msal@2.10.0/dist/msal.min.js"></script>
+
+  <input type="file" id="fileInput" accept="image/*">
+  <button onclick="updateProfilePicture()">Update Profile Picture</button>
+
+  <script>
+    const msalConfig = {
+      auth: {
+        clientId: 'YOUR_CLIENT_ID',
+        redirectUri: 'YOUR_REDIRECT_URI',
+        authority: 'https://login.microsoftonline.com/YOUR_TENANT_ID',
+        // Add any necessary scopes or permissions
+        scopes: ['User.ReadWrite'],
+      },
+    };
+
+    const msalInstance = new msal.PublicClientApplication(msalConfig);
+
+    function updateProfilePicture() {
+      msalInstance.loginPopup().then((response) => {
+        // Obtain the access token
+        const accessToken = response.accessToken;
+
+        // Read the profile picture file from an input element or other source
+        const fileInput = document.getElementById('fileInput');
+        const file = fileInput.files[0];
+
+        // Create a FormData object and append the file
+        const formData = new FormData();
+        formData.append('file', file, 'profile_picture.jpg');
+
+        // Send the PUT request to update the profile picture
+        fetch('https://graph.microsoft.com/v1.0/me/photo/$value', {
+          method: 'PUT',
+          headers: {
+            Authorization: 'Bearer ' + accessToken,
+          },
+          body: formData,
+        })
+          .then((response) => {
+            if (response.ok) {
+              console.log('Profile picture updated successfully!');
+            } else {
+              console.error(
+                'Profile picture update failed:',
+                response.status,
+                response.statusText
+              );
+            }
+          })
+          .catch((error) => {
+            console.error('Profile picture update failed:', error);
+          });
+      }).catch((error) => {
+        console.error('Authentication failed:', error);
+      });
+    }
+  </script>
+
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"><head>
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:_dlc_DocId msdt:dt="string">ADMIN-1645029823-6141</mso:_dlc_DocId>
+<mso:_dlc_DocIdItemGuid msdt:dt="string">60258ad6-c46b-44f0-b475-7eac15f597c8</mso:_dlc_DocIdItemGuid>
+<mso:_dlc_DocIdUrl msdt:dt="string">https://adaptindia.sharepoint.com/sites/Titan_2_2_1_DEV/_layouts/15/DocIdRedir.aspx?ID=ADMIN-1645029823-6141, ADMIN-1645029823-6141</mso:_dlc_DocIdUrl>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor msdt:dt="string">Indramani Gautam</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor>
+<mso:Order msdt:dt="string">614100.000000000</mso:Order>
+<mso:_ExtendedDescription msdt:dt="string"></mso:_ExtendedDescription>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author msdt:dt="string">Indramani Gautam</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author>
+<mso:ContentTypeId msdt:dt="string">0x010100888F714E82EDFB4390B58950E6EEDFE5</mso:ContentTypeId>
+<mso:MediaServiceImageTags msdt:dt="string"></mso:MediaServiceImageTags>
+<mso:lcf76f155ced4ddcb4097134ff3c332f msdt:dt="string"></mso:lcf76f155ced4ddcb4097134ff3c332f>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+<title></title></head>

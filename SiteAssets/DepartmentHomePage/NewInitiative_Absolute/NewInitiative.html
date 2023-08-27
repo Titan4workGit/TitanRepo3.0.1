@@ -1,0 +1,290 @@
+﻿<script>
+var siteURLNewInitiative="";
+$(document).ready(function(){
+	InitializationNewInitiative();
+});
+ 
+function InitializationNewInitiative()
+{
+	siteURLNewInitiative=titanForWork.getQueryStringParameter('DepartmentSiteUrl');
+	DisplayNewInitiative();
+}
+
+function DisplayNewInitiative() {
+	var webURI =  siteURLSuggestion + "/_api/web/lists/getbytitle('NewInitiative')/items?$select=ID,Title,NewInitaitiveBody&$filter=Active eq 1&$OrderBy=Created desc&$top=3";
+	$.ajax({
+        url: webURI,
+        headers: { "accept": "application/json;odata=verbose"},
+        async: true,
+        success: function (data)
+        {
+           	var results=data.d.results;
+           	var newInitiativeHTML=''; 
+           	
+           	// Check If No Record Found Then Show "No Suggestion Found" message
+           	if(results.length==0)
+           	{
+				newInitiativeHTML="<div class=\"norecordfound col-sm-8 col-xs-8 col-md-8\">";
+		        newInitiativeHTML+="<h3 data-localize='NoRecord_NewInitiative' class=\"top5\"></h3>";
+		        newInitiativeHTML+="</div>";
+		
+				$("#departmentalNewInitiative").append(newInitiativeHTML);
+				return;
+ 			}
+			for (var i = 0; i < results.length; i++) 
+			{
+				var ItemID=results[i].ID;
+				var itemTitle=results[i].Title;
+				var itemNewInitaitiveBody=results[i].NewInitaitiveBody;
+				var viewSingleItem= siteURLNewInitiative+"/Lists/NewInitiative/DispForm.aspx?ID="+ItemID ;
+				
+				if(itemTitle.length>36)
+				{
+					itemTitle=itemTitle.substring(0,33)+"...";
+				}     
+				if(itemNewInitaitiveBody.length>138)
+				{
+					itemNewInitaitiveBody=itemNewInitaitiveBody.substring(0,135)+"...";
+				}
+				
+				var linkurlInitiative="javascript:OpenPopUpPageWithTitle('"+viewSingleItem+"',null,null,null,'Initiative')";		
+				
+				newInitiativeHTML+="<div class=\"row\">";
+				newInitiativeHTML+="<div class=\"col-md-12\"><h4 class=\"event-text-head\" ><b>"+itemTitle+"</b></h4></div>";
+				newInitiativeHTML+="<div class=\"col-sm-12\" style=\"padding-bottom:10px;\">"+itemNewInitaitiveBody+"";
+				newInitiativeHTML+="<a style=\"padding-left:5px\" class=\"read-more\" href='javascript:ShowInitiative("+ItemID+")'> Read more</a>";
+				newInitiativeHTML+=i==2?'':"<hr style='margin:9px 0 -1px 0'>";
+				newInitiativeHTML+="</div></div>";
+			}  
+			$("#departmentalNewInitiative").append(newInitiativeHTML);
+		}, 
+        error: function (data)
+        {
+			console.log(data);
+        }
+    });
+}
+
+var submitEventFired=false;
+$(document).ready(function(){			
+	$(".Inititative_Add").click(function(){
+		submitEventFired=false;
+		$("#txttitle").val("");
+		$("#txtdescription").val("");
+		//$("#createNewInitiative").text("Submit");
+		$("#modalApprovalNewInitiative").modal('show');
+	});	
+	
+	$("#createNewInitiative").unbind().click(function(){	
+		if(submitEventFired)
+		{
+			return false;
+		}
+		AddInitiative();
+	});	
+});
+			
+function AddInitiative()
+{
+	//Handler=this;  
+	var title= $("#txttitle");
+	var description= $("#txtdescription");
+	var Department = siteURLNewInitiative.split('/')[6];
+    var ListName = "NewInitiative";
+    var Metadata;
+    var ItemType = 'SP.Data.NewInitiativeListItem';      
+    
+    if($.trim(title.val())=='')
+	{
+		alert("Please enter Title.");
+		title.focus();
+		return false;
+	}
+	else if($.trim(description.val())=='')
+	{
+		alert("Please enter Description.");
+		description.focus();
+		return false;
+	}
+	else
+	{
+		submitEventFired=true;
+  	    Metadata = {
+	        __metadata: {
+	            'type': ItemType},
+	        	Title:title.val(),
+	        	NewInitaitiveBody:description.val(),
+	        	Department:Department
+    	};	
+	    AddInitiativeToList(ListName,Metadata).done(function()
+		{	
+			alert('New Initiative added successfully.');
+			
+  	 	    $("#modalApprovalNewInitiative").modal('hide');	  	 	   
+  	 	    $("#departmentalNewInitiative").empty();
+  	 	    var clientContext = new SP.ClientContext(siteURLNewInitiative);
+			DisplayNewInitiative(siteURLNewInitiative,clientContext);
+		})
+    }
+
+	//Add item in list
+	function AddInitiativeToList(ListName,Metadata)
+	{
+    var dfd = $.Deferred();
+    $.ajax({
+        url: siteURLNewInitiative + "/_api/web/Lists/GetByTitle('"+ListName+"')/Items",
+        type: "POST",
+        async: false,
+        headers: {
+            "accept": "application/json;odata=verbose",
+            "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+            "content-Type": "application/json;odata=verbose"
+        },
+        data: JSON.stringify(Metadata),
+        success: function (data) {
+            console.log(ListName);
+            // console.log(data);
+            dfd.resolve(data);
+        },
+        error: function (error) {
+            alert(JSON.stringify(error));
+            dfd.reject(error);
+        }
+    });
+    return dfd.promise();
+	}
+	function GetItemTypeForListNameDetailsGroups(ListName)
+	 {
+    return "SP.Data." + ListName.charAt(0).toUpperCase() + ListName.split(" ").join("").slice(1) + "ListItem";
+	}
+}
+function ShowInitiative(ItemID)
+	{
+	$("#modalShowInitiative").modal('show');
+	var requestUri= siteURLNewInitiative +"/_api/lists/getByTitle('NewInitiative')/items?$select=*&$Filter=ID eq "+ItemID+"";
+
+	$.ajax({
+		url:requestUri,
+		type:"GET",
+		async:false,
+		headers:{"Accept":"application/json;odata=verbose"},
+		success:function(data)
+		{
+			var title,description ;
+			var results=data.d.results;			
+			
+		 	title='Title';
+		 	description ='NewInitaitiveBody';
+		 	
+			title=results[0][title];
+			description =results[0][description];
+					
+			$("#Title").text(title);
+			$("#Description").text(description);
+		},
+		error:function(data)
+		{
+			 console.log(data);
+		}
+	});
+
+	}
+
+	</script>
+
+	<div id="departmentalNewInitiative">  
+
+	</div>
+
+<div id="modalShowInitiative" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content" class="modal-dialog">
+            <div class="modal-header panel-head-4">
+                <button type="button" class="close h4-color" data-dismiss="modal" aria-hidden="true">&times;</button>
+               <h4 class="modal-title h4-color" data-localize="Initiative">Initiative</h4>
+            </div>
+			<div class="modal-body">
+	 			<div class="panel-body">
+				    <div id="announcement" class="form-horizontal">
+							<div class="col-md-12">
+							  <div class="form-horizontal">
+								   <div class="form-group">
+									<label for="" class="col-sm-3 control-label pdng-tp-zero-pop" data-localize="Title"> :</label>
+										<div class="col-sm-9">
+									 
+										 <span id="Title" type="text" maxlength="100"  disabled="disabled"></span>
+										</div>
+									 </div>									
+									<div class="form-group">
+										<label for="" class="col-sm-3 control-label pdng-tp-zero-pop" data-localize="Description"></label>
+										<div class="col-sm-9">
+										  <span id="Description" rows="8" disabled="disabled"></span>
+										</div>
+									</div>		
+									<div class="clearfix"></div>
+									<div class="row text-center">
+			                  			<input id="Close" type="button" data-dismiss="modal" style="font-size:13px" class="btn btn-outline-secondary button" data-localize="Close">							
+									</div> 
+								<!--/panel content-->
+							</div>
+						</div>
+				    </div>
+			   </div>
+		   </div>
+		</div>
+	</div>
+</div>
+
+
+	<div id="modalApprovalNewInitiative" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content" class="modal-dialog">
+            <div class="modal-header panel-head-4">
+            	<h4 class="modal-title h4-color" data-localize="NewInitiation">Add Initiative</h4>
+                <button type="button" class="close h4-color" data-dismiss="modal" aria-hidden="true">&times;</button>
+      	   </div>
+				<div class="modal-body">
+			 	<div class="panel-body">
+			    <div class="form-horizontal">
+				<div class="form-group">
+			        <label for="" class="col-sm-3 control-label popup_label required" data-localize="Title"></label>       
+			         <div class="col-sm-9">
+			          <input type="" class="form-control" id="txttitle" maxlength="250"  >
+			         </div>
+			       </div>
+			     <div class="form-group">
+			        <label for="" class="col-sm-3 control-label popup_label required" data-localize="Description"></label>
+			       
+			         <div class="col-sm-9">
+			          <textarea class="form-control" rows="4" id="txtdescription" maxlength="1000"  style=" resize:none"></textarea>
+			          </div>
+			     </div>
+				 <div class="row text-center">               
+					<button type="button" class="btn  btn-outline-success" name="createNewInitiative" id="createNewInitiative" data-localize="Submit"></button>
+				 </div>
+			    </div>
+			   </div>
+			   </div>
+		</div>
+	</div>
+</div>	
+
+
+
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"><head>
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:_dlc_DocId msdt:dt="string">ADMIN-1645029823-153</mso:_dlc_DocId>
+<mso:_dlc_DocIdItemGuid msdt:dt="string">a61c9938-6e10-4804-aae5-b542bafc4c60</mso:_dlc_DocIdItemGuid>
+<mso:_dlc_DocIdUrl msdt:dt="string">https://adaptindia.sharepoint.com/sites/Titan_2_2_1_DEV/_layouts/15/DocIdRedir.aspx?ID=ADMIN-1645029823-153, ADMIN-1645029823-153</mso:_dlc_DocIdUrl>
+<mso:MediaServiceImageTags msdt:dt="string"></mso:MediaServiceImageTags>
+<mso:lcf76f155ced4ddcb4097134ff3c332f msdt:dt="string"></mso:lcf76f155ced4ddcb4097134ff3c332f>
+<mso:TaxCatchAll msdt:dt="string"></mso:TaxCatchAll>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor msdt:dt="string">Harsh Kumar</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor>
+<mso:Order msdt:dt="string">15300.0000000000</mso:Order>
+<mso:_ExtendedDescription msdt:dt="string"></mso:_ExtendedDescription>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author msdt:dt="string">Rakesh Khambra</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author>
+<mso:ContentTypeId msdt:dt="string">0x010100888F714E82EDFB4390B58950E6EEDFE5</mso:ContentTypeId>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+<title></title></head>

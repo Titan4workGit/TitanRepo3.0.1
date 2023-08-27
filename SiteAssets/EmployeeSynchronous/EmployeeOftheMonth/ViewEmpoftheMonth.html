@@ -1,0 +1,392 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/EmployeeSynchronous/jquery-ui.css">
+<script src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/EmployeeSynchronous/jquery-ui.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/EmployeeSynchronous/EmployeeOftheMonth/ViewEmpoftheMonth.js"></script>
+<script src='https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/EmployeeSynchronous/Permission/CheckUserAuthentication.js'></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/EmployeeSynchronous/EmployeeOftheMonth/assets/css/view-employee-of-the-month.css">
+
+
+<style>
+
+
+</style>
+
+<label style="display:none" id="lblLangdepartment" data-localize="Department">Department</label>
+<label style="display:none" id="lblLangExtension" data-localize="Extension">Extension</label>
+<label style="display:none" id="lbllangEdit" data-localize="Edit">Edit</label>
+<label style="display:none" id="lblLangDelete" data-localize="Delete">Delete</label>
+
+
+
+
+	<div class="row">
+		<div class=" col-md-12 department-header">
+			<ol class="breadcrumb">
+				<li>
+					<h4>
+						<b data-localize="Recognition">Recognition</b>
+					</h4>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="input-group custom-form-group recognition-form-group">
+								<input type="text" class="form-control" name="" placeholder="Search" id="myInput" onkeyup="myFunction()">
+							<!--	<a class="input-group-addon"><img src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/Biography/Experience/assets/images/search-icon.png"class="search-icon" alt="search-icon"></a>  -->
+							</div>						
+						</div>					
+					
+					<div class="col-md-6">
+	                    <div class="my_recognition_add_new_btn">                   							
+	                    	<button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#filter">Filter</button>                    
+	                        <a type="button" id="Rec_addbtn" style="margin-right: 12px;" class="btn btn-outline-primary newTask" href="#">
+	                            <span data-localize="AddNew">Add New</span>
+	                        </a>                        
+                    	</div>
+                   </div>
+                 </div>   	
+				</li>
+			</ol>
+		</div>
+	</div>
+
+	<div class="row top15">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="scrollbar-panel chip-panel">
+                    <div class="chip-box" id="RecognationChip"><div class="upload-chip">2021</div></div>
+                </div>			
+		<!--	<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+					<select name="Filter_ddl2" id="ddlyear" class="form-control" onchange="GetRecognition(this.value);"></select>
+				</div>
+				
+				<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 top10_m">
+					<select name="Filter_ddl3" id="ddlmonth" class="form-control" onchange="DyamicQuery();"></select>
+				</div>
+				
+				<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+					<select name="Filter_ddl0" id="ddlcategory" class="form-control" onchange="DyamicQuery();"></select>
+				</div>
+				<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+					<select name="Filter_ddl1" id="ddldepartment" class="form-control" onchange="DyamicQuery();"></select>
+				</div>
+								                    -->
+				<div class="clearfix"></div>
+				<div id="itemCollection">
+				</div>
+			</div>  
+		</div>
+	</div>
+
+
+<!--
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div class="modal-header panel-head-4 hidden-md">
+                <button type="button" class="close h4-color" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body" style="overflow:auto">
+				<div class="row">
+					<div class="col-md-4 top10">
+						<div class="row">
+							<div class="text-center ">
+								<img src="" class="img-circle" id="selectedimageurl" style="width: 120px; height:120px;">
+							</div>
+						</div>
+						<div class="text-center margin10">
+							<span class="text_black" id="modelName">NA</span><br />
+							<span id="modelPost">NA</span> <br />
+							<span id="modelDepartment">NA</span>                     
+						</div>
+					</div>
+					<div class="col-md-8">
+						<h3 class="text-center text_black " style="margin-top:0" data-localize="Achievements">Achievements</h3>
+						<p style="text-align:justify" id="txtAchivmentss">
+						</p>
+					</div>
+				</div>
+               <div class="clearfix"></div>
+				<div class="row">				
+	                <div class="col-sm-12 msg-box top30">
+						<div class="input-group">
+	                        <textarea class="form-control occation-text-area" rows="2" placeholder="to wish, write your message here !!" id="txtResponse"></textarea>
+	                     <<input type="button" value="Send" id="responseSubmit" class="input-group-addon btn btn-outline-success occation-text-btn"/>
+	                        
+	                        <button type="button" id="responseSubmit" class="input-group-addon btn btn-outline-success occation-text-btn"><label  data-localize="Send">Send</label></button>	
+	                        
+	                        
+	                    </div>
+	                </div>
+                </div>
+				<div class="row">
+					<div class="col-sm-12 top15">
+						<div class="panel-body list_border">
+							<input type="text" id="employeeMonthId" style="display:none;" />
+							<ul class="list-group list-group-hover list-group-striped" id="responseCollection">				
+							</ul>
+						</div>
+					</div>
+				</div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div> -->
+
+<!-- Modal -->
+	<div id="myModal" class="modal fade" role="dialog" aria-hidden="false">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h3 class="modal-title text-bold" style="background-color: transparent !important;"><span id="ModelHeading">Employee of the Month</span></h3>
+      </div>
+      <div class="modal-body">
+			 <div class="col-md-12  pb20 pl0 pr0">
+					<div class="col-md-7 col-sm-6 pl0 pr0">
+						
+						<div class="col-md-3 col-xs-6 pl0 recognition-popup-area-image">
+									<img src="" id="profile-image" style="width: 92px; height:103px;" >
+						</div>
+						<div class="col-md-9 col-xs-6">
+								<p class="recognition-popup-name" id="EmpName"></p>
+								<p class="recognition-popup-designation" id="EmpDesignation"></p>
+								<p><span id="EmpDepartment"></span> <span id="spSymbol">|</span> <span id="EmpLocation"></span></p>
+						</div>
+						<div class="col-md-12 col-sm-12 col-xs-12 pt10 p0">
+							
+						</div>
+						<div class="col-md-12 pt10 pl0 ">
+							<p class="recognition-popup-description-text" id="DtlDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+						</div>
+
+					</div>
+					
+				 
+		  			<div class="col-md-5 pl0 pr0">
+		  			<div class="col-md-12 pl0 pr0 pb40">
+		  				<!--<div class="owl-carousel owl-carousel-recognition-popup recognition-popup owl-theme" id="alluploadImages">
+							<div class="item"> 
+                                <img src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/Biography/images/i2.jpg"  alt="">
+                            </div>
+							<div class="item"> 
+                               <img src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/Biography/images/info1.png"  alt="">
+                            </div>
+							<div class="item"> 
+                                <img src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/Biography/images/i4.jpg"  alt="">
+                            </div>
+					  </div>-->
+					  <div id="carousel-example-generic" class="carousel" data-ride="carousel">
+  						<div class="carousel-inner" role="listbox" id="1stImg">
+    												       
+  						</div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+						</div>
+		  			</div>
+
+
+
+		  		<div class="clearfix"></div>
+
+		  			<div class="custom_popup_my_links_attach">
+			  									
+						<div class="col-md-12 col-sm-12 col-xs-12 pt10 pl0 pr0">
+					   		<div class="attachment-badge mt-10" id="AttachDoc"></div>
+		  				</div>
+		  			</div>
+
+					<div class="col-md-12 pt10 pl0 pr0">
+					
+					
+					   <span class="recognition-popup-like-button" id="my_custom_popup_like"><a href="#"><i class="fa fa-thumbs-up" id="forspanview" onclick="AddLike();"></i> </a> <p id="TotalLike"></p> </span><span id="AuthorList" style="display:none;">Hello</span>
+		  			</div>
+	                <div class="col-sm-12 pt5 pl0 pr0">
+	                        <!--<textarea class="form-control recognition-comment-area custom-scroll" rows="2" placeholder="enter comment here !!" id="TextComment1"></textarea>-->
+	                        
+  <div class="span6">
+    <textarea rows="2" id="TextComment"></textarea>
+  </div>
+
+	                        <button type="button" id="" class="btn btn-outline-success recognition-comment-btn" onclick="AddComment();"><label>Send</label></button>	
+	                       
+	                </div>
+		            <div class="col-sm-12 pt10 pl0 pr0">
+		            <div class="form-control custom-scroll" id="">
+		            	<table id="AllComents" style="width:100%;" class="table table-hover">
+		            	<tbody ></tbody>
+		            	
+		            	
+		            	</table>
+		            	
+		            			            
+		            </div>
+						<!--<textarea class="form-control custom-scroll" rows="4" style="resize: none;" id="AllComents">
+						
+						</textarea> -->
+	                </div>
+		  <div class="clearfix"></div>	
+            </div>
+    </div><div class="clearfix"></div>	
+</div>
+  </div>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+	$("#TextComment").emojioneArea({
+  	
+		pickerPosition: "right",
+    	tonesStyle: "bullet",
+		events: {
+         	keyup: function (editor, event) {
+           		console.log(editor.html());
+           		console.log(this.getText());
+        	}
+    	}
+	});
+});
+</script>
+
+<!-- Modal -->
+<!--Iframe Image POpup starts-->
+<div class="modal fade" id="AttachmentView" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Attachment View
+                </h4>
+            </div>
+            <div class="modal-body form-horizontal">
+
+                <div class="embed-responsive embed-responsive-16by9">
+                    <!--<iframe name="iframe_a" id="Iframeview" class="embed-responsive-item" style="width: 99%;height: 423px;"></iframe>-->
+                    <div id="doc-viewer" style="height:415px">
+                                                        </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!--Iframe Image POpup ends-->
+
+<!---modal filter--->
+
+
+  <div class="modal fade" id="filter" role="dialog">
+  
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close close-round" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">
+                	Filter
+                </h4>
+            </div>
+            
+            <div class="modal-body">
+
+                <div class="row">
+
+                  <div class="col-md-6">                   
+                    <div class="form-group row">
+                      <label for="" class="col-sm-3">Year</label>
+                      <div class="col-sm-9">
+                        <select name="Filter_ddl2" id="ddlyear" class="form-control" onchange=""></select>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="" class="col-sm-3">Title</label>
+                      <div class="col-sm-9">
+                        <select name="Filter_ddl0" id="ddlcategory" class="form-control" onchange=""></select>
+                      </div>
+                    </div>
+
+                  </div><!--col-6 ed-->
+
+                   <div class="col-md-6">                   
+                    <div class="form-group row">
+                      <label for="" class="col-sm-3">Month</label>
+                      <div class="col-sm-9">
+                        <select name="Filter_ddl3" id="ddlmonth" class="form-control" onchange=""></select>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="" class="col-sm-3">Department</label>
+                      <div class="col-sm-9">
+                        <select name="Filter_ddl1" id="ddldepartment" class="form-control" onchange=""></select>
+                      </div>
+                    </div>
+
+                  </div><!--col-6 ed-->
+                  
+                </div><!--row dividor--->  
+
+ 
+            </div>
+
+            <div class="modal-footer" style="text-align:center;">
+                <button type="button" class="btn btn-outline-primary" onclick="FilterResult();">Apply</button>
+                <button type="button" class="btn custom-btn-two-cancel w-87" id="btnClear">Clear</button>
+            </div>
+        
+        </div>
+
+    </div>
+
+</div>
+
+<!---filter section--->
+
+
+
+
+
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"><head>
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor msdt:dt="string">swapnil kataria</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author msdt:dt="string">Mohd  Muqtdeer</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author>
+<mso:_dlc_DocId msdt:dt="string">ADMIN-1645029823-263</mso:_dlc_DocId>
+<mso:_dlc_DocIdItemGuid msdt:dt="string">95fb3f40-32a3-49a4-adc2-1b2efa37d0d8</mso:_dlc_DocIdItemGuid>
+<mso:_dlc_DocIdUrl msdt:dt="string">https://adaptindia.sharepoint.com/sites/Titan_2_2_1_DEV/_layouts/15/DocIdRedir.aspx?ID=ADMIN-1645029823-263, ADMIN-1645029823-263</mso:_dlc_DocIdUrl>
+<mso:MediaServiceImageTags msdt:dt="string"></mso:MediaServiceImageTags>
+<mso:lcf76f155ced4ddcb4097134ff3c332f msdt:dt="string"></mso:lcf76f155ced4ddcb4097134ff3c332f>
+<mso:TaxCatchAll msdt:dt="string"></mso:TaxCatchAll>
+<mso:Order msdt:dt="string">26300.0000000000</mso:Order>
+<mso:_ExtendedDescription msdt:dt="string"></mso:_ExtendedDescription>
+<mso:ContentTypeId msdt:dt="string">0x010100888F714E82EDFB4390B58950E6EEDFE5</mso:ContentTypeId>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+<title></title></head>

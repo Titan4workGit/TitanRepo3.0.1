@@ -1,0 +1,767 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+<head>
+ <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/Projects/Properties/css/styles.css"/>
+ <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/Projects/Properties/css/Padding.css"/>
+ <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/EmployeeSynchronous/table/tableStyle.css"/>
+ <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/EmployeeSynchronous/jquery-ui.css"/>
+ 
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled 1</title>
+
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:_dlc_DocId msdt:dt="string">ADMIN-1645029823-5324</mso:_dlc_DocId>
+<mso:_dlc_DocIdItemGuid msdt:dt="string">409e36fa-13a5-468e-95b8-7e69b7cf130b</mso:_dlc_DocIdItemGuid>
+<mso:_dlc_DocIdUrl msdt:dt="string">https://adaptindia.sharepoint.com/sites/Titan_2_2_1_DEV/_layouts/15/DocIdRedir.aspx?ID=ADMIN-1645029823-5324, ADMIN-1645029823-5324</mso:_dlc_DocIdUrl>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor msdt:dt="string">Lakhan Kumar Sharma</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor>
+<mso:Order msdt:dt="string">532400.000000000</mso:Order>
+<mso:_ExtendedDescription msdt:dt="string"></mso:_ExtendedDescription>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author msdt:dt="string">Lakhan Kumar Sharma</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author>
+<mso:ContentTypeId msdt:dt="string">0x010100888F714E82EDFB4390B58950E6EEDFE5</mso:ContentTypeId>
+<mso:MediaServiceImageTags msdt:dt="string"></mso:MediaServiceImageTags>
+<mso:lcf76f155ced4ddcb4097134ff3c332f msdt:dt="string"></mso:lcf76f155ced4ddcb4097134ff3c332f>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+
+<style>
+
+#mainTablearea{
+ margin-top:12px;	
+}
+
+#mainDivAreaOffice365 tr td:nth-child(1), #mainDivAreaOffice365 tr td:nth-child(2) {
+    vertical-align: middle !important;
+    padding:5px !important;
+}
+
+.custom-edit-btn {
+    color: #1d6ec0;
+    display: inline-block;
+}
+.custom-edit-btn {
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 50%;
+    border: 0;
+    padding: 0;
+    transition: all 0.3s;
+    background-color: #e7e7e7;
+    margin: 0 2px;
+}
+
+.custom-edit-btn:hover {
+    background-color: #cccccc;
+}
+
+.row.no-gutter div[class^="col-"]{
+ padding-left:0 !important;
+ padding-right:0 !important;	
+}
+
+
+/***march-10-23*****/
+
+.color-red2 {
+    color: #ff0000;
+}
+.pull-right {
+    float: right!important;
+}
+.employee_list .searchingbox {
+    margin-bottom: 1px;
+}
+.searchingbox {
+    position: relative;
+    width: 100%;
+    height: 37px;
+}
+#AssaginTaskTeam.form-control {
+    padding: 0;
+    border-radius: 0 15px 15px 0;
+    float: right;
+    width:100%;
+    border: none;
+    transition-delay: overflow 2s;
+    transition: 0.5s;
+    overflow: hidden;
+    opacity:0;
+}
+.searchingbox button {
+    width: 36px;
+    height: 36px;
+    position: absolute;
+    bottom: 2px;
+    background-color: #0b73cc;
+    border-radius: 50%;
+    min-width: 20px;
+    display: block;
+    right: -1px;
+    color: #fff;
+    border: none !important;
+}
+.addingsec.activateds {
+    transition: 1s ease;
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+}
+#AssaginTaskTeam.form-control.activateds {
+    transition: 0.3s;
+    padding: 0 38px 0 0;
+    width: 100%;
+    border: 1px solid #ccc;
+    overflow: visible;
+    opacity:1;
+}
+#AssaginTaskTeam.form-control {
+    padding: 0;
+    border-radius: 0 15px 15px 0;
+    float: right;
+    width:100%;
+    border: none;
+    transition-delay: overflow 2s;
+    transition: 0.3s;
+    overflow: hidden;
+}
+#AssaginTaskTeam .sp-peoplepicker-topLevel {
+    min-height: 30px !important;
+    border: none;
+    padding:0;
+}
+
+#AssaginTaskTeam_TopSpan input {
+    max-width: 100% !important;
+    min-height: 31px !important;
+    border: none !important;
+}
+
+#add-team-modal .modal-content label{
+	font-size:13px;
+}
+
+.col-sm-6.parentremove {
+    padding: 0 2px !important;
+}
+.employeesection {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 5px;
+    border-radius: 4px;
+    position: relative;
+    background-color: #fff;
+    margin-bottom: 5px;
+    min-height: 95px;
+}
+.crosebox {
+    position: absolute;
+    width: 18px;
+    display: block;
+    height: 18px;
+    top: 10px;
+    right: 3px;
+    background: #fff;
+    border-radius: 50%;
+    color: #000;
+    text-align: center;
+    line-height: 18px;
+    cursor: pointer;
+    opacity: 0;
+    transition: 0.3s;
+    box-shadow: 1px 0px 5px #00000073;
+}
+
+.employeesection:hover .crosebox {
+    opacity: 1;
+}
+.empoyeeimg img {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #c1c1c1;
+    box-shadow: 0px 1px 4px #afadad;
+    border-radius: 50%;
+}
+.employeeinfo {
+    padding: 5px 10px;
+}
+.employeeinfo h3 {
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+}
+.employeeinfo span {
+    font-size: 12px;
+}
+
+.fullcoverbox {
+    padding: 10px 0px;
+    border: 1px solid #cccccc96;
+    margin-top: 2px;
+    max-height: 194px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.scrollbr_nw::-webkit-scrollbar-thumb{
+background: #4b4b4b;
+border:2px solid transparent;
+background-clip:content-box; 
+-webkit-background-clip:content-box;
+border-radius: 5px;
+}
+
+.scrollbr_nw::-webkit-scrollbar-thumb:hover{
+background-clip: border-box;
+-webkit-background-clip: border-box;
+}
+
+.scrollbr_nw::-webkit-scrollbar{
+width:8px;
+height:8px;
+
+}
+
+#team_memebers .employeesection{
+ min-height:auto !important;	
+}
+
+#team_memebers .employeesection .empoyeeimg img {
+ border:none !important;    
+}
+#tableTempProjects tr td .GroupImage .employeesection{
+ min-height:auto;	
+}
+
+button.btn.count, button.btn.count:active {
+    height: 30px;
+    width: 30px;
+    min-width: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 50% !important;
+    border: 0;
+    padding: 0;
+    transition: all 0.3s;
+    background-image: url(https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/Projects/Properties/img/users.png) !important;
+    margin: 0 2px;
+    position: relative;
+    background-size: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-left: 30px;
+}
+
+button.btn.count:focus,
+button.btn.count:hover{
+ background-color:transparent;
+}
+
+button.btn.count .members-count {
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 50%;
+    /* line-height: 0px; */
+    color: #1d6ec0;
+    position: relative;
+    top: -2px;
+}
+
+h3.heading_nams {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #515151;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #7ac0f2;
+    display: inline-block;
+    line-height: 28px;
+    background: #eeeeee;
+    padding: 0 15px;
+}
+
+a.custom-edit-btn:visited{
+    color: #1d6ec0 !important;
+}
+
+
+#filterInvesterPicker .sp-peoplepicker-topLevel,
+#filterMemberPicker .sp-peoplepicker-topLevel,
+#filterManagerPicker .sp-peoplepicker-topLevel{
+ padding:7px 0 !important;	
+}
+
+#filterInvesterPicker input.sp-peoplepicker-editorInput[type=text],
+#filterMemberPicker input.sp-peoplepicker-editorInput[type=text],
+#filterManagerPicker input.sp-peoplepicker-editorInput[type=text]{
+    padding: 0px !important;
+    width: auto;
+    border: none !important;
+}
+
+#filterInvesterPicker .sp-peoplepicker-initialHelpText,
+#filterMemberPicker .sp-peoplepicker-initialHelpText,
+#filterManagerPicker .sp-peoplepicker-initialHelpText{
+    top: 6px;
+    
+}
+
+.propertis-status,
+.in_activate{
+ color:#ff0000;	
+}
+
+@media(min-width:992px){
+	
+#add-team-modal .modal-dialog{
+ width:52%;	
+}	
+	
+}
+
+
+@media all and (max-width: 991px) and (min-width: 520px){
+	
+.full_widthmang{
+ width:70%; 	
+}
+
+}
+
+@media all and (max-width: 519px) and (min-width: 320px){
+	
+.full_widthmang{
+ width:95%; 	
+}
+
+}
+
+
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container-fluid" style="padding:0 0px; margin-bottom:15px;">
+	<div class="custom-panel">
+		<div class="row no-gutter">
+				  <div class="col-md-5">
+				    <h1 class="project-head-text" style="padding:0px 14px" data-localize="PropertiesDashboard">Properties Dashboard</h1>
+				   </div>
+				   <div class="col-md-7">
+				    <div class="project-view-deta-btn-panel d-flex">
+				    
+                     <div class="dropdown project-view-table-btn">
+                        <button class="btn dropdown-toggle" style="display:none" id="CreateProject" type="button">
+                            <img class="project-view-icon-info mr2" src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/Projects/NewViewAllProjects/assets/Images/plus-icon.png" alt="plus icon"/>
+                            <span>New</span>
+                        </button>
+                      </div>
+                      
+                    <div class="dropdown project-view-table-btn" id="btnViewProgram" style="display:none">
+                        <button class="btn dropdown-toggle" id="" type="button" data-toggle="modal" data-target="#myProgram">
+                            <img class="project-view-icon-info mr2" src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/Projects/NewViewAllProjects/assets/Images/programe.png" alt="plus icon" style="max-width:17.5px !important;"/>
+                            <span data-localize="Program">Program</span>
+                        </button>
+                      </div>
+  
+                      
+                      <div class="dropdown project-view-table-btn" id="filterDiv" style="display:none">
+                        <button class="btn dropdown-toggle" type="button" id="" data-toggle="modal" data-target="#modal_filtering">
+                            <img class="project-view-icon-info mr2" src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/Projects/NewViewAllProjects/assets/Images/filter-icon.png" alt="filter"/>
+                            <span>Filter</span>
+                        </button>
+                      </div>
+                      
+                      <!-----<div class="dropdown project-view-table-btn">
+                        <button class="btn dropdown-toggle" id="ProjectExport" type="button">
+                            <img class="project-view-icon-info mr2" src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/Projects/NewViewAllProjects/assets/Images/export-icon.png" alt="export icon">
+                            <span>Export</span>
+                        </button>
+                      </div>------->
+                      <div class="dropdown project-view-table-btn" id="sortDiv">
+                                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                                      <img class="project-view-icon-info mr2" src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/Projects/NewViewAllProjects/assets/Images/sort-icon.png" alt="sort"/>
+                                      <span>Sort</span>
+                                      <img class="project-view-icon-info ml2" src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/Projects/NewViewAllProjects/assets/Images/expand-arrow-icon.png" alt="expand arrow"/>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-color-menu-icon dropdown-menu-right">
+                                      <li><a  href="javascript:void(0);" id="RecentProject"><span data-localize="Recent Property">Recent Property</span></a></li>
+                                      <!--<li><a  href="javascript:void(0);" id="ProjectName"><span class="SortClass">Department </span></a></li>-->
+                    <li><a  href="javascript:void(0);" id="ProjectName"><span class="SortClass" onclick="sortProjectName()" data-localize="Property Name">Property Name</span></a></li>
+                    <!--<li><a  href="javascript:void(0);" id="OfficeLocation"><span class="SortClass">Office Location </span></a></li>-->
+                    <li><a href="javascript:void(0);" id=""><span class="SortClass" onclick="sortManagerName()" data-localize="Manager">Property Coordinator</span></a></li>
+                        </ul>
+                    </div>
+                  </div>
+				   
+				   </div>
+				   
+				</div><!--row ed-->
+				
+				<div class="row no-gutter" style="margin:15px 0 10px 0;">
+				
+				<div class="col-md-6">
+                 	<div class="form-group custom-form-group search-box" style="width:181px;">
+						<input type="text" id="queryMyProject" onkeyup="sorterTableMyProjectList.search('queryMyProject')" placeholder="Search..." style="width:100%">
+					</div>
+                 </div>
+                <div class="col-md-6">
+                    <span class="details">
+                        <div style="display:none;">Records  <span id="startrecordMyProject"></span>-<span id="endrecordMyProject"></span> PagesOf  <span id="totalrecordsMyProject"></span></div>
+                        <div style="display:none;"><a href="javascript:sorterTableMyProjectList.reset()">Reset </a></div>
+                     </span>
+               </div>			
+				
+			 </div><!---row ed-->
+				
+				<div id='mainTablearea' class='table-responsive scrollbar-panel'><table cellpadding='0' cellspacing='0' border='1' id='tableTempProjects' class='table-width tinytable table table-bordered table-striped table-hover js-basic-example dataTable no-footer mydptdoc_table'>
+                    <thead class='panel-heading'>
+                        <tr>
+                            <th class="nosort" data-localize="Property Name">Property Name</th>
+							<th class="nosort" data-localize="Property Coordinator">Property Coordinator</th>
+							<th class="nosort" style="width:16%" data-localize="Team Members">Team Members</th>
+							<th class="nosort" style="width:16%;" data-localize="Investors">Investors</th>
+							<th style="width:12%;" data-localize="Status">Status</th>
+							<th class="nosort" style="width: 60px;" data-localize="Action">Action</th>							 
+                        	                                          
+                        </tr>
+                    </thead><tbody class='panel' id="mainDivAreaOffice365"></tbody></table>
+                    <div id="tablefooterMyProject" style="margin-bottom: 10px;">
+                                    <div id="tablenavMyProject">
+                                        <div>
+                                            <img src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/EmployeeSynchronous/table/first.gif" width="16" height="16" alt="First Page" onclick="sorterTableMyProjectList.move(-1,true)" />
+                                            <img src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/EmployeeSynchronous/table/previous.gif" width="16" height="16" alt="First Page" onclick="sorterTableMyProjectList.move(-1)" />
+                                            <img src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/EmployeeSynchronous/table/next.gif" width="16" height="16" alt="First Page" onclick="sorterTableMyProjectList.move(1)" />
+                                            <img src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/EmployeeSynchronous/table/last.gif" width="16" height="16" alt="Last Page" onclick="sorterTableMyProjectList.move(1,true)" />
+                                        </div>
+                                        <div>
+                                            <select id="pagedropdownMyProject"></select>
+                                        </div>
+                                        <div class="spacemanage">
+                                            <a href="javascript:sorterTableMyProjectList.showall()" data-localize="ViewAll">ViewAll </a>
+                                            <span id="total">Total Item: <span id="totalIcaon"></span></span>
+                                        </div>
+                                    </div>
+                                    <div id="tablelocationMyProject">
+                                        <div>
+                                            <span data-localize="LinesPerPage">Lines Per Page</span>
+                                            <select class="myListPagingValue" onchange="sorterTableMyProjectList.size(this.value)">
+                                                <option value="5">5</option>
+                                                <option value="10" selected="selected">10</option>
+                                                <option value="20">20</option>
+                                                <option value="50">50</option>
+                                                <option value="100">100</option>
+                                            </select>
+                                        </div>
+                                        <div class=""><span data-localize="Page">Page</span><span id="currentpageMyProject"></span><span data-localize="Of" style="margin:0 5px">of</span><span id="totalpagesMyProject"></span></div>
+                                    </div>
+                                </div>
+                                                
+			  </div><!---maintab---->
+<div style="display:none">
+	<table style="display:none" id="exceltable">
+		<thead>
+		<tr>
+			<th data-localize="Property Name">Property Name</th>
+			<th data-localize="Reference">Reference</th>
+			<th data-localize="Address">Property Address</th>
+			<th class="nosort" data-localize="Property Coordinator">Property Coordinator</th>
+			<th class="nosort" style="width:22%" data-localize="Investors">Investors</th>
+			<th class="nosort" style="width: 13%;" data-localize="Team">Team</th>
+		</tr>	
+		</thead>
+		<tbody>
+		  
+		</tbody>
+	</table>
+
+</div>			  
+			  
+</div><!---custom-panel--->
+
+</div>
+
+<!----team_memebers---->
+<div id="team_memebers" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close close-round" data-dismiss="modal">
+          <span class="close-icon">&times;</span>
+        </button>
+        <h4 class="modal-title" id="viewModalHeaders" data-localize="Memebers">Memebers</h4>
+      </div>
+      <div class="modal-body">
+          <div class="additional_doms">
+            <table class="table">
+              <thead>
+                  <tr>
+                    <th style="width:40%" data-localize="Name">Name</th>
+                    <th style="width:15%" data-localize="Designation">Designation</th>
+                    <th style="width:20%;display:none" data-localize="Validity">Validity</th>
+                    <th style="width:20%" data-localize="Permission">Permission</th>
+                    <th style="width:15%" data-localize="Status">Status</th>
+                    <th style="width:20%" data-localize="Action">Action</th>
+                  </tr>
+              </thead>
+              <tbody id="MemberTblBody">
+                  
+              </tbody>
+            </table>
+          </div>
+          <button type="button" class="btn custom-btn incrase_row"  id="addNewMembers" data-toggle="modal" data-target="#add-team-modal">+</button>
+      </div>
+     <div class="modal-footer" style="text-align: center; margin-top:0;">
+        <button class="btn custom-btn wpx-80" data-dismiss="modal">Ok</button>
+      </div>
+    </div>
+ </div>
+</div>
+<!-- team_memebers ed---->
+
+  <!-- add team Modal -->
+    <div class="modal fade" id="add-team-modal" role="dialog">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close close-round" data-dismiss="modal"><span class="close-icon">×</span></button>
+                    <h4 class="modal-title" id="TeamMemberHeader">Add Member</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+
+                        <div class="form-group col-sm-12 col-xs-12" id="editmodeaccount" style="display: none;">
+                            <label id="selectedUserName"></label>
+                            <label id="selectedUserID" style="display:block"></label>
+                        </div>
+
+                        <div class="col-sm-6 col-xs-12">
+                            <div class="form-group custom-form-group">
+                                <label>Role<span class="color-red2">*</span> :</label>
+                                <input class="form-control" type="text" id="MemberRole">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xs-12">
+                            <div class="form-group custom-form-group">
+                                <label>Status<span class="color-red2">*</span> :</label>
+                                <select class="form-control" disabled="disabled" id="MemberStatus">
+                                    <option value="Active">Active</option>
+                                    <option value="Released">Released</option>
+                                    <option value="Terminated" style="display:none">Terminated</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xs-12" style="display:none">
+                            <div class="form-group custom-form-group">
+                                <label>From Date:</label>
+                                <input class="form-control" type="text" readonly="readonly" id="fromDate">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xs-12" style="display:none">
+                            <div class="form-group custom-form-group">
+                                <label>To Date:</label>
+                                <input class="form-control" type="text" readonly="readonly" id="ToDate"/>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xs-12" style="display:none;" id="divReleasedDate">
+                            <div class="form-group custom-form-group">
+                                <label>Release Date:</label>
+                                <input class="form-control" type="text" id="ReleaseDate"/>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-xs-12">
+	                         <div class="form-group custom-form-group">
+	                            <label data-localize="Permission">Permission:</label>
+	                            <select id="ddlPermission" class="form-control">
+	                            	<option value="Edit">Edit</option>
+	                            	<option value="Read">Read</option>
+	                            	<option value="Restricted View">Restricted View</option>
+	                            </select>
+	                         </div>
+                        </div>
+                        
+                       <div class="employee_list col-md-12 userBox" id="userList">
+						
+                            <div class="col-md-12" style="position: relative; border:1px solid #ccc;">
+
+                                <div class="row fullcoverbox scrollbr_nw" style="border:none">
+                                    <div id="userHTMLBox"></div>
+                                </div><!--row ed-->
+                                
+                               <div class="row">
+                                    <div class="col-md-7 pull-right full_widthmang" style="margin-top:5px;">
+                                        <div class="searchingbox">
+                                            <div id="AssaginTaskTeam" class="form-control"></div>
+                                            <button type="button" class="addingsec"><i class="fa fa-plus"></i></button>
+                                        </div>
+                                    </div>
+                                </div><!--row ed child-->
+
+                            </div><!--12 ed-->
+
+                        </div><!--employee list-->
+
+                    </div>
+                </div>
+                <div class="modal-footer" style="text-align:center; margin-top:0;">
+                    <button class="btn custom-btn mr-8 wpx-80" id="btnsubmit" type="button" style="">Submit</button>
+                    <button class="btn custom-btn mr-8 wpx-80" id="btnupdate" type="button" style="display:none;">Update</button>
+                    <!------<button class="btn custom-btn-two-cancel wpx-80" id="btnCancelTeam" data-dismiss="modal">Cancel</button>------>
+                    <button class="btn custom-btn-two-cancel wpx-80" id="" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<!-- fitlter -->
+<div id="modal_filtering" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close close-round" data-dismiss="modal">
+          <span class="close-icon">&times;</span>
+      </button>
+        <h4 class="modal-title">Filter</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Coordinator</label>
+              <div id="filterManagerPicker"></div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Team Member</label>
+              <div id="filterMemberPicker"></div>
+            </div>
+          </div>
+        </div><!---row ed-->
+        <div class="row">  
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Investor</label>
+              <div id="filterInvesterPicker"></div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Status</label>
+              <select class="form-control" id="filterStatus">
+                <option value="Live">Active</option>
+                <option value="Terminated">Inactive</option>
+              </select>
+            </div>
+          </div>
+        </div><!--row ed-->
+      </div>
+      <div class="modal-footer" style="margin-top:0; text-align:center">
+        <button type="button" id="btnGetFilterRecord"  class="btn custom-btn">Submit</button>
+        <button type="button" id="btnClearFilter" class="btn custom-btn custom-btn-two-cancel w-68">Clear</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!---filter ed---->
+
+
+<!-- Trigger the modal with a button -->
+
+<!-- edit_permission -->
+<div id="edit_permission" class="modal fade" role="dialog" style="background:rgba(0,0,0,0.5)">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close close-round" data-dismiss="modal">
+	        <span class="close-icon">&times;</span>
+        </button>
+        <h4 class="modal-title">Edit</h4>
+      </div>
+      <div class="modal-body">
+        <h3 class="heading_nams" id="lableUserName"></h3>
+        
+        <div class="row">
+        	<div class="col-sm-6">
+        		<div class="form-group">
+            	  	<label>Role</label><span class="color-red2">*</span>:
+            	  	<input type="text" id="txtEditRole" class="form-control"/>
+                    <input type="hidden" id="txtEditId"  class="form-control"/>
+                    <input type="hidden" id="txtUserId"  class="form-control"/>
+            	</div>
+        	</div>
+        	<div class="col-sm-6">
+        		<div class="form-group">
+            	  	<label>Status</label><span class="color-red2">*</span>:
+            	  	 <select class="form-control" id="ddlEditStatus">
+	                    <option value="Active">Active</option>
+	                    <option value="Terminated">Inactive</option>
+	                </select>
+            	</div>
+        	</div>
+        	<div class="col-sm-12">
+        		<div class="form-group">
+            	  	<label>Permission</label>:
+            	  	<select class="form-control" id="ddlEdit">
+            	  		
+            	  	</select>
+            	</div>
+        	</div>	
+        </div>
+      </div>
+      <div class="modal-footer" style="text-align:center; margin-top:0;">
+        <button type="button" id="btnUpdateMamber" class="btn custom-btn">Submit</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<script src='https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/EmployeeSynchronous/table/Mytable.js'></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/Projects/Properties/PropertiesView.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/MyTask/assets/tableExport.min.js"></script>
+
+
+<script>
+
+$(function(){
+
+ $('.addingsec').click(function(){
+ 
+ 	$(this).siblings('#AssaginTaskTeam').toggleClass('activateds');
+ 	$(this).toggleClass('activateds');
+ 	$('#AssaginTaskTeam.form-control .sp-peoplepicker-initialHelpText').toggleClass('activateds'); 
+ 	
+ });
+ 
+}); 
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,498 @@
+#btnDelete{
+	color: #fff;
+    background-color: #dc3545;
+    background-image: none;
+    border-color: #dc3545 !important;
+    padding: 4.5px 12px !important;
+}
+
+            /* new css added on 01/7/2021 */
+
+            .my_announce_department_list .dropdown-toggle {
+                margin-right: 0;
+                width: 100%;
+                border: 1px solid #c3c3c3;
+                color: #444;
+                position: relative;
+                text-align: left;
+            }
+            #SelectedItems {
+                overflow: auto;
+                display: block;
+                width: 96%;
+                font-size: 14px;
+                font-family: "Arial Narrow", Arial, sans-serif;
+                padding-bottom: 2px;
+            }
+            .my_announce_department_list .dropdown-toggle .caret {
+                position: absolute;
+                right: 10px;
+                top: 13px;
+                border-top: 6px solid;
+                border-right: 3px solid transparent;
+                border-left: 3px solid transparent;
+            }
+            .my_announce_department_list .dropdown-menu {
+                padding: 5px 10px;
+                top: 80%;
+                left: 15px;
+            }
+            .my_announce_department_list .dropdown-menu li {
+                padding-left: 10px;
+                font-size: 12px;
+            }
+            .my_announce_department_list .dropdown-menu li input[type="checkbox"] {
+                position: relative;
+                left: -9px;
+                top: -3px;
+            }
+
+            /* new css added on 01/7/2021 */
+
+            .link-delete-btn {
+                margin-right: 0;
+                padding: 5px 12px;
+            }
+            .link-delete-btn:hover {
+                color: #d43f3a !important;
+            }
+            /* .drop-container {
+                font-size: 13px;
+            }
+            #Imagefilename div, #filename div {
+                padding: 7px 10px 7px 10px;
+                background: linear-gradient(to bottom,#fff,#ccc);
+                background: -webkit-linear-gradient(to bottom,#fff,#ccc);
+                background: -moz-linear-gradient(to bottom,#fff,#ccc);
+                background: -o-linear-gradient(to bottom,#fff,#ccc);
+                border: 1px solid #ccc;
+                display: inline-block;
+                clear: both;
+                margin: 5px 5px;
+                border-radius: 30px;
+            }
+            #Docfilename div, #oldfilename tr {
+                padding: 7px 10px 7px 10px;
+                background: linear-gradient(to bottom,#fff,#ccc);
+                background: -webkit-linear-gradient(to bottom,#fff,#ccc);
+                background: -moz-linear-gradient(to bottom,#fff,#ccc);
+                background: -o-linear-gradient(to bottom,#fff,#ccc);
+                border: 1px solid #ccc;
+                display: inline-block;
+                clear: both;
+                margin: 5px 5px;
+                border-radius: 30px;
+            }
+            #Docfilename div .DeletePic, #filename div .DeletePic {
+                color: #fff !important;
+                padding: 2px 3px;
+                background: #1d6ec0;
+                font-weight: 400;
+                display: inline;
+                border-radius: 50%;
+                font-size: 12px;
+                cursor: pointer;
+            }
+            #Docfilenamee div .DeletePic, #oldfilename tr .DeletePic {
+                color: #fff !important;
+                padding: 2px 3px;
+                background: #1d6ec0;
+                font-weight: 400;
+                display: inline;
+                border-radius: 50%;
+                font-size: 12px;
+                cursor: pointer;
+            }
+            #oldfilename tr .DeletePic .glyphicon-remove {
+                color: #fff !important;
+            }
+            #filename div span.fa-stack, #Docfilename div span.fa-stack {
+                margin: -3px 7px 0px 0px;
+            }
+            #filename div strong.fa-stack-1x, #Docfilename div strong.fa-stack-1x {
+                color: #000 !important;
+                margin-left: 18px;
+            }
+            
+            .highlightDropArea {
+  border: 5px green dashed;
+} */
+
+
+/******july/8/21*********/
+/* 
+.drop-container input {
+    position: absolute;
+    cursor: pointer;
+    left: 50%;
+    top: 0px;
+    opacity: 0;
+    width: 320px;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+
+
+}
+
+
+#clickHere{
+  width: 320px;
+  border: 2px dotted #868686 !important;
+  background:transparent !important;
+  color:#444343 !important;  
+  padding:0;
+  height:45px;
+  line-height:42px;
+}
+
+#clickHere label{
+ 
+ width:100%;
+ height:45px;
+
+}
+
+#drop-zone,
+#drop-zone1{
+ border:none !important;
+ border-bottom: 1px solid rgba(0, 0, 0, .3) !important; 
+ border-radius:0 !important;
+}
+
+#FileUpload,
+#files{
+ height:45px !important;  
+}
+
+
+.ms-webpart-chrome-vertical,
+div.ms-webpart-cell-vertical-inline-table{
+    display: block !important;
+}
+
+#drop-zone1 .DeletePic,
+#drop-zone .DeletePic{
+    color: #fff !important;
+    padding: 2px 3px;
+    background: #1d6ec0;
+    font-weight: 400;
+    display: inline;
+    border-radius: 50%;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+#drop-zone1 .closeBtn,
+#drop-zone .closeBtn{
+    color: #fff !important;
+    padding: 2px 3px;
+    background: #1d6ec0;
+    font-weight: 400;
+    display: inline;
+    border-radius: 50%;
+    font-size: 12px;
+    cursor: pointer;
+} */
+
+
+
+@media(max-width:500px){
+
+/* .drop-container input,
+#clickHere,
+#clickHere1,
+#clickHere0{
+ width:195px !important;  
+} */
+
+.checkbox{
+ font-size:11px !important;	
+}
+  
+}
+
+
+/***july-14-21****/
+
+/* #OldCoverImage div,
+#OldImagename div,
+#oldfilename div{
+
+    padding: 1px 5px;
+    background: linear-gradient(to bottom,#fff,#ccc);
+    background: -webkit-linear-gradient(to bottom,#fff,#ccc);
+    background: -moz-linear-gradient(to bottom,#fff,#ccc);
+    background: -o-linear-gradient(to bottom,#fff,#ccc);
+    border: 1px solid #ccc;
+    display: inline-block;
+    clear: both;
+    margin: 5px 5px;
+    border-radius: 30px;
+
+}
+
+#OldCoverImage div a,
+#OldImagename div a,
+#oldfilename div a{
+
+ color:#545454 !important;
+
+}
+
+#OldCoverImage div .DeletePic,
+#OldImagename div .DeletePic,
+#oldfilename div .DeletePic{
+  display: inline-block;
+    font-size: 14px;
+    padding: 5px 4px;
+    border: 1px solid #b5b5b5;
+    border-radius: 15px;
+    margin:3px 2px;
+    border: 1px solid #ccc;
+    color: #fff !important;
+    font-size: 13px;
+    background-color:#1d6ec0 !important;
+    cursor:pointer !important;
+
+}
+
+#OldCoverImage div .fa-trash-o:before,
+#OldImagename div .fa-trash-o:before,
+#oldfilename div .fa-trash-o:before{
+
+ content: "\f00d" !important;
+ font-family: 'FontAwesome';
+
+}
+
+#OldCoverImage div .fa-paperclip{
+
+    padding: 2px 5px 0 5px;
+    line-height: 20px;
+    position: relative;
+    top: 2px;	
+} */
+
+
+/****/
+
+#DeltaPlaceHolderMain .ms-webpart-zone {
+    display: block !important;
+}
+#DeltaPlaceHolderMain .ms-webpart-zone .ms-webpart-cell-horizontal {
+    display: block !important;
+}
+.all-align-gap-info-entryscreen {
+    margin: 0px -15px 0px 3px !important;
+}
+#flagCheckbox+label {
+    margin: 4px 0px 0px 1px;
+    cursor: pointer;
+}
+
+/*-----------------09/092022----------------------------*/
+#DpdownData{
+ max-height:95px;
+ overflow:auto;
+ list-style-type:none;	
+}
+
+#DpdownData::-webkit-scrollbar {
+	width: 10px;
+	height:10px;
+	background-color: transparent;
+}
+#DpdownData::-webkit-scrollbar-thumb {
+	border: 3px solid transparent;
+	border-radius: 10px;
+	background-color: grey;
+	background-clip: content-box;
+	-webkit-background-clip: content-box;	
+	
+}	
+#DpdownData::-webkit-scrollbar-thumb:hover {
+	background-color: #333;
+	background-clip: border-box;
+	-webkit-background-clip: border-box;
+}
+
+#btnDelete {
+    margin-left: 0;
+}
+
+/* new css added for new drag and drop attachment and images section 04-08-2023 START */
+
+.drop-container {
+    width: 100%;
+    overflow: hidden;
+    border: 3px dashed rgba(0, 0, 0, .3);
+    border-radius: 5px;
+    font-family: Arial;
+    text-align: center;
+    position: relative;
+    font-size: 20px;
+    color: #7E7E7E;
+    padding-top: 8px;
+}
+#drop-zone, #drop-zone1 {
+    /* width: 320px; */
+    /* width: 100%; */
+    border: 2px dotted #868686 !important;
+    background: transparent;
+    color: #444343 !important;
+    padding: 0px 0px 10px 0px !important;
+}
+.custom-btn, .custom-btn:focus {
+    background-color: #1d6ec0;
+    border-color: #1d6ec0;
+    color: #ffffff;
+    border-radius: 2px;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+#clickHere1, #clickHere0 {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: #000;
+    box-shadow: none;
+    height: 60px;
+    padding: 0;
+}
+.drop-container .click-drop-box {
+    position: relative;
+    top: 20px;
+    font-size: 12px;
+}
+.pl-4 {
+    padding-left: 4px;
+}
+.drop-container input {
+    width: 100% !important;
+    height: 100% !important;
+    cursor: pointer;
+    top: 0 !important;
+    left: 0 !important;
+    transform: translate(0px, 0px) !important;
+    z-index: 1;
+}
+.drop-container input {
+    position: absolute;
+    cursor: pointer;
+    left: 50%;
+    top: 0px;
+    opacity: 0;
+    width: 320px;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+}
+#FileUpload, #files {
+    /* height: 45px !important; */
+}
+
+
+#Imagefilename, #filename {
+    padding: 0px !important;
+}
+#Imagefilename div, #filename div {
+    display: inline-block;
+    font-size: 14px;
+    padding: 5px 10px;
+    border: 1px solid #b5b5b5;
+    border-radius: 15px;
+    margin: 3px 2px;
+    background: linear-gradient(to bottom,#fff,#ccc);
+    background: -webkit-linear-gradient(to bottom,#fff,#ccc);
+    background: -moz-linear-gradient(to bottom,#fff,#ccc);
+    background: -o-linear-gradient(to bottom,#fff,#ccc);
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 1px #e0e0e0;
+    color: #676666 !important;
+    font-size: 12px;
+    position: relative;
+    z-index: 9;
+}
+#Imagefilename div .fa-stack, #filename div .fa-stack {
+    width: 1em !important;
+    /* margin-right: 20px; */
+    margin-right: 0px;
+}
+#Imagefilename div .fa-paperclip, #filename div .fa-paperclip {
+    font-size: 16px !important;
+}
+#Imagefilename div .fa-stack-1x, #filename div .fa-stack-1x {
+    font-weight: 400 !important;
+    color: #000 !important;
+    left: 18px;
+}
+#Imagefilename div .DeletePic, #filename div .DeletePic {
+    color: #fff !important;
+    padding: 2px 3px;
+    background: #1d6ec0;
+    font-weight: 400;
+    display: inline;
+    border-radius: 50%;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+#OldImagename, #oldfilename {
+    padding: 0px !important;
+}
+#OldImagename div, #oldfilename tr {
+    display: inline-block;
+    font-size: 14px;
+    padding: 5px 10px;
+    border: 1px solid #b5b5b5;
+    border-radius: 15px;
+    margin: 3px 2px;
+    background: linear-gradient(to bottom,#fff,#ccc);
+    background: -webkit-linear-gradient(to bottom,#fff,#ccc);
+    background: -moz-linear-gradient(to bottom,#fff,#ccc);
+    background: -o-linear-gradient(to bottom,#fff,#ccc);
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 1px #e0e0e0;
+    color: #676666 !important;
+    font-size: 12px;
+    position: relative;
+    z-index: 9;
+}
+#oldfilename tr a {
+	font-size: 12px;
+	font-weight: 500;
+}
+#OldImagename div .fa-stack, #oldfilename tr .fa-stack {
+    width: 1em !important;
+    /* margin-right: 20px; */
+    margin-right: 0px;
+}
+#OldImagename div .fa-paperclip, #oldfilename tr .fa-paperclip {
+    font-size: 16px !important;
+}
+#OldImagename div .fa-stack-1x, #oldfilename tr .fa-stack-1x {
+    font-weight: 400 !important;
+    color: #000 !important;
+    left: 18px;
+}
+#OldImagename div .DeletePic, #oldfilename tr .DeletePic {
+    color: #fff !important;
+    padding: 2px 3px;
+    background: #1d6ec0;
+    font-weight: 400;
+    display: inline;
+    border-radius: 50%;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.highlight-zone {
+	background: #f1f1f1 !important;
+    color: #000 !important;
+}
+
+/* new css added for new drag and drop attachment and images section 04-08-2023 END */ 

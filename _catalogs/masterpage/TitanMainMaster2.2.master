@@ -1,0 +1,913 @@
+<%-- SPG:
+
+This HTML file has been associated with a SharePoint Master Page (.master file) carrying the same name.  While the files remain associated, you will not be allowed to edit the .master file, and any rename, move, or deletion operations will be reciprocated.
+
+To build the master page directly from this HTML file, simply edit the page as you normally would.  Use the Snippet Generator at https://adaptindia.sharepoint.com/sites/TITAN2-DEV/_layouts/15/ComponentHome.aspx?Url=https%3A%2F%2Fadaptindia%2Esharepoint%2Ecom%2Fsites%2FTITAN2%2DDEV%2F%5Fcatalogs%2Fmasterpage%2FTitanMainMaster%2Emaster to create and customize useful SharePoint entities, then copy and paste them as HTML snippets into your HTML code.   All updates to this file will automatically sync to the associated Master Page.
+
+--%>
+<%@Master language="C#"%>
+<%@Register TagPrefix="SharePoint" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>
+<%@Register TagPrefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>
+<%@Register TagPrefix="wssucmui" TagName="MUISelector" Src="~/_controltemplates/15/MUISelector.ascx"%>
+<%@Register TagPrefix="wssucw" TagName="Welcome" Src="~/_controltemplates/15/Welcome.ascx"%>
+<%@Register TagPrefix="PublishingRibbon" TagName="PublishingRibbon" Src="~/_controltemplates/15/Ribbon.ascx"%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<SharePoint:SPHtmlTag class="hidding-y-scroll" runat="server" id="SPHtmlTag" dir="<%$Resources:wss,multipages_direction_dir_value%>">
+
+    <head runat="server">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+        <meta http-equiv="X-UA-Compatible" content="IE=10" />
+        <meta charset="UTF-8" />
+        <meta name="GENERATOR" content="Microsoft SharePoint" />
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <sharepoint:iecompatiblemetatag runat="server" />
+        <meta http-equiv="Expires" content="0" />
+        <sharepoint:sppinnedsitetile runat="server" tileurl="/_layouts/15/images/SharePointMetroAppTile.png" tilecolor="#0072C6" />
+        <sharepoint:robotsmetatag runat="server" />
+        <sharepoint:pagetitle runat="server"><asp:ContentPlaceHolder id="PlaceHolderPageTitle" runat="server" /></sharepoint:pagetitle>
+        <sharepoint:startscript runat="server" />
+        <sharepoint:csslink runat="server" version="15" />
+
+        <sharepoint:scriptlink language="javascript" name="core.js" ondemand="true" runat="server" localizable="false" />
+        <sharepoint:scriptlink language="javascript" name="menu.js" ondemand="true" runat="server" localizable="false" />
+        <sharepoint:scriptlink language="javascript" name="callout.js" ondemand="true" runat="server" localizable="false" />
+        <sharepoint:scriptlink language="javascript" name="sharing.js" ondemand="true" runat="server" localizable="false" />
+        <sharepoint:scriptlink language="javascript" name="suitelinks.js" ondemand="true" runat="server" localizable="false" />
+        <sharepoint:customjsurl runat="server" />
+        <sharepoint:soapdiscoverylink runat="server" />
+        <SharePoint:AjaxDelta id="DeltaPlaceHolderAdditionalPageHead" Container="false" runat="server">
+            <asp:ContentPlaceHolder id="PlaceHolderAdditionalPageHead" runat="server">
+            </asp:ContentPlaceHolder>
+            <sharepoint:delegatecontrol runat="server" controlid="AdditionalPageHead" allowmultiplecontrols="true" />
+        </SharePoint:AjaxDelta>
+        <sharepoint:spshortcuticon runat="server" iconurl="/_layouts/15/images/favicon.ico?rev=44" />
+        <![CDATA[ [if IE 9] ]]>
+        <style type="text/css">
+            //<![CDATA[ .ms-core-animation-transparent {
+                opacity: 0;
+            }
+
+            .ms-isBot .ms-core-animation-transparent {
+                opacity: 1;
+            }
+
+
+            //]] >
+        </style>
+        <![CDATA[ [endif] ]]>
+        
+        <sharepoint:cssregistration name="Themable/corev15.css" runat="server" />
+        <sharepoint:cssregistration name="<% $SPUrl:~site/_catalogs/masterpage/Titan2/fonts/font-awesome.min.css %>" runat="server" />
+        <sharepoint:cssregistration name="<% $SPUrl:~site/_catalogs/masterpage/Titan2/Styles/bootstrap.min.css %>" runat="server" />
+        <sharepoint:cssregistration name="<% $SPUrl:~site/_catalogs/masterpage/Titan2/Styles/styles_2.2.css %>" runat="server" after="Themable/corev15.css" />
+        <sharepoint:cssregistration name="<% $SPUrl:~site/_catalogs/masterpage/Titan2/Styles/Intranet-Styles-2.2.css %>" runat="server" />
+        <sharepoint:cssregistration name="<% $SPUrl:~site/_catalogs/masterpage/Titan2/Styles/custom_2.2.css %>" runat="server" />
+        <sharepoint:cssregistration name="<% $SPUrl:~site/_catalogs/masterpage/Titan2/Styles/progress_style.css %>" runat="server" />
+        <sharepoint:cssregistration name="<% $SPUrl:~site/_catalogs/masterpage/TitanMasterPage1.0/css/header-style.css %>" runat="server" />
+        <sharepoint:cssregistration name="<% $SPUrl:~site/_catalogs/masterpage/TitanMasterPage1.0/css/padding.css %>" runat="server" />
+        <sharepoint:cssregistration name="<% $SPUrl:~site/_catalogs/masterpage/TitanMasterPage1.0/css/global-style.css %>" runat="server" />
+        
+        <script type="text/javascript" src="../_catalogs/masterpage/Titan2/Scripts/jquery-1.11.1.js">
+            //<![CDATA[
+            //]]></script>
+        <script type="text/javascript" src="../_catalogs/masterpage/Titan2/Scripts/bootstrap.min.js">
+            //<![CDATA[
+            //]]></script>
+
+        <!--script type="text/javascript" src="../SiteAssets/MasterPageScripts/CurtainPage.js">
+            //<![CDATA[
+            //]]></script-->
+        <!--script type="text/javascript" src="../SiteAssets/MasterPageScripts/WelcomePage.js">
+            //<![CDATA[
+            //]]></script-->
+
+        <script type="text/javascript" src="../SiteAssets/DevelopersCode/New_DefualtHome/js/jquery.qrcode.min.js">
+            //<![CDATA[
+            //]]></script>
+        <!--script type="text/javascript" src="../_catalogs/masterpage/Titan2/Scripts/clientobject.js">
+            //<![CDATA[
+            //]]></script-->
+
+        <!-- this js is additinal calling for decryt the new logic of license. this can be done by manually    -->
+        <script type="text/javascript" src="../SiteAssets/MasterPageScripts/DecriptLicnse.js">
+            //<![CDATA[
+            //]]></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+
+        <!--script type="text/javascript" src="../_catalogs/masterpage/Titan2/Scripts/custom.js">
+            //<![CDATA[
+            //]]></script-->
+        <!--script type="text/javascript" src="../_catalogs/masterpage/Titan2/Scripts/dcalendar.picker.js">
+            //<![CDATA[
+            //]]></script-->
+        <script type="text/javascript" src="../_catalogs/masterpage/Titan2/Scripts/jquery.cookie.js">
+            //<![CDATA[
+            //]]></script>
+        <script type="text/javascript" src="../SiteAssets/MasterPageScripts/Authorization.js">
+            //<![CDATA[
+            //]]></script>
+        <script type="text/javascript" src="../SiteAssets/EmployeeSynchronous/jquery-ui.js">
+            //<![CDATA[
+            //]]></script>
+        <!--   <script type="text/javascript" src="../_catalogs/masterpage/Titan2/Scripts/bootstrap-dialog.min.js">//<![CDATA[
+               //]]></script>-->
+
+        <script type="text/javascript" src="../SiteAssets/MasterPageScripts/titanCommon.js?v=sk1234">
+
+            //<![CDATA[
+            //]]></script>
+        <script type="text/javascript" src="../SiteAssets/MasterPageScripts/userActivityNotificationEntry.js?458"></script>
+        
+        <style>
+            .loader-bg {
+                background: rgba(255,255,255,0.3) !important;
+            }
+
+            .main-height {
+                height: calc(100vh - 0px) !important;
+            }
+
+            .loader {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+            }
+
+                .loader video {
+                    width: 50px;
+                    height: 50px;
+                }
+
+            .loader-text {
+                display: block;
+                font-size: 14px;
+                text-align: center;
+                font-style: italic;
+            }
+        </style>
+
+
+        <style type="text/css">
+            #overlaysearch {
+                background: #ffffff;
+                color: #666666;
+                position: fixed;
+                height: 100%;
+                width: 100%;
+                z-index: 5000;
+                top: 0;
+                left: 0;
+                float: left;
+                text-align: center;
+                padding-top: 25%;
+                opacity: .80;
+            }
+
+            .spinner {
+                margin: 0 auto;
+                height: 64px;
+                width: 64px;
+                border-right-color: transparent;
+                border-radius: 50%;
+            }
+
+            @keyframes rotate {
+                0% {
+                    transform: rotate(0deg);
+                }
+
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+
+            .navbarPointer {
+                cursor: pointer;
+            }
+            
+            .my-s4-teams-body .content-margin {
+    margin-top: 10px !important;
+}
+            
+            
+        </style>
+
+
+    </head>
+    <body onhashchange="if (typeof(_spBodyOnHashChange) != 'undefined') _spBodyOnHashChange();">
+        <sharepoint:sharepointform onsubmit="if (typeof(_spFormOnSubmitWrapper) != 'undefined') {return _spFormOnSubmitWrapper();} else {return true;}" runat="server">
+            <sharepoint:imagelink runat="server" />
+            <sharepoint:spnoscript runat="server" />
+            <sharepoint:spclientidgenerator runat="server" servercontrolid="DeltaPlaceHolderMain;DeltaPlaceHolderPageTitleInTitleArea;DeltaPlaceHolderUtilityContent" />
+            <webpartpages:spwebpartmanager runat="Server"/>
+            <webpartpages:allowframing runat="server" __webpartid="{9B4D04BF-FF43-47BF-BE7A-27D2ABAFE14C}"/>
+            <asp:ScriptManager id="ScriptManager" runat="server" EnablePageMethods="false" EnablePartialRendering="true" EnableScriptGlobalization="false" EnableScriptLocalization="true" />
+            <SharePoint:AjaxDelta id="DeltaDelegateControls" runat="server">
+                <sharepoint:delegatecontrol runat="server" controlid="GlobalNavigation" />
+                <sharepoint:delegatecontrol controlid="GlobalSiteLink3" scope="Farm" runat="server" visible="false" />
+            </SharePoint:AjaxDelta>
+
+            <!-- Curtain -->
+
+            <div id="overlaysearch">
+                <div class="spinner"><img style="width:50px;height:50px" src="../SiteAssets/Titan-Loader/images/Comp1_1.gif" alt="loader" /></div>
+
+            </div>
+            <!-- Curtain -->
+            <script type="text/javascript">
+                //<![CDATA[
+                //]]></script>
+            <div id="TurnOnAccessibility" style="display:none" class="s4-notdlg noindex">
+                <a id="linkTurnOnAcc" data-accessibility-nocheck="true" href="#" class="ms-TurnOnAcc" onclick="SetIsAccessibilityFeatureEnabled(true);UpdateAccessibilityUI();document.getElementById('linkTurnOffAcc').focus();return false;">
+                    <sharepoint:encodedliteral runat="server" text="<%$Resources:wss,master_turnonaccessibility%>" encodemethod="HtmlEncode"/>
+                </a>
+            </div>
+            <div id="TurnOffAccessibility" style="display:none" class="s4-notdlg noindex">
+                <a id="linkTurnOffAcc" data-accessibility-nocheck="true" href="#" class="ms-TurnOffAcc" onclick="SetIsAccessibilityFeatureEnabled(false);UpdateAccessibilityUI();document.getElementById('linkTurnOnAcc').focus();return false;">
+                    <sharepoint:encodedliteral runat="server" text="<%$Resources:wss,master_turnoffaccessibility%>" encodemethod="HtmlEncode"/>
+                </a>
+            </div>
+            <div class="s4-notdlg s4-skipribbonshortcut noindex">
+                <a href="javascript:;" data-accessibility-nocheck="true" onclick="document.getElementById('startNavigation').focus();" class="ms-SkiptoNavigation" accesskey="<%$Resources:wss,skipribbon_accesskey%>" runat="server">
+                    <sharepoint:encodedliteral runat="server" text="<%$Resources:wss,skipRibbonCommandsLink%>" encodemethod="HtmlEncode"/>
+                </a>
+            </div>
+            <div class="s4-notdlg noindex">
+                <a href="javascript:;" data-accessibility-nocheck="true" onclick="document.getElementById('mainContent').focus();" class="ms-SkiptoMainContent" accesskey="<%$Resources:wss,maincontent_accesskey%>" runat="server">
+                    <sharepoint:encodedliteral runat="server" text="<%$Resources:wss,mainContentLink%>" encodemethod="HtmlEncode"/>
+                </a>
+            </div>
+            <div id="TurnOffAnimation" style="display:none;" class="s4-notdlg noindex">
+                <a id="linkTurnOffAnimation" data-accessibility-nocheck="true" href="#" class="ms-accessible ms-acc-button" onclick="ToggleAnimationStatus();return false;">
+                    <sharepoint:encodedliteral runat="server" text="<%$Resources:wss,master_disableanimation%>" encodemethod="HtmlEncode"/>
+                </a>
+            </div>
+            <div id="TurnOnAnimation" style="display:none;" class="s4-notdlg noindex">
+                <a id="linkTurnOnAnimation" data-accessibility-nocheck="true" href="#" class="ms-accessible ms-acc-button" onclick="ToggleAnimationStatus();return false;">
+                    <sharepoint:encodedliteral runat="server" text="<%$Resources:wss,master_enableanimation%>" encodemethod="HtmlEncode"/>
+                </a>
+            </div>
+            <a id="HiddenAnchor" href="javascript:;" style="display:none;">
+            </a>
+            <div id="ms-hcTest">
+            </div>
+            <div id="ms-designer-ribbon">
+                <publishingribbon:publishingribbon runat="server"/>
+
+            </div>
+            <sharepoint:spsecuritytrimmedcontrol runat="server" authenticationrestrictions="AnonymousUsersOnly"><wssucw:welcome runat="server" enableviewstate="false" /></sharepoint:spsecuritytrimmedcontrol>
+            <input type="hidden" id="progress_width" value="0" />
+            <div class="progress" id="progress_div" style="display:none">
+                <div class="bar" id="bar1">
+                </div>
+                <div class="percent" id="percent1">
+                </div>
+            </div>
+            
+            
+            <!--end search-->
+            <!-- /Main -->
+            <!--</div>-->
+            <div id="s4-workspace" class="ms-core-overlay s4-nosetwidth">
+                <!--Wrapper Start-->
+                <div class="wrapper">
+                    <!--outer user top ribbon-->
+                    <!--End outer user top ribbon-->
+                    <div id="s4-bodyContainer">
+                        <div class="clearfix">
+                        </div>
+                        <nav class="navbar-custom">
+                            <div class="container-fluid">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <a class="navbar-brand" id="navbarLogoLink" href="#"><img id="LogoImage" src="" class="logo" alt="" /></a>
+                                    <div class="menu-area navbar-logo-menu-area" id="global-menu-gear-area" style="display: none;">
+    									<ul>
+        									<li id="myNavBackForward">
+            									<div class="NavBackForwardBox">
+                									<div class="NavBack">
+                    									<a href="#">
+                        									<span class="material-icons">arrow_back</span>
+                        									<span>Back</span>
+                    									</a>
+                									</div>
+                									<div class="NavForward">
+                    									<a href="#">
+                        									<span class="material-icons">arrow_forward</span>
+                        									<span>Forward</span>
+                    									</a>
+                									</div>
+            									</div>
+        									</li>
+        									<li id="myFavLiTeams">
+            									<a href="#">
+                									<span class="material-icons">
+                    									star_border
+                									</span>
+                									<span data-toggle="modal" id="btnMyFavTeams" onclick="GetFavourites();" data-target="#MyFavModal">My Favorites</span>
+            									</a>
+        									</li>
+        									<li id="myGpMaster"><a href="javascript:void(0);"><span class="material-icons">groups</span> <span
+                    						onclick="ShowMyGroup()">My Groups</span></a></li>
+        									<li class="myProfData"><a id="myCurrentProfileTeams"><span class="material-icons">person</span> <span>My
+                    						Profile</span></a></li>
+        									<li class="myTopMenuFilter" style="display:none">
+            									<a href="javascript:void(0);">
+                									<span class="material-icons">filter_alt</span>
+                									<span data-toggle="modal" data-target="#myModalFilter">Filter</span>
+            									</a>
+        									</li>
+       		 								<li class="myCompanyName" id="teamsNavDiv">
+            									<span class="material-icons">corporate_fare</span>
+            										<div class="form-group">
+                										<select id="ddlCompanyNavTeams" class="form-control"></select>
+            										</div>
+        									</li>
+        									<li id="TranslateBox" style="display:none">
+            									<span class="material-icons">translate</span>
+            										<div class="form-group">
+                										<select id="ddlLanguages" class="form-control">
+                    										<option value="English" selected="selected">English</option>
+                										</select>
+            										</div>
+        									</li>
+        									<li id="dark-light-side-opt" style="display:none">
+            									<a href="#">
+                									<span class="material-icons">dark_mode</span>
+                									<input type="checkbox" id="dark-theme-btn" onchange="ApplyDarkThemes();" />
+                									<label class="dark-theme-btn-label" for="dark-theme-btn"> Dark Mode </label>
+            									</a>
+        									</li>
+        									<li class="myQR"><a href="#"><span class="material-icons">qr_code</span> <span data-toggle="modal" id="TitanQRNavTeams"
+                    						data-target="#QRCodeModal" onclick="createQRCodeForTitan()">Mobile App</span></a></li>
+        									<li class="TeamTab" id="TeamRefresh" style="display:none"><a href="#"><span
+                    						class="material-icons">refresh</span> <span onclick="location.reload()">Refresh</span></a></li>
+        									<!--onclick="window.location.href =_spPageContextInfo.webAbsoluteUrl+'/Pages/resettheme.aspx?WebAppId=232SHDFGHJF22B2526DFG'"-->
+        									<li class="BrowserTab"><a href="#"><span class="material-icons">refresh</span> <span
+                    						onclick="window.location.href =_spPageContextInfo.webAbsoluteUrl+'/Pages/resettheme.aspx?WebAppId=232SHDFGHJF22B2526DFG'">Refresh</span></a>
+        									</li>
+        									<li class="BrowserTab"><a href="#"><span class="material-icons">exit_to_app</span> <span
+                    						onclick="logout()">Logout</span></a></li>
+    									</ul>
+    									<!-- <div class="menu-toggle panel-heading-bg-clr"><a href="#"><span class="material-icons">menu</span></a></div> -->
+									</div>
+									<div class="menu-toggle control-menu navbar-logo-menu-toggle" id="global-menu-gear" style="display: none;">
+    									<a>
+        									<span class="material-icons">settings</span>
+    									</a>
+    									<span class="control-name">Control</span>
+									</div>
+                                </div>
+                                <div class="collapse navbar-collapse" id="myNavbar">
+                                </div>
+                            </div>
+                        </nav>
+                        
+                        
+                        
+                        <div id="below-navigation-control-strip" style="position:relative ; height:25px">
+                        <div class="SideTabMenu" id="SideTabIdMenu" style="position:absolute; left:0">
+                <div class="home-toggle panel-heading-bg-clr TeamTab" style="display:none"><a id="MyHome"><span onclick="window.location.href =_spPageContextInfo.webAbsoluteUrl+'/Pages/Default.aspx?TEAM'" class="material-icons">home</span></a></div>
+                <div class="back-toggle panel-heading-bg-clr TeamTab" onclick="window.history.back();" style="display:none"><a><span class="material-icons">west</span></a></div>
+                <div class="menu-area" id="global-menu-gear-area" style="top: 26px !important">
+                    <ul>
+                        <li id="myNavBackForward">
+                          <div class="NavBackForwardBox">
+                            <div class="NavBack">
+                              <a href="#">
+                                <span class="material-icons">arrow_back</span>
+                                <span>Back</span>
+                              </a>
+                            </div>
+                            <div class="NavForward">
+                              <a href="#">
+                                <span class="material-icons">arrow_forward</span>
+                                <span>Forward</span>
+                              </a>
+                            </div>
+                          </div>
+                        </li>                        
+                        <li id="myFavLi">
+                            <a href="#">
+                                <span class="material-icons">
+                                    star_border
+                                </span>
+                                <span data-toggle="modal" id="btnMyFav" data-target="#MyFavModal">My Favorites</span>
+                            </a>
+                        </li>
+                        <li id="myGpMaster"><a href="javascript:void(0);"><span class="material-icons">groups</span> <span onclick="ShowMyGroup()">My Groups</span></a></li>
+                        <li class="myProfData"><a id="myCurrentProfile"><span class="material-icons">person</span> <span>My Profile</span></a></li>
+                        <li class="myTopMenuFilter" style="display:none">
+                            <a href="javascript:void(0);"> 
+                                <span class="material-icons">filter_alt</span>
+                                <span data-toggle="modal" data-target="#myModalFilter">Filter</span>
+                            </a>
+                        </li>
+                        <li class="myCompanyName">
+                            <span class="material-icons">corporate_fare</span>
+                            <div class="form-group">
+                                <select id="ddlCompany" class="form-control"></select>
+                            </div>
+                        </li>
+                        <li id="TranslateBox" style="display:none">
+                            <span class="material-icons">translate</span>
+                            <div class="form-group">
+                                <select id="ddlLanguages" class="form-control">
+                                    <option value="English" selected="selected">English</option>
+                                </select>
+                            </div>
+                        </li>
+                        <li id="dark-light-side-opt" style="display:none">
+                            <a href="#">
+                                <span class="material-icons">dark_mode</span>
+                                <input type="checkbox" id="dark-theme-btn" onchange="ApplyDarkThemes();"/>
+                                <label class="dark-theme-btn-label" for="dark-theme-btn"> Dark Mode </label>
+                            </a>
+                        </li>
+                        <li class="myQR"><a href="#"><span class="material-icons">qr_code</span> <span data-toggle="modal" id="TitanQR" data-target="#QRCodeModal">Mobile App</span></a></li>
+                        <li class="TeamTab" id="TeamRefresh" style="display:none"><a href="#"><span class="material-icons">refresh</span> <span onclick="location.reload()">Refresh</span></a></li>
+                        <!--onclick="window.location.href =_spPageContextInfo.webAbsoluteUrl+'/Pages/resettheme.aspx?WebAppId=232SHDFGHJF22B2526DFG'"-->
+                        <li class="BrowserTab"><a href="#"><span class="material-icons">refresh</span> <span onclick="window.location.href =_spPageContextInfo.webAbsoluteUrl+'/Pages/resettheme.aspx?WebAppId=232SHDFGHJF22B2526DFG'">Refresh</span></a></li>
+                        <li class="BrowserTab"><a href="#"><span class="material-icons">exit_to_app</span> <span onclick="logout()">Logout</span></a></li>
+                    </ul>
+                    <!-- <div class="menu-toggle panel-heading-bg-clr"><a href="#"><span class="material-icons">menu</span></a></div> -->
+                </div>
+                <div class="menu-toggle control-menu" id="global-menu-gear" style="top:0;position:absolute" ><a><span class="material-icons">settings</span></a><span class="control-name">Control</span></div>
+                <!--Search-->
+                <div class="search-area" style="display:none">
+                    <div class="navbar-form navbar-search">
+                        <div class="input-group">
+                            <SharePoint:AjaxDelta id="DeltaPlaceHolderSearchArea" BlockElement="true" CssClass="ms-mpSearchBox ms-floatRight" runat="server">
+
+                                <asp:ContentPlaceHolder id="PlaceHolderSearchArea" runat="server">
+									<div id="searchInputBox">
+                                        <sharepoint:delegatecontrol runat="server" controlid="SmallSearchInputBox" />
+
+                                    </div>
+                                </asp:ContentPlaceHolder>
+
+                            </SharePoint:AjaxDelta>
+                        </div>
+                    </div>
+                    <div class="search-toggle panel-heading-bg-clr"><a href="#"><span class="material-icons">search</span></a></div>
+                </div>
+            </div>
+                        
+                        
+            </div>
+                        
+                        
+                        
+
+                        <nav class="row-fluid shadow3 nav-fix header-nav" role="navigation" style="display:none">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="header-container">
+                                <nav class="container navbar navbar-default ms-dialogHidden" role="navigation">
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                            <span class="sr-only">
+                                                Toggle navigation
+                                            </span>
+                                            <span class="icon-bar">
+                                            </span>
+                                            <span class="icon-bar">
+                                            </span>
+                                            <span class="icon-bar">
+                                            </span>
+                                        </button>
+                                        <div class="navbar-brand">
+                                            <img id="LogoImage" alt="Logo" src="" style="width:100px; height:100px;" />
+                                        </div>
+                                    </div>
+                                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                        <div class="Navigation" style="margin-left: 30px;">
+                                        </div>
+                                    </div>
+                                </nav>
+                            </div>
+                        </nav>
+                        <div class="header-container content-margin" style="margin-top:0px !important">
+                            <div class="col-md-12">
+                                <div class="col-md-12">
+                                    <div class="prayerWebPartHTML1" style="display:none;">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <link rel="stylesheet" type="text/css" href="../SiteAssets/MyDashboard/MyPersonalInfo/styles.css" />
+                            <script type="text/javascript" src="../SiteAssets/MyDashboard/MyPersonalInfo/MyPersonalInfo.js"></script>
+                            <script type="text/javascript" src="/_layouts/15/clientforms.js"></script>
+                            <script type="text/javascript" src="/_layouts/15/clienttemplates.js"></script>
+                            <script type="text/javascript" src="/_layouts/15/clientpeoplepicker.js"></script>
+                            <script type="text/javascript" src="/_layouts/15/autofill.js"></script>
+
+                            <!--         Gropu Modal Popup starts                   -->
+                            <div class="modal fade " id="myModalGroup" role="dialog" style="display:none;">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content ">
+                                        <div class="modal-header">
+                                            <button type="button" class="close close-round" data-dismiss="modal">
+                                                <span class="close-icon">&times;</span>
+                                            </button>
+                                            <!-- <h4 class="modal-title">My Sharing Groups</h4> -->
+                                            <h4 class="modal-title">My Groups</h4>
+                                        </div>
+                                        <div class="modal-body my-group-modal-body">
+                                            <!--Add group starts-->
+                                            <div class="row">
+                                                <div class="col-md-10 col-sm-9 col-xs-8 group-name-ip-box1">
+                                                    <div class="form-group custom-form-group">
+                                                        <label>Group Name:</label>
+                                                        <input class="form-control" id="txtGroupName" type="text" placeholder="Group Name" maxlength="200" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2 col-sm-3 col-xs-4 group-name-ip-box2">
+                                                    <div class="form-group btn-form-group">
+                                                        <button type="button" class="btn custom-btn w-btn-100" id="btnAddGroup">Add Group</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--Add group ends-->
+                                            <div class="panel-group" id="accordionGroup">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--         Gropu Modal Popup ends                   -->
+                            <!-- Start QR Code Modal-->
+
+
+                            <div class="modal fade" id="QRCodeModal" role="dialog" data-backdrop="static">
+                                <div class="modal-dialog modal-md">
+                                    <div class="modal-content">
+                                        <div class="modal-header panel-head-4">
+                                            <button type="button" class="close h4-color" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title h4-color" data-localize="QR Code">Mobile App</h4>
+                                        </div>
+                                        <div class="modal-body  table-responsive" style="border:none;margin-bottom:0px;">
+                                            <div class="form-horizontal QR-code-main-box">
+                                                <!-- <div> <h3><strong>To Open TITAN on Your Mobile: </strong></h3></div> -->
+
+                                                <div class="col-md-12 col-sm-12 col-xs-12 QR-code-steps-box">
+
+                                                    <h5 style="font-size:15px;margin-bottom:15px"> <span>Step 1</span> Scan the below QR code to download app for iOS/Android </h5>
+
+                                                    <div class="col-md-12 col-sm-12 col-xs-12 apple-google-store-box">
+                                                        <div class="col-md-6 col-sm-6 apple-store">
+                                                            <img src="../ImageGallery/IOS-QR-Code.png" alt="ios-QR-Code" class="ios-QR-Code" />
+                                                            <img src="../ImageGallery/App_Store_Badge.png" alt="apple-store" class="apple-store">
+                                                        </div>
+                                                        <div class="col-md-6 col-sm-6 google-play-store">
+                                                            <img src="../ImageGallery/Android-QR-Code.png" alt="android-QR-Code" class="android-QR-Code" />
+                                                            <img src="../ImageGallery/Play_Store_badge.png" alt="play-store" class="play-store" />
+                                                        </div>
+                                                    </div>
+
+                                                    <h5 style="font-size:15px;margin-bottom:15px"> <span>Step 2</span> Once downloaded, Scan the below QR code to Register the App  </h5>
+
+                                                    <!-- Dynamic QR Code Generator -->
+                                                    <div class="col-md-12 col-sm-12 col-xs-12" id="genreatedQRCode">
+                                                        <div class="col-md-12 col-sm-12 col-xs-12" id="qr-CodeForTitan" style="text-align: center;"></div>
+                                                    </div>
+
+                                                    <h5 style="font-size:15px;margin-bottom:15px"> <span>Step 3</span> Once registered, Sign-In with your Microsoft credential </h5>
+
+                                                    <!-- <h5 style="font-size:15px;margin-bottom:15px"> 4. Sign-In with your Microsoft credential </h5> -->
+
+                                                </div>
+
+                                                <div class="row text-center">
+                                                    <div class="modal-footer text-center"></div>
+                                                    <!--<button type="button" class="btn custom-btn-two-cancel" data-dismiss="modal">Close</button>-->
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End of QR Code Modal-->
+                            <!-- Start of My Favourite Modal-->
+
+                            <div class="modal fade" id="MyFavModal" role="dialog" data-backdrop="static">
+                                <div class="modal-dialog modal-md">
+                                    <div class="modal-content">
+
+                                        <div class="modal-header">
+                                            <button type="button" class="close close-round" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title" data-localize="MyFavorites" style="margin-top: -1px;"> My Favorites </h4>
+                                        </div>
+
+                                        <div class="modal-body table-responsive" style="border:none;margin-bottom:0px;">
+                                            <div class="form-horizontal">
+
+
+                                                <div id="FBox" class="container-card-4">
+                                                    <div class="container-card-info">
+
+                                                        <div class="panel panel-default my-favourite-add-edit-box">
+
+                                                            <ul class="MyFavorite-new-menu-ul">
+
+                                                                <li class="MyFavorite-new-menu-ul-main-li my-favourite-add-btn">
+                                                                    <a class="MyFavorite-filters" id="AddNewFav" href="" data-toggle="modal" data-target="#MyFavAdd">
+                                                                        <span> <i class="fa fa-plus" aria-hidden="true"></i> </span>
+                                                                    </a>
+                                                                </li>
+                                                                <li class="MyFavorite-new-menu-ul-main-li my-favourite-all">
+                                                                    <a class="MyFavorite-filters" id="MyFavall" href="">
+                                                                        <span> All </span>
+                                                                    </a>
+                                                                </li>
+                                                                <!--<li class="MyFavorite-new-menu-ul-main-li my-favourite-contents">
+                                                                    <a class="MyFavorite-filters" id="MyFavContents" href="">
+                                                                        <span> Contents </span>
+                                                                    </a>
+                                                                </li>
+																<li class="MyFavorite-new-menu-ul-main-li my-favourite-event">
+                                                                    <a class="MyFavorite-filters" id="MyFavEvent" href="">
+                                                                        <span> Event </span>
+                                                                    </a>
+                                                                </li>
+																<li class="MyFavorite-new-menu-ul-main-li my-favourite-process">
+                                                                    <a class="MyFavorite-filters" id="MyFavProcess" href="">
+                                                                        <span> Process </span>
+                                                                    </a>
+                                                                </li>
+
+                                                                <li class="MyFavorite-new-menu-ul-main-li my-favourite-task">
+                                                                    <a class="MyFavorite-filters" id="MyFavtask" href="">
+                                                                        <span> Task </span>
+                                                                    </a>
+                                                                </li>
+                                                                <li class="MyFavorite-new-menu-ul-main-li my-favourite-project">
+                                                                    <a class="MyFavorite-filters" id="MyFavproject" href="">
+                                                                        <span> Project </span>
+                                                                    </a>
+                                                                </li>
+                                                                <li class="MyFavorite-new-menu-ul-main-li my-favourite-page">
+                                                                    <a class="MyFavorite-filters" id="MyFavpage" href="">
+                                                                        <span> Page </span>
+                                                                    </a>
+                                                                </li>
+                                                                <li class="MyFavorite-new-menu-ul-main-li my-favourite-Document" style="display:none">
+                                                                    <a class="MyFavorite-filters" id="MyFavDocument" href="">
+                                                                        <span> Document </span>
+                                                                    </a>
+                                                                </li>
+                                                                <li class="MyFavorite-new-menu-ul-main-li my-favourite-search">
+                                                                	<input type="text" id="MyFavSearch" onkeyup="" placeholder="Search" class="form-control fav-search"/>
+                                                                </li>-->
+
+                                                            </ul>
+
+                                                        </div>
+
+                                                        <div class="container-card-body container-card-body-two panel-scrollbar-panel">
+                                                            <div class="panel-group mb0" id="myFavouritesAcc">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row text-center">
+                                                    <div class="modal-footer text-center"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- End of My Favourite Modal -->
+                            <!-- Start of My Favourite Add Modal -->
+
+                            <div class="modal fade" id="MyFavAdd" role="dialog">
+                                <div class="modal-dialog modal-md">
+
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Add New Favorite</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <label for="email">Type:</label>
+                                                <select class="form-control" id="DocTypesDDL" disabled="">
+                                                    <option value="Pages">Pages</option>
+                                                    <option value="Attendance">Attendance</option>
+                                                    <option value="Task">Tasks</option>
+                                                    <option value="Projects">Projects</option>
+                                                    <option value="Documents">Documents</option>
+                                                    <option value="Pages">Pages</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Name">Name:<span style="color:red">*</span></label>
+                                                <input type="text" class="form-control" id="txtName" placeholder="Enter Name">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Links">Link:<span style="color:red">*</span></label>
+                                                <input type="url" class="form-control" id="txtLinks" placeholder="Enter URL" />
+                                                <p class="add-Favorite-alert-msg" style="color: #1d6ec0; margin-top: 5px;">Note: URL  start with http:// or https://</p>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn custom-btn" id="btnAddFavourite">Submit</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- End of My Favourite Add Modal -->
+                            <!-- Start of My Favourite Edit Modal -->
+
+                            <div class="modal fade" id="MyFavEdit" role="dialog">
+                                <div class="modal-dialog modal-md">
+
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header panel-head-4">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Edit Favorite</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <label for="email">Type:</label>
+                                                <select class="form-control" id="ddlFavCategory" disabled="">
+                                                    <!--<option value="Pages">Pages</option>
+                                                    <option value="Document">Document</option>
+                                                    <option value="Project">Project</option>
+                                                    <option value="Task">Task</option>
+                                                    <option value="QuickLink">QuickLink</option>
+                                                    <option value="Announcement">Announcement</option>
+                                                    <option value="Announcement">Experience</option>
+                                                    <option value="Announcement">Banner</option>
+                                                    <option value="Announcement">Activity</option>
+                                                    <option value="Announcement">Question</option>
+                                                    <option value="Announcement">WebPage</option>
+                                                    <option value="Announcement">External</option>-->
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Name">Name:</label>
+                                                <input type="text" class="form-control" id="txtFavName" placeholder="Enter Name" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Links">link:</label>
+                                                <input type="url" class="form-control" id="txtFavLinks" placeholder="Enter URL" />
+                                                <p class="add-Favorite-alert-msg" style="color: #e00; margin-top: 5px;">URL  start with http:// or https://</p>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer" id="ParentBtnEdit">
+                                            <button type="button" class="btn custom-btn-two-cancel" data-dismiss="modal" id="btnEditFav">Submit</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- End of My Favourite Edit Modal -->
+
+                            <!-- Filter Modal Popup starts -->
+                            <div class="modal fade " id="myModalFilter" role="dialog" style="display:none;">
+                                <div class="modal-dialog modal-md">
+                                    <div class="modal-content ">
+                                        <div class="modal-header">
+                                            <button type="button" class="close close-round" data-dismiss="modal">
+                                                <span class="close-icon">&times;</span>
+                                            </button>
+                                            <h4 class="modal-title">Filter</h4>
+                                        </div>
+                                        <div class="modal-body my-filter-modal-body">
+                                            <h5> Show contents, which are: </h5>
+
+                                            <div class="row">
+                                                <div class="col-sm-12 filter-audience">
+                                                    <div class="form-group custom-form-group">
+                                                        <label class="col-sm-3">Audience:</label>
+                                                        <select id="filter-audience" class="form-control col-sm-9">
+                                                            <option value="All" selected="">All</option>
+                                                            <option value="Corporate">Corporate</option>
+                                                            <option value="My Company">My Company</option>
+                                                            <option value="My Department">My Department</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!--<div class="col-sm-12 filter-published-on">
+                                                    <div class="form-group custom-form-group">
+                                                        <label class="col-sm-3">Published On:</label>
+                                                        <div class="col-sm-9">
+                                                            <span>Last </span>
+                                                                <input class="form-control" id="txtFilterDays" type="text" value="30" />
+                                                            <span> days</span>
+                                                        </div>  
+                                                    </div>
+                                                </div>-->
+                                            </div>
+    
+                                            <div class="row text-center" id="filterSubmit">
+                                                <button type="button" id="btnFilterSubmit" class="btn custom-btn">
+                                                    <label data-localize="Submit">Submit</label>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Filter Modal Popup ends -->
+
+
+                            <SharePoint:AjaxDelta id="DeltaPlaceHolderMain" BlockElement="true" IsMainContent="true" runat="server">
+                                <asp:ContentPlaceHolder id="PlaceHolderMain" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </SharePoint:AjaxDelta>
+
+                            <div id="myModal" class="modal1">
+                                <span class="close">
+                                    ×
+                                </span>
+                                <img class="modal-content1" id="img01" />
+                                <div id="caption">
+                                </div>
+                            </div>
+                            <!-- Creates the bootstrap modal where the image will appear -->
+                            <!--div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">
+                                                Close
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="" id="imagepreview" style="width: 100%;  max-width:749px; max-height: 600px;" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div-->
+                            <!--div class="modal fade" id="imagemodal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog1">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">
+                                                Close
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="" id="imagepreview1" style="max-width: 348px; width:100%" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div-->
+                        </div>
+                    </div>
+                    <!--Push is needed for the footer to be correctly placed on the page-->
+                    <div class="push ms-dialogHidden">
+                    </div>
+                    <!--search-language-company-->
+                    <!--end search-language-company-->
+                </div>
+                <!--Footer Start -->
+                <footer class="footer ms-dialogHidden" id="masterFooter">
+                    <div class="container-fluid">
+                        <div class="titan-footer">
+                            <!--<div class="col-md-12  col-xs-12 footer-bg">-->
+                            <div class="col-md-12  col-xs-12">
+                                <div class="col-md-10 col-sm-8 col-xs-12 foot-text1" id="footerCopyright" style="display:none; padding: 10px 0px 0px 0px;">
+                                    © Copyright 2019-20.
+                                </div>
+                                <div class="col-md-2 col-sm-4 col-xs-12 foot-text2" id="footerVersion" style="float:right;padding-right:15px !important;">
+                                    Version 2.4.0
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+                <!--End Footer Start -->
+                <!--End Wrapper Start-->
+            </div>
+            <!--bread crums-->
+            <!--end bread crums-->
+
+            <script type="text/javascript" src="../SiteAssets/MasterPageScripts/masterPage-2.2.js"></script>
+
+            <sharepoint:scriptblock runat="server">var g_Workspace = "s4-workspace"; </sharepoint:scriptblock>
+            <!--script type="text/javascript" src="../SiteAssets/MasterPageScripts/MultiLingualTitanSite.js"></script-->
+
+            <SharePoint:AjaxDelta id="DeltaFormDigest" BlockElement="true" runat="server"><asp:ContentPlaceHolder id="PlaceHolderFormDigest" runat="server"><sharepoint:formdigest runat="server" /></asp:ContentPlaceHolder></SharePoint:AjaxDelta>
+        </sharepoint:sharepointform>
+        <SharePoint:AjaxDelta id="DeltaPlaceHolderUtilityContent" runat="server"><asp:ContentPlaceHolder id="PlaceHolderUtilityContent" runat="server" /></SharePoint:AjaxDelta><asp:ContentPlaceHolder id="PlaceHolderTitleBreadcrumb" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderLeftNavBar" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderTopNavBar" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderLeftNavBarDataSource" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderCalendarNavigator" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderLeftActions" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderLeftNavBarTop" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderPageTitleInTitleArea" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderPageDescription" Visible="False" runat="server" /><asp:ContentPlaceHolder id="SPNavigation" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderQuickLaunchTop" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderQuickLaunchBottom" Visible="False" runat="server" />
+    </body>
+</SharePoint:SPHtmlTag>

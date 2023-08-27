@@ -1,0 +1,345 @@
+﻿<script>
+var siteURLDisussion="";
+$(document).ready(function(){
+	siteURLDisussion=titanForWork.getQueryStringParameter('DepartmentSiteUrl');
+	DisplayDiscussions();
+});
+ 
+function DisplayDiscussions() {
+	var webURI =  siteURLDisussion+ "/_api/web/lists/getbytitle('Discussions')/items?$select=ID,Title,Body,Author/Title,ApprovedDate,FileRef,Folder/ItemCount&$expand=Author,Folder/ItemCount&$filter=Active eq 1&$OrderBy=Created desc&$top=3";
+	$.ajax({
+        url: webURI,
+        headers: { "accept": "application/json;odata=verbose"},
+        async: true,
+        success: function (data)
+        {
+           	var results=data.d.results;
+           	var discussionHTML=''; 
+           	
+           	// Check If No Record Found Then Show "No Suggestion Found" message
+           	if(results.length==0)
+           	{
+				discussionHTML="<div class=\"norecordfound col-sm-8 col-xs-8 col-md-8\">";
+		        discussionHTML+="<h3 data-localize='NoRecord_Discussions' class=\"top5\"></h3>";
+		        discussionHTML+="</div>";
+		
+				$("#departmentalDiscussions").append(discussionHTML);
+				return;
+ 			}
+ 			
+			for (var i = 0; i < results.length; i++) {
+				var ItemID=results[i].ID;
+				var itemTitle=results[i].Title;
+				var itemDescription=results[i].Body;
+				var itemCreatedBy=results[i].Author.Title;
+				var approvedDate=new Date(results[i].ApprovedDate);
+				var NoOfReplied = results[i].Folder.ItemCount;
+				
+				var FileRef=  results[i].FileRef;
+				var viewSingleItem=siteURLDisussion+"/Lists/Discussions/Flat.aspx?RootFolder="+encodeURI(FileRef);
+		
+		        if(itemTitle!=null && itemTitle.length>50)
+		        {
+		        	itemTitle=itemTitle.substring(0,47)+'...';
+		        }
+				if(itemDescription!=null && itemDescription.length>150)
+		        {
+		        	itemDescription=$(itemDescription).text().substring(0,147)+'...';
+		        }
+				approvedDate=ShowCommonDateFormat(approvedDate); 
+
+				var linkurlIDiscussion="javascript:OpenPopUpPageWithTitle('"+viewSingleItem+"',null,null,null,'Discussion')";
+				discussionHTML+="<div class=\"row\">";
+		        discussionHTML+="<div class=\"col-md-12\"><h4 class=\"event-text-head\">"+itemTitle+"</h4></div>";
+		        discussionHTML+="<div class=\"col-sm-12\">"+itemDescription+"<a class=\"read-more\" style=\"padding-left:5px;\" href="+linkurlIDiscussion+"> Read more</a>";       
+		        discussionHTML+="<p style=\"font-size:11px;color:#000000;\">"+approvedDate+"  |  "+itemCreatedBy+" |  No. of Replies - "+ NoOfReplied  +"</p>";
+		        discussionHTML+=i==2?'':"<hr style='padding:0 0 5px 0'>";
+		        discussionHTML+="</div></div>";
+			}  
+			
+			$("#departmentalDiscussions").append(discussionHTML);
+		}, 
+        error: function (data)
+        {
+			console.log(data);
+        }
+    });
+}
+
+$(document).ready(function()
+{
+	$(".Discussions_Add").unbind().click(function(){
+		var submitEventFired=false;
+
+		$("#modalDiscussionApproval").modal('show');
+		$("#txtTitleDiscussion").val("");
+		$("#txtDescription").val("");
+		
+		$("#createNewDiscussion").unbind().click(function(){
+		if(submitEventFired)
+		{
+			return false;
+		}
+		if(FormValidationDiscussion())
+		{
+			var title=$("#txtTitleDiscussion").val();
+			var Description=$("#txtDescription").val();
+			var Department = siteURLNewInitiative.split('/')[6];
+			//$("#createNewDiscussion").attr("disabled",true);
+			if(title.trim().length>100)
+			{
+			   alert('Maximum 100 characters allowed in title.');			
+			   return false;
+			}
+			if(Description.trim().length>500)
+			{
+			 alert('Maximum 500 characters allowed in description.');
+			 return false;
+			}
+			submitEventFired=true;
+			AddNewTakDiscussion("Discussions",title,Description,Department);
+			
+		}
+	  });
+	});
+	//setTimeout(OnDiscussionLoad,2000);
+});
+
+function FormValidationDiscussion()
+{
+	var title=$("#txtTitleDiscussion");
+	var Description=$("#txtDescription");
+	if(title.val().trim().length==0)
+	{
+		alert("Please enter title.");
+		title.focus();
+		return false;
+	}
+	else if($.trim(Description.val())=='')
+	{
+		alert("Please enter description.");
+		Description.focus();
+		return false;
+	}
+	return true;
+}
+
+function AddNewTakDiscussion(ListName,title,Description,Department)
+{
+	try
+    {
+        var Metadata;
+        var ItemType = GetItemTypeForListName(ListName);
+            Metadata = {
+                __metadata: {
+                    'type': ItemType
+                },
+			   
+               Title: title,
+               Body:Description,
+               Department: Department
+            };
+            AddItemToDiscussionList(ListName, Metadata);         
+        
+    }
+    catch (error)
+    {
+        console.log(error.message);
+    }
+}
+
+function  AddItemToDiscussionList (ListName, Metadata) 
+ {
+    var dfd = $.Deferred();
+    $.ajax({
+        url: siteURLDisussion + "/_api/web/lists/getbytitle('" + ListName + "')/items",
+        type: "POST",
+        async: false,
+        headers: {
+            "accept": "application/json;odata=verbose",
+            "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+            "content-Type": "application/json;odata=verbose"
+        },
+        data: JSON.stringify(Metadata),
+        success: function (data) {
+            dfd.resolve(data);
+			var itemId= data.d.ID;
+			getDiscussionApprovers(itemId);
+			//alert("New Task Create Successfully");
+        },
+        error: function (error) {
+			
+            console.log(JSON.stringify(error));
+            dfd.reject(error);
+        }
+    });
+    return dfd.promise();
+}
+
+function getDiscussionApprovers(itemId)
+{
+	var departmentID=titanForWork.getQueryStringParameter('DepartmentId');
+	var companyID=titanForWork.getQueryStringParameter('CompanyId');
+	
+	var listName='ProcessApprovers';
+	siteURLRoot = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('"+listName+"')/items?$select=*&$filter=CompanyId eq '" + companyID + "' and DepartmentId eq '"+departmentID+"' and WebPartName eq 'Discussion'";
+    $.ajax({
+        url: siteURLRoot,
+        headers: { Accept: "application/json;odata=verbose" },
+        async: false,
+        success: function (data)
+        {
+			var items = data.d.results;
+			var allUsersID=new Array();
+			for (var groupIndex = 0; groupIndex < items.length; groupIndex++)
+            {
+                for (var subGroupIndex = 0; subGroupIndex < items[groupIndex].ApproverId.results.length; subGroupIndex++)
+                {
+                    
+                    if(allUsersID.indexOf(items[groupIndex].ApproverId.results[subGroupIndex])==-1)
+                    {	
+                        allUsersID.push(items[groupIndex].ApproverId.results[subGroupIndex]);
+                    }
+                }
+            }
+			createDiscussionApprovalTask(allUsersID,itemId);
+
+			
+        }, eror: function (data)
+        {
+            console.log($('#txtSomethingWentWrong').val());
+        }
+    });
+}
+
+
+function createDiscussionApprovalTask(allUsersID,itemId)
+{
+	try
+    {
+		var departmentID=titanForWork.getQueryStringParameter('DepartmentId');
+		var companyID=titanForWork.getQueryStringParameter('CompanyId');
+		var title=$("#txtTitleDiscussion").val();
+		var ShortDescription=$('#txtDescription').val();//$("#txtShortDescription").val();
+        var Metadata;
+        var ItemType = GetItemTypeForListName("ApprovalTaskList");
+            Metadata = {
+                __metadata: {
+                    'type': ItemType
+                },
+			   
+               Title: title,
+               Details: ShortDescription,
+			   CompanyId:companyID,
+			   DepartmentIdId:departmentID,
+			   ApproversId:{'results':allUsersID},
+			   WebpartName:"Discussion",
+			   Status:"Initiated",
+			   ItemId:itemId
+            };
+            AddTaskToApprovalList("ApprovalTaskList", Metadata);         
+        
+    }
+    catch (error)
+    {
+        console.log(error.message);
+    }
+}
+
+function  AddTaskToApprovalList (ListName, Metadata) 
+ {
+    var dfd = $.Deferred();
+    $.ajax({
+        url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('" + ListName + "')/items",
+        type: "POST",
+        async: false,
+        headers: {
+            "accept": "application/json;odata=verbose",
+            "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+            "content-Type": "application/json;odata=verbose"
+        },
+        data: JSON.stringify(Metadata),
+        success: function (data) {
+            dfd.resolve(data);
+			alert("New Discussion has been added and sent for approval");
+			$("#modalDiscussionApproval").modal('hide');
+        },
+        error: function (error) {
+			
+            console.log(JSON.stringify(error));
+            dfd.reject(error);
+        }
+    });
+    return dfd.promise();
+}
+
+function GetItemTypeForListName (ListName) 
+{
+    return "SP.Data." + ListName.charAt(0).toUpperCase() + ListName.split(" ").join("").slice(1) + "ListItem";
+}
+
+
+</script>
+<style>
+.required:after {
+  content:"*";
+  color:red;
+}
+</style>
+	<div id="discussionTestingDiv"></div>
+	<div id="departmentalDiscussions">
+	</div>
+	<div id="modalDiscussionApproval" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content" class="modal-dialog">
+				<div class="modal-header panel-head-4">
+					<button type="button" class="close h4-color" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title h4-color" data-localize="Discussions"></h4>
+				</div>
+				<div class="modal-body">
+					<div class="panel-body">
+						<div class="form-horizontal">
+							<div class="form-group">
+								<label for="" class="col-sm-3 control-label popup_label required" data-localize="Title"></label>
+								<div class="col-sm-9">
+									<input type="" class="form-control" id="txtTitleDiscussion">
+								</div>
+							</div>
+							<div class="form-group" style="display:none;">
+								<label for="" class="col-sm-3 control-label popup_label required">Short Description</label>
+								<div class="col-sm-9">
+									<input type="" class="form-control" id="txtShortDescription">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="" class="col-sm-3 control-label popup_label required" data-localize="Description"></label>
+								<div class="col-sm-9">
+									<textarea class="form-control" rows="4" id="txtDescription" style="resize:none"></textarea>
+								</div>
+							</div>
+							<div class="row text-center">               
+								<button type="button" class="btn  btn-outline-success" name="createNewDiscussion" id="createNewDiscussion" data-localize="Submit"></button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"><head>
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:_dlc_DocId msdt:dt="string">ADMIN-1645029823-403</mso:_dlc_DocId>
+<mso:_dlc_DocIdItemGuid msdt:dt="string">38eb9132-c572-4ffd-8db0-1bf524074a65</mso:_dlc_DocIdItemGuid>
+<mso:_dlc_DocIdUrl msdt:dt="string">https://adaptindia.sharepoint.com/sites/Titan_2_2_1_DEV/_layouts/15/DocIdRedir.aspx?ID=ADMIN-1645029823-403, ADMIN-1645029823-403</mso:_dlc_DocIdUrl>
+<mso:MediaServiceImageTags msdt:dt="string"></mso:MediaServiceImageTags>
+<mso:lcf76f155ced4ddcb4097134ff3c332f msdt:dt="string"></mso:lcf76f155ced4ddcb4097134ff3c332f>
+<mso:TaxCatchAll msdt:dt="string"></mso:TaxCatchAll>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor msdt:dt="string">Mohd  Muqtdeer</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor>
+<mso:Order msdt:dt="string">40300.0000000000</mso:Order>
+<mso:_ExtendedDescription msdt:dt="string"></mso:_ExtendedDescription>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author msdt:dt="string">Rakesh Khambra</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author>
+<mso:ContentTypeId msdt:dt="string">0x010100888F714E82EDFB4390B58950E6EEDFE5</mso:ContentTypeId>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+<title></title></head>

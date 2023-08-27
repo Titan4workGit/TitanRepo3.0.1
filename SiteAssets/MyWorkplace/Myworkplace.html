@@ -1,0 +1,825 @@
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/MyWorkplace/css/home-style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/MyWorkplace/css/workplace-dark-theme.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/MyWorkplace/css/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/MyWorkplace/css/jquery-ui.css">
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/MyWorkplace/css/NewCss/padding.css">
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/MyWorkplace/css/NewCss/home-style.css">-->
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/MyWorkplace/css/NewCss/work-style.css">
+
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/MyWorkplace/css/jquery-ui.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/Attendance/assets/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/MyWorkplace/js/MediaGallery.js?lak1254"></script>
+
+
+<div class="overlay"></div>
+
+<!-- <div class="timeline-toggle">
+  <a class="timeline-open" >
+    <img src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/DevelopersCode/DefaultHome/images/timeline-logo-300.png" width="20" height="20" alt=""/>
+  </a>
+</div> -->
+<div class="timeline-toggle">
+    <a class="timeline-open">
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </a>
+</div>
+
+<!-- <label class="switch" style="margin-bottom: 15px;">
+  <input type="checkbox" id="dark-theme-btn" onchange="ApplyDarkThemes();">
+  <span class="slider round"></span>
+</label> -->
+	
+<div class="container-fluid container-mobile mb15 my_workplace_container">    
+	<div class="col-lg-9 col-md-12 pl5 pr0">
+		<div class="col-md-12 p0 module-slider-area">
+			<ul class="Myworkplace-new-menu-ul">
+				<li class="Myworkplace-new-menu-ul-main-li" id="Timesheet-toggle-li" style="display:none;">
+					<a class="Timesheet-toggle popup-toggle Timesheet-plus" id="Timesheet-toggle" href="javascript:void(0)">Timesheet</a>
+					<div class="Timesheet-menu popup-menu menu-controls" id="Timesheet-menu">
+		        		<ul>
+		        			<li><a href="#" id="Timesheet-Entry"><span>Timesheet Entry</span></a></li>
+		            		<li><a href="#" id="TimesheetEntry"><span>My Timesheet</span></a></li>
+		            		<li><a href="#" id="TimesheetApproval"><span>Timesheet Approval</span></a></li>
+		        		</ul>
+		        	</div>
+				</li>
+				<li class="Myworkplace-new-menu-ul-main-li" id="Attendance-toggle-li" style="display:none;">
+					<a class="Timesheet-toggle popup-toggle Timesheet-plus" id="Attendance-toggle" href="javascript:void(0)">Attendance</a>
+					<!-- <a href="#" data-toggle="modal" data-target="#MyAttendance" onclick="SetAttendanceDDL();"><span>Attendance</span></a> -->
+
+					<div class="Attendance-menu popup-menu menu-controls" id="Attendance-menu">
+		        		<ul>
+		        			<!--<li><a href="#" data-toggle="modal" data-target="#MyAttendance" onclick="SetAttendanceDDL();"><span>Today Attendance</span></a></li>-->
+		        			<li><a href="#" data-toggle="modal" data-target="#MyAttendance" onclick="SetAttendanceDDL();"><span>Today's Attendance</span></a></li>
+		               		<li><a href="#" id="My-Attendance-report"><span>My Attendance</span></a></li>            		
+		        		</ul>
+		        	</div>
+				</li>
+				<li class="Myworkplace-new-menu-ul-main-li" style="display:none;">
+					<a class="Timesheet-toggle popup-toggle Timesheet-plus" id="Leaves-toggle" href="javascript:void(0)">Leaves</a>
+
+					<div class="Leave-menu popup-menu menu-controls" id="Leaves-menu">
+		        		<ul>
+		        			<li><a href="#" id=""><span>Leave Apply</span></a></li>
+		            		<li><a href="#" id=""><span>My Leaves</span></a></li>            		
+		        		</ul>
+		        	</div>
+				</li>
+				<li class="Myworkplace-new-menu-ul-main-li">
+					<a href="#" id="Holidaysbtn" style=""><span>Holidays</span></a>
+				</li>
+				<li class="Myworkplace-new-menu-ul-main-li" style="display:none">
+					<a class="Timesheet-toggle popup-toggle Timesheet-plus" id="Timesheet-toggle" href="javascript:void(0)">Process Approval</a>
+				</li>
+				<li class="Myworkplace-new-menu-ul-main-li" id="Reports-toggle">
+					<a class="Timesheet-toggle popup-toggle Timesheet-plus" href="javascript:void(0)">Reports</a>
+					<div class="Report-menu popup-menu menu-controls" id="Reports-menu">
+		        		<ul>
+		        			<li><a href="#" id="AttendanceRegister"><span>Attendance Register</span></a></li>
+		               		<li><a href="#" id="AttendanceReport"><span>Attendance Report</span></a></li>
+		            		<li><a href="#" id="TimesheetReport"><span>Timesheet Report</span></a></li>
+		            		<li><a href="#" id="Analytics_Link"><span>Analytics</span></a></li>            		
+		        		</ul>
+		        	</div>
+				</li>
+				<li class="Myworkplace-new-menu-ul-main-li">
+					<a class="Timesheet-toggle popup-toggle Timesheet-plus" id="Clients-toggle" href="#">Clients</a>
+				</li>
+				
+				<li class="Myworkplace-new-menu-ul-main-li">
+					<a class="Timesheet-toggle popup-toggle Timesheet-plus" id="Guest-Users-toggle" href="#">Guest Users</a>
+				</li>
+				<li class="Myworkplace-new-menu-ul-main-li contact-center-workplace-box">
+					<a class="Timesheet-toggle popup-toggle Timesheet-plus" id="Contact-Center-toggle" href="#">Contact Center
+					<span class="workplace-custom-notify" id="TotalNotifications" style="display: none">0</span>	
+					</a>
+				</li>
+
+
+			</ul>
+		</div>
+		
+	
+	
+			<div class="col-md-12 pt10 pl0 pr0 mpr10 quick_slider_main_box">
+				<div class="panel panel-default panel-mb0">
+                <div class="panel-body panel-body-quick-slider ">
+				<div class="owl-carousel owl-carousel-quick-slider quick-slider owl-theme" id="WorkPlaceAppLink">
+                            
+				</div>
+				<div class="panel-footer-WorkPlaceAppLink">
+                	<p> <span>*</span> By clicking on the above links, you will be redirected to a new page. </p>
+                </div>
+				</div>
+				</div>
+			</div>
+
+            <div class="col-md-6 col-sm-6 pt10 pl0 pr0 mpr10 knowledge_document_main_box">
+				
+                <div class="col-lg-12 col-md-12 col-sm-12 column-sm p0 knowledge_base_main_box">
+					
+					<div class="col-md-12 p0">
+					<div class="panel panel-default panel-mb0">
+						<!-- panel-heading-bg-txt-clr -->
+					  <div class="panel-heading panel-heading-knowledge "><span class="knowledge-head-text" data-localize="WorkplaceKnowledge">Knowledge Base</span></div>
+					  <div class="panel-body panel-body-knowledge ">
+						<!-- <a id="addKnowledge" style="cursor:pointer; display:none" class="knowledge-plus"><strong>+</strong></a> -->
+                        <div class="owl-carousel knowledge-filter owl-theme">
+                        <a><span style="cursor:pointer;" id="currentKnowledgeDept"></span></a>
+                         
+                        </div> 
+						<div class="list-group knowledge-list custom-scroll" id="DeptKnowledgeList">
+						  
+						</div>
+					  </div>
+						<div class="knowledge-view pt5 pl10 pb5"><a class="my_view_arrow_w" id="viewKnowledgeDept"><i class="fa fa-chevron-right"></i></a></div>
+					</div>
+					</div>
+					
+				</div>
+				
+				<div class="col-md-12 col-sm-12 p0 pt10" id="MediaDiv" style="display: none;">
+    		<div id="MedBox" class="custom-col-4 media-col-left">
+						<div class="container-card-info pb0">
+							<div class="container-card-heading-panel">
+								<span class="container-card-heading-text" data-localize="WorkplaceMedia">Media Gallery</span>
+								<span class="container-card-heading-icon" style="display:none">+</span>
+							</div>
+							<div class="row container-card-body container-card-body-media-new  custom-scroll panel-scrollbar-panel-hover ml0 mr0 pb0" id="media-body-div">
+								<div id="slider-container" class="slider">
+								
+								</div>
+								<div onclick="prev()" class="control-prev-btn" id="media-prev-btn">
+                                   <span class="glyphicon glyphicon-chevron-left"></span>
+                                </div>
+                                <div onclick="next()" class="control-next-btn" id="media-next-btn">
+                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                </div>
+							</div>
+							<!-- <div class="container-card-footer">
+								<a href="https://adaptindia.sharepoint.com/sites/Titan_2_2_1_DEV/Pages/MediaGallery.aspx?WebAppId=2">
+									<img src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/MyWorkplace/css/NewCss/Images/left-arrow-circle-icon.png" alt="left arrow circle icon">
+								</a>
+							</div> -->
+							<div class="panel-footer-WorkplaceMedia">
+                				<p> <span>*</span> By clicking on the above links, you will be redirected to a new page. </p>
+                			</div>
+
+							<div class="workplace-media-gallery-view pt5 pl10 pb5"><a class="my_view_arrow_w" id="viewmedia-1" href="#"><i class="fa fa-chevron-right"></i></a></div>
+						</div>
+					</div>
+        </div>
+				
+				
+        </div>
+<!-------------end Document webpart------------------------------------->
+
+<!------------Start Media and magazine webpart ----------------------------------------------------------->
+<div class="col-md-6 col-sm-6 pt10 pl0 pr0 mpr10">
+		
+		<div class="col-lg-12 col-md-12 col-sm-12 column-md pl10 pr0 mpl0 mpt10 documents_main_box">
+				  
+				  <div class="col-md-12 p0">
+					<div class="panel panel-default panel-mb0">
+						<!-- panel-heading-bg-txt-clr -->
+					  <div class="panel-heading panel-heading-documents"><span class="documents-head-text" data-localize="WorkplaceDocument">Documents</span></div>
+					  <div class="panel-body panel-body-documents ">
+						<!--<a href="#" class="documents-plus"><strong>+</strong></a>-->
+                        <div class="owl-carousel documents-filter owl-theme">
+                        <a><span style="cursor:pointer;" id="btnCorporate">Corporate</span></a>
+                        <a><span style="cursor:pointer;" id="currentDocDept"></span></a>
+                          
+                        </div> 
+						<div class="documents-list custom-scroll">
+							<ul class="list-group" id="DeptDocList">
+								
+							</ul>
+						</div>
+					  </div>
+						<div class="documents-view pt5 pl10 pb5"><a class="my_view_arrow_w" id="docView" href="#"><i class="fa fa-chevron-right"></i></a></div>
+					</div>
+					</div>
+                    
+              </div>
+		
+		<div class="col-md-12 col-sm-12 tpl10 pl10 pr0 pt10" id="magazineBodyDiv" style="display: none;">
+		
+		<div id="MazBox" class="custom-col-4 media-col-center">
+						<div class="container-card-info pb0">
+							<div class="container-card-heading-panel">
+								<span class="container-card-heading-text" data-localize="WorkplaceMagazine">What are we Learning?</span>
+								<span class="container-card-heading-icon" style="display:none">+</span>
+							</div>
+							<div class="row container-card-body container-card-body-media-new  custom-scroll panel-scrollbar-panel-hover ml0 mr0 pb0" id="magazine-body-div">
+								<div id="slider-container2" class="slider">
+								
+								</div>
+								<div onclick="prev2()" class="control-prev-btn" id="magazine-prev-btn">
+                                   <span class="glyphicon glyphicon-chevron-left"></span>
+                                </div>
+                                <div onclick="next2()" class="control-next-btn" id="magazine-next-btn">
+                                   <span class="glyphicon glyphicon-chevron-right"></span>
+                                </div>
+							
+							</div>	
+							<div class="panel-footer-WorkplaceMagazine">
+                				<p> <span>*</span> By clicking on the above links, you will be redirected to a new page. </p>
+                			</div>
+						
+							<div class="what-are-we-learning-view pt5 pl10 pb5"><a class="my_view_arrow_w" id="magazineview" href="#"><i class="fa fa-chevron-right"></i></a></div>
+						</div>
+					</div>
+					
+	    </div>
+		
+		
+	
+	</div>         
+
+
+
+<!-------------------End-------------------------------------->
+
+	
+
+ </div>
+<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 pl10 pr10 slide-area" >
+
+<!--<div class="timeline-back"> <a class="timeline-close" ><i class="fa fa-arrow-left"></i> Back to Home</a></div>-->
+<div class="timeline-back"> <a class="timeline-close" >Back to Home</a></div>
+	
+<div class="panel panel-default panel-mb5 panel-mob-mt5">
+              
+    <div class="panel-body panel-padding-area">
+        <div class="popup-menu" id="popup-menu">
+        <ul>
+            <li><a href="#" class="acivities-new" id="Acivities" data-localize="Activities">Activities</a></li>
+            <li><a href="#" class="suggestion-new" id="Suggestion" data-localize="Suggestion">Suggestion</a></li>
+            <li><a href="#" class="initiative-new" id="Initiative" data-localize="Initiative">Initiative</a></li>
+            
+        </ul>
+        </div>
+    <div class="panel-heading p0">
+		<div>
+			<a class="popup-toggle timeline-plus" href="javascript:void(0)" id="popup-toggle"><strong>+</strong></a>
+				<div class="owl-carousel timeline-filter owl-theme">
+			
+			  <a href="#" class="CategotyValues" id="F_All" onclick="GetCategotyValues(this.id)"><span>All</span></a>
+			  <a href="#" class="CategotyValues" id="F_Acivities" onclick="GetCategotyValues(this.id)"><span data-localize="Activities">Activities</span></a>
+			  <a href="#" class="CategotyValues" id="F_Suggestion" onclick="GetCategotyValues(this.id)"><span data-localize="Suggestion">Suggestion</span></a>
+			  <a href="#" class="CategotyValues" id="F_Initiative" onclick="GetCategotyValues(this.id)"><span data-localize="Initiative">Initiative</span></a>
+			  
+			  
+		<span >&nbsp; | &nbsp;</span>
+		
+			</div>
+		</div>
+		
+
+		
+	</div>
+    
+        
+        
+
+<div class="TimelineDesign custom-scroll">
+	<div id="ActivityTimeLine">
+      
+
+	</div>	  		
+</div>
+
+<div class="col-sm-12 col-xs-12" style="display:none">
+	<div class="col-sm-6 col-xs-6 ma0 text-center pt10 pb5">
+		
+		<a id="seemorebtn" style="visibility:hidden" class="timeline-extend" onclick="ReadTimeLine();"><span>See More</span></a>
+	</div>
+</div>
+                      
+</div>
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+	
+
+	
+<!-- Modal -->
+
+<!-- Modal -->
+
+
+<!-- Details model for Activity TimeLine-->
+	
+<div id="ActivityTimeLineModel" class="modal fade" role="dialog" aria-hidden="false">
+	<div class="modal-dialog modal-lg">
+		<!-- Modal content-->
+    	<div class="modal-content">
+      		<div class="modal-header">
+        		<button type="button" class="close" data-dismiss="modal">×</button>
+        		<h3 class="modal-title text-bold" style="background-color: transparent !important;"><span id="_ModelHeading"></span></h3>
+      		</div>
+      		<div class="modal-body">
+			 	<div class="col-md-12  pb20 pl0 pr0">
+					<div class="clearfix"></div>
+		  			<div class="custom_popup_my_links_attach">
+			  			<div class="col-md-12 col-sm-12 col-xs-12 p0">
+							<p style="font-size: 15px;"><strong><span id="_TextTitle"></span></strong></p>
+							<div>
+								<span id="textDepartment">101</span><span> | </span><span id="textdate">102</span>
+							</div>
+							<hr>
+						</div>
+						
+						<div class="col-md-12 col-sm-12 col-xs-12 p0 custom_popup_description custom-scroll">
+							<p style="font-size: 15px;"><span id="_DtlDescription"></span></p>
+						</div>
+						<div class="col-md-12 col-sm-12 col-xs-12 pt10 pl0 pr0">
+					   		<div class="attachment-badge mt-10" id="_AttachDocument"></div>
+		  				</div>
+		  			</div>
+		  <div class="clearfix"></div>	
+            </div>
+    </div><div class="clearfix"></div>	
+</div>
+  </div>
+</div>
+
+
+
+<div id="MyAttendance" class="modal fade" role="dialog" aria-hidden="false">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close close-round bg-white-round-btn" data-dismiss="modal" onclick="SetCurrentdate();">&times;</button>
+				<h4 class="modal-title">My Attendance</h4>
+			</div>
+			<div class="modal-body approval-inbox-istab">
+				<div class="row">
+					<div class="col-md-12 col-sm-12 col-xs-12">
+						<div class="form-group custom-form-group">
+							<label for="Project">Date:</label>
+							<input type="text" placeholder="mm/dd/yyyy" class="form-control" id="timesheetdate" name="From" readonly="readonly" onchange="SetAttendanceDDL();" >
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 col-sm-12 col-xs-12">
+						<div class="form-group custom-form-group">
+							<label for="Project">Attendance:</label>
+							<select class="form-control" id="AttendanceDDL">
+								<option value="0">Select</option>
+								<option value="Full Day">Full Day</option>
+								<option value="1st Half">1st Half</option>
+								<option value="2nd Half">2nd Half</option>												
+								<option value="On-Leave">On-Leave</option>
+								<option value="Holiday" id="HolidayDDLOPT">Holiday</option>
+							</select>
+						</div>
+					</div>					
+				</div>
+				<div class="row">
+					<div class="col-md-12 col-sm-12 col-xs-12" id="HR-Message">
+						<div class="form-group custom-form-group">
+							<label for="Project" style="color: red;">Verified by HR.</label>
+						</div>
+					</div>
+					
+					<div class="col-md-12 col-sm-12 col-xs-12" id="HolidayMessage" style="display:none;">
+						<div class="form-group custom-form-group">
+							<label for="Project" style="color: red;" id="HolidayMessagediv"></label>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class="modal-footer approval-modal-footer" style="text-align:center">
+				<a class="btn custom-btn mr-8" onclick="Attendance();" id="Submit-attendance">Submit</a>
+				<a class="btn custom-btn-two-cancel"  data-dismiss="modal" onclick="SetCurrentdate();">Close</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+<!-------------password model---------------------->
+
+<!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+           <h4 class="modal-title">Password</h4>
+        </div>
+        <div class="modal-body">
+         <div id="pass">
+	         <input type="password" class="form-control" id="password">
+	     <label>
+		      <input type="checkbox" id="methord">
+		        <i class="fa fa-eye"></i>
+		         <i class="fa fa-eye-slash"></i>
+	     </label>	
+        </div>       
+        </div>
+        <div class="modal-footer" style="text-align:center">
+                  
+          <button type="button" class="btn custom-btn" onclick="bindevent()" id="btnPasswordField">Submit</button>
+          <button type="button" class="btn custom-btn-two-cancel" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+	
+	
+<!-- /Main -->
+
+<!--Iframe Image POpup starts-->
+    <div class="modal fade" id="AttachmentView" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">
+                        Attachment View
+                    </h4>
+                </div>
+                <div class="modal-body form-horizontal">
+
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <!--<iframe name="iframe_a" id="Iframeview" class="embed-responsive-item" style="width: 99%;height: 423px;"></iframe>-->
+                        <div id="doc-viewer" style="height:415px">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+<!--Iframe Image POpup ends-->
+
+<!--Start Group Link popup 25 march 2022---->
+
+<div class="modal fade" id="MyLinkGroupsModal" role="dialog" aria-hidden="false">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">×</button>
+				<h4 class="modal-title">Group Name</h4>
+				</div>
+				<div class="modal-body my_groups_modal_body">
+				<div class="groups_names" id="GroupAppLink">
+				
+				</div>
+				<div class="modal-footer" style="text-align:center">
+				  <button type="button" class="btn custom-btn-two-cancel" data-dismiss="modal">Close</button>
+			    </div>
+		</div>
+	</div>
+</div>
+
+
+<!--Group link popup end--->
+
+
+<!-- jQuery library -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/MyWorkplace/js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/DevelopersCode/DefaultHome/js/gfapi.js"></script> 
+<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/MyWorkplace/js/Rssfeed.js"></script>--> 
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/MyWorkplace/js/TasksCount.js"></script> 
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/MyWorkplace/js/Knowledge.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/MyWorkplace/js/ActivityTimeline.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/MyWorkplace/js/MyAttendance.js"></script>
+<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/MyWorkplace/js/ContactCenter4workplace.js"></script>-->
+
+
+
+<script>
+
+
+</script>
+
+<script>
+
+(function ($) {
+    //Here jQuery is $
+    var Book = $(document.body).text();
+    if(IsTimesheetInvisible == true)
+    {
+    	$("#Timesheet-toggle-li").css("display", "inline-block");
+	}
+	
+	if(IsAttendanceInvisible == true)
+	{
+		$("#Attendance-toggle-li").css("display", "inline-block");
+	}     
+
+})(jQuery);
+
+$('.module-slider').owlCarousel({
+		// loop:true,
+        speed:500,
+        margin:10,
+        autoWidth:true,
+        slideBy: 2,
+		nav:true,
+		dots:false,
+		responsive:{
+				0:{
+						items:1
+				},
+				768:{
+						items:3
+				},
+				1024:{
+						items:4
+				},
+				1366:{
+						items:5
+				}
+		}
+})
+  
+</script>
+
+<script>
+
+$(document).ready(function(){
+	//BindDepartmentinfilterMenu();
+	$("#timesheetdate").datepicker({ dateFormat: "dd/mm/yy",maxDate: 0 }).datepicker("setDate", new Date());
+	ValidateHrAdmin();
+	ValidateClient();
+	userActivityNotificationEntry(_spPageContextInfo.userId,window.location)
+
+	$(".timeline-open").click(function(){
+    	$(".slide-area").addClass("slide-open");
+    	$(".overlay").show();
+    	$("body").css("overflow-y", "hidden");
+  	});
+    
+  	$(".timeline-close").click(function(){
+  	  $(".slide-area").removeClass("slide-open");
+  	  $(".overlay").hide();
+  	  $("body").css("overflow-y", "" );
+  	});
+  
+  	var Suggestion_link=  _spPageContextInfo.webServerRelativeUrl + "/Pages/Activity.aspx?Mode=Add&WebAppId="+titanForWork.getQueryStringParameter("CompanyId")+"&Type=Suggestion&sourcelocation=../Pages/Myworkplace.aspx#";
+  	$('#Suggestion').attr('href', Suggestion_link);
+  	
+  	var Initiative_link=  _spPageContextInfo.webServerRelativeUrl + "/Pages/Activity.aspx?Mode=Add&WebAppId="+titanForWork.getQueryStringParameter("CompanyId")+"&Type=Initiative&sourcelocation=../Pages/Myworkplace.aspx#";
+	$('#Initiative').attr('href', Initiative_link);
+  	
+  	var Acivities_link=  _spPageContextInfo.webServerRelativeUrl + "/Pages/Activity.aspx?Mode=Add&WebAppId="+titanForWork.getQueryStringParameter("CompanyId")+"&Type=Activities&sourcelocation=../Pages/Myworkplace.aspx#";
+  	$('#Acivities').attr('href', Acivities_link);
+  	
+  	//TimesheetEntry	TimesheetApproval
+  	var Timesheet_Entry_link=  _spPageContextInfo.webServerRelativeUrl + "/Pages/TimeSheetEntry.aspx?WebAppId="+titanForWork.getQueryStringParameter("CompanyId")+"&sourcelocation=../Pages/Myworkplace.aspx#";
+  	$('#Timesheet-Entry').attr('href', Timesheet_Entry_link);
+  	
+  	var TimesheetEntry_link=  _spPageContextInfo.webServerRelativeUrl + "/Pages/timesheet.aspx?WebAppId="+titanForWork.getQueryStringParameter("CompanyId")+"&sourcelocation=../Pages/Myworkplace.aspx#";
+  	$('#TimesheetEntry').attr('href', TimesheetEntry_link);
+  	
+  	var TimesheetApproval_link=  _spPageContextInfo.webServerRelativeUrl + "/Pages/TimeSheetApproval.aspx?WebAppId="+titanForWork.getQueryStringParameter("CompanyId")+"&sourcelocation=../Pages/Myworkplace.aspx#";
+  	$('#TimesheetApproval').attr('href', TimesheetApproval_link);
+  	
+  	var Holidays_link=  _spPageContextInfo.webServerRelativeUrl + "/Pages/Holidays.aspx?WebAppId="+titanForWork.getQueryStringParameter("CompanyId")+"&sourcelocation=../Pages/Myworkplace.aspx#";
+  	$('#Holidaysbtn').attr('href', Holidays_link);
+  	
+  	var Analytics_Link=  _spPageContextInfo.webServerRelativeUrl + "/Pages/AnalyticalReport.aspx?WebAppId="+titanForWork.getQueryStringParameter("CompanyId")+"&sourcelocation=../Pages/Myworkplace.aspx#";
+  	$('#Analytics_Link').attr('href', Analytics_Link);
+  	
+  	var Report_Link=  _spPageContextInfo.webServerRelativeUrl + "/Pages/Report.aspx?WebAppId="+titanForWork.getQueryStringParameter("CompanyId")+"&sourcelocation=../Pages/Myworkplace.aspx#";
+  	$('#AttendanceReport').attr('href', Report_Link);
+  	var AttendanceRegister=  _spPageContextInfo.webServerRelativeUrl + "/Pages/Report.aspx?WebAppId="+titanForWork.getQueryStringParameter("CompanyId")+"&sourcelocation=../Pages/Myworkplace.aspx#";
+  	$('#AttendanceRegister').attr('href', AttendanceRegister);
+  	
+  	
+	
+	var strDate= new Date();
+	var start = moment(strDate,'DD/MM/YYYY').format('YYYY-MM-DD');
+	var StartDate = start.split('-').join('');
+	
+	var today = new Date();
+	var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7);
+	var end = moment(lastWeek,'DD/MM/YYYY').format('YYYY-MM-DD');
+	
+	var EndDate = end.split('-').join('');
+
+	//My-Attendance-report
+	var MyAttendancereport=  _spPageContextInfo.webServerRelativeUrl + "/Pages/EmployeeReport.aspx?EID="+_spPageContextInfo.userId+"&start="+EndDate+"&end="+StartDate+"&WebAppId="+titanForWork.getQueryStringParameter("CompanyId")+"&sourcelocation=../Pages/Myworkplace.aspx#";
+	$('#My-Attendance-report').attr('href', MyAttendancereport);
+	
+	var TimesheetReport = _spPageContextInfo.webServerRelativeUrl + "/Pages/TimesheetReport.aspx?WebAppId="+titanForWork.getQueryStringParameter("CompanyId")+"&sourcelocation=../Pages/Myworkplace.aspx#";
+	$('#TimesheetReport').attr('href', TimesheetReport);
+	
+	var clientmaster = _spPageContextInfo.webServerRelativeUrl + "/Pages/clientmaster.aspx?WebAppId="+window.btoa(titanForWork.getQueryStringParameter("CompanyId"))+"&sourcelocation=../Pages/Myworkplace.aspx#";
+	$('#Clients-toggle').attr('href', clientmaster);
+
+	var ExternalUsers = _spPageContextInfo.webServerRelativeUrl + "/Pages/ExternalUsers.aspx?WebAppId="+window.btoa(titanForWork.getQueryStringParameter("CompanyId"))+"&sourcelocation=../Pages/Myworkplace.aspx#";
+	$('#Guest-Users-toggle').attr('href', ExternalUsers);
+	
+	var ContactCenter = _spPageContextInfo.webServerRelativeUrl + "/Pages/ContactCenter.aspx?WebAppId="+window.btoa(titanForWork.getQueryStringParameter("CompanyId"))+"&sourcelocation=../Pages/Myworkplace.aspx#";
+	$('#Contact-Center-toggle').attr('href', ContactCenter);
+
+
+
+});
+
+</script>
+    
+<script> 
+$("#popup-toggle").click(function(){
+	$("#Timesheet-menu").hide();
+	$("#Reports-menu").hide();
+	$("#Attendance-menu").hide();
+    $("#popup-menu").toggle();
+});
+//Timesheet
+$("#Timesheet-toggle").click(function(){
+	$("#popup-menu").hide();
+	$("#Reports-menu").hide();
+	$("#Attendance-menu").hide();
+    $("#Timesheet-menu").toggle(100);
+});
+// Attendance
+$("#Attendance-toggle").click(function(){
+	$("#popup-menu").hide();
+	$("#Timesheet-menu").hide();
+	$("#Reports-menu").hide();
+    $("#Attendance-menu").toggle(100);
+});
+//Leaves
+$("#Leaves-toggle").click(function(){
+	$("#popup-menu").hide();
+	$("#Timesheet-menu").hide();
+	$("#Reports-menu").hide();
+	$("#Attendance-menu").hide();
+    $("#Leaves-menu").toggle(100);
+});
+//Reports
+$("#Reports-toggle").click(function(){
+	$("#popup-menu").hide();
+	$("#Timesheet-menu").hide();
+	$("#Attendance-menu").hide();
+    $("#Reports-menu").toggle(100);
+});
+
+$(".suggestion-new, .initiative-new").on("click", function(){
+    $(".popup-menu").hide();
+    $("#Timesheet-menu").hide();
+});
+
+function ValidateHrAdmin()
+{
+	var listName='ProcessApprovers';
+	var siteURL = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('"+listName+"')/items?$select=*,Department/DepartmentName,Department/ID&$expand=Department&$filter=CompanyId eq '" +titanForWork.getQueryStringParameter('CompanyId')+ "' and ContributorsId eq '"+_spPageContextInfo.userId+"' and (WebPartName eq 'HR Admin' or WebPartName eq 'Tech Admin' )";
+    $.ajax({
+        url: siteURL,
+        async:false,
+        type: "get",
+        headers: { "Accept": "application/json;odata=verbose" },
+        success: function (data)
+        {
+        	//var option = "";
+            var valuesArray = data.d.results;
+            if(valuesArray.length>0)
+            {
+				$("#Reports-toggle").css("display", "inline-block");
+				//ValidateHRAdmin = "block";
+			}
+            else
+            {
+             	$("#Reports-toggle").css("display", "none");
+             	//ValidateHRAdmin = "none";
+            }
+		},
+        error: function (data) 
+        {
+			console.log(data.responseJSON.error);
+        }
+	});
+}
+
+function ValidateClient()
+{
+	var listName='ProcessApprovers';
+	var siteURL = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('"+listName+"')/items?$select=*,Department/DepartmentName,Department/ID&$expand=Department&$filter=CompanyId eq '" +titanForWork.getQueryStringParameter('CompanyId')+ "' and ContributorsId eq '"+_spPageContextInfo.userId+"' and (WebPartName eq 'ClientMaster')";
+    $.ajax({
+        url: siteURL,
+        async:false,
+        type: "get",
+        headers: { "Accept": "application/json;odata=verbose" },
+        success: function (data)
+        {
+        	//var option = "";
+            var valuesArray = data.d.results;
+            if(valuesArray.length>0)
+            {
+				$("#Clients-toggle").css("display", "inline-block");
+				//ValidateHRAdmin = "block";
+			}
+            else
+            {
+             	$("#Clients-toggle").css("display", "none");
+             	//ValidateHRAdmin = "none";
+            }
+		},
+        error: function (data) 
+        {
+			console.log(data.responseJSON.error);
+        }
+	});
+}
+
+
+
+$('#methord').click(function(){
+
+	$('#password').attr('type',$(this).is(':checked')?'text':'password');
+	$('i').toggleClass('activating');
+});
+
+// For dark theme apply
+// function ApplyDarkThemes(){
+
+// 	if ($("#dark-theme-btn").is(":checked")) { 
+
+// 		$(document.body).addClass('dark-theme');
+// 		$(document.body).attr('style', 'background-color: hsla(228, 5%, 22%, 1) !important');
+// 		// $(".dark-theme .panel-heading-bg-txt-clr").attr("style","background: #494948 !important;color: #fff !important;");
+// 	}
+
+// 	else {
+// 		$(document.body).removeClass('dark-theme');
+// 		$(document.body).attr('style', 'background-color: hsla(0, 0%, 100%, 1) !important');
+// 	}
+// }
+
+</script>
+
+<!-- slider for gallery  -->
+	<script>
+	        function prev(){
+                    document.getElementById('slider-container').scrollLeft -= 182;
+            }
+
+            function next()
+            {
+                document.getElementById('slider-container').scrollLeft += 182;
+            }
+            
+            function prev2(){
+                    document.getElementById('slider-container2').scrollLeft -= 182;
+            }
+
+            function next2()
+            {
+                document.getElementById('slider-container2').scrollLeft += 182;
+            }
+	</script>
+<!-- slider for gallery  -->
+
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"><head>
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:_dlc_DocId msdt:dt="string">ADMIN-1645029823-1183</mso:_dlc_DocId>
+<mso:_dlc_DocIdItemGuid msdt:dt="string">1d9afe9e-c1e3-497b-9798-16972b64a19d</mso:_dlc_DocIdItemGuid>
+<mso:_dlc_DocIdUrl msdt:dt="string">https://adaptindia.sharepoint.com/sites/Titan_2_2_1_DEV/_layouts/15/DocIdRedir.aspx?ID=ADMIN-1645029823-1183, ADMIN-1645029823-1183</mso:_dlc_DocIdUrl>
+<mso:MediaServiceImageTags msdt:dt="string"></mso:MediaServiceImageTags>
+<mso:lcf76f155ced4ddcb4097134ff3c332f msdt:dt="string"></mso:lcf76f155ced4ddcb4097134ff3c332f>
+<mso:TaxCatchAll msdt:dt="string"></mso:TaxCatchAll>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor msdt:dt="string">Lakhan Kumar Sharma</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor>
+<mso:Order msdt:dt="string">118300.000000000</mso:Order>
+<mso:_ExtendedDescription msdt:dt="string"></mso:_ExtendedDescription>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author msdt:dt="string">Indramani Gautam</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author>
+<mso:ContentTypeId msdt:dt="string">0x010100888F714E82EDFB4390B58950E6EEDFE5</mso:ContentTypeId>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+<title>TITAN</title></head>

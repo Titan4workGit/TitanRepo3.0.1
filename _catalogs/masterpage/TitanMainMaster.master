@@ -1,0 +1,1600 @@
+<%-- SPG:
+
+This HTML file has been associated with a SharePoint Master Page (.master file) carrying the same name.  While the files remain associated, you will not be allowed to edit the .master file, and any rename, move, or deletion operations will be reciprocated.
+
+To build the master page directly from this HTML file, simply edit the page as you normally would.  Use the Snippet Generator at https://adaptindia.sharepoint.com/sites/Titan_2_2_1_DEV/_layouts/15/ComponentHome.aspx?Url=https%3A%2F%2Fadaptindia%2Esharepoint%2Ecom%2Fsites%2FTitan%5F2%5F2%5F1%5FDEV%2F%5Fcatalogs%2Fmasterpage%2FTitanMainMaster%2Emaster to create and customize useful SharePoint entities, then copy and paste them as HTML snippets into your HTML code.   All updates to this file will automatically sync to the associated Master Page.
+
+ --%>
+<%@Master language="C#"%>
+<%@Register TagPrefix="SharePoint" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>
+<%@Register TagPrefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>
+<%@Register TagPrefix="wssucmui" TagName="MUISelector" Src="~/_controltemplates/15/MUISelector.ascx"%>
+<%@Register TagPrefix="wssucw" TagName="Welcome" Src="~/_controltemplates/15/Welcome.ascx"%>
+<%@Register TagPrefix="PublishingRibbon" TagName="PublishingRibbon" Src="~/_controltemplates/15/Ribbon.ascx"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<SharePoint:SPHtmlTag class="hidding-y-scroll" runat="server" id="SPHtmlTag" dir="&lt;%$Resources:wss,multipages_direction_dir_value%&gt;">
+    
+    <head runat="server">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+        <meta http-equiv="X-UA-Compatible" content="IE=10" />
+        <meta charset="UTF-8" />
+        <meta name="GENERATOR" content="Microsoft SharePoint" />
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <SharePoint:IECompatibleMetaTag runat="server" />
+        <meta http-equiv="Expires" content="0" />
+        <SharePoint:SPPinnedSiteTile runat="server" TileUrl="/_layouts/15/images/SharePointMetroAppTile.png" TileColor="#0072C6" />
+        <SharePoint:RobotsMetaTag runat="server" />
+        <SharePoint:PageTitle runat="server">
+        <asp:ContentPlaceHolder id="PlaceHolderPageTitle" runat="server" />
+        </SharePoint:PageTitle>
+        <SharePoint:StartScript runat="server" />
+        <SharePoint:CssLink runat="server" Version="15" />
+        
+        <SharePoint:ScriptLink language="javascript" name="core.js" OnDemand="true" runat="server" Localizable="false" />
+        <SharePoint:ScriptLink language="javascript" name="menu.js" OnDemand="true" runat="server" Localizable="false" />
+        <SharePoint:ScriptLink language="javascript" name="callout.js" OnDemand="true" runat="server" Localizable="false" />
+        <SharePoint:ScriptLink language="javascript" name="sharing.js" OnDemand="true" runat="server" Localizable="false" />
+        <SharePoint:ScriptLink language="javascript" name="suitelinks.js" OnDemand="true" runat="server" Localizable="false" />
+        <SharePoint:CustomJSUrl runat="server" />
+        <SharePoint:SoapDiscoveryLink runat="server" />
+        <SharePoint:AjaxDelta id="DeltaPlaceHolderAdditionalPageHead" Container="false" runat="server">
+        <asp:ContentPlaceHolder id="PlaceHolderAdditionalPageHead" runat="server" />
+        <SharePoint:DelegateControl runat="server" ControlId="AdditionalPageHead" AllowMultipleControls="true" />
+        </SharePoint:AjaxDelta>
+        <SharePoint:SPShortcutIcon runat="server" IconUrl="/_layouts/15/images/favicon.ico?rev=44" />
+<![CDATA[ [if IE 9] ]]>        <style type="text/css">//<![CDATA[
+    .ms-core-animation-transparent
+    {
+        opacity:0;
+    }
+    .ms-isBot .ms-core-animation-transparent
+    {
+        opacity:1;
+    }
+   
+       
+        
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //]]></style>
+<![CDATA[ [endif] ]]>        <!--[if lte IE 8]>
+    <style type="text/css">//<![CDATA[
+    .ms-core-animation-transparent,
+    .ms-core-animation-transparent img
+    {
+       -ms-filter:"alpha(opacity=0)";
+    }
+    .ms-isBot .ms-core-animation-transparent,
+    .ms-isBot .ms-core-animation-transparent img
+    {
+       -ms-filter:"";
+    }
+    //]]></style>
+    <![endif]-->
+        <SharePoint:CssRegistration Name="Themable/corev15.css" runat="server" />
+        <SharePoint:CssRegistration Name="&lt;% $SPUrl:~site/_catalogs/masterpage/Titan2/fonts/font-awesome.min.css %&gt;" runat="server" />
+        <SharePoint:CssRegistration Name="&lt;% $SPUrl:~site/_catalogs/masterpage/Titan2/Styles/bootstrap.min.css %&gt;" runat="server" />
+        <SharePoint:CssRegistration Name="&lt;% $SPUrl:~site/_catalogs/masterpage/Titan2/Styles/styles.css %&gt;" runat="server" after="Themable/corev15.css" />
+        <SharePoint:CssRegistration Name="&lt;% $SPUrl:~site/_catalogs/masterpage/Titan2/Styles/Intranet-Styles.css %&gt;" runat="server" />
+        <SharePoint:CssRegistration Name="&lt;% $SPUrl:~site/_catalogs/masterpage/Titan2/Styles/simpletextrotator.css %&gt;" runat="server" />
+        <SharePoint:CssRegistration Name="&lt;% $SPUrl:~site/_catalogs/masterpage/Titan2/Styles/ticker.css %&gt;" runat="server" />
+        <SharePoint:CssRegistration Name="&lt;% $SPUrl:~site/_catalogs/masterpage/Titan2/Styles/bootstrap-dialog.min.css %&gt;" runat="server" />
+        <SharePoint:CssRegistration Name="&lt;% $SPUrl:~site/_catalogs/masterpage/Titan2/Styles/curtainpage.css %&gt;" runat="server" />
+        <SharePoint:CssRegistration Name="&lt;% $SPUrl:~site/_catalogs/masterpage/Titan2/Styles/custom.css %&gt;" runat="server" />
+        <SharePoint:CssRegistration Name="&lt;% $SPUrl:~site/_catalogs/masterpage/Titan2/Styles/dcalendar.picker.css %&gt;" runat="server" />
+        <SharePoint:CssRegistration Name="&lt;% $SPUrl:~site/_catalogs/masterpage/Titan2/Styles/simplelightbox.css %&gt;" runat="server" />
+        <SharePoint:CssRegistration Name="&lt;% $SPUrl:~site/_catalogs/masterpage/Titan2/Styles/example-page.css %&gt;" runat="server" />
+        <SharePoint:CssRegistration Name="&lt;% $SPUrl:~site/_catalogs/masterpage/Titan2/Styles/loaders.min.css %&gt;" runat="server" />
+        <script type="text/javascript" src="/sites/Titan_2_2_1_DEV/_catalogs/masterpage/Titan2/Scripts/jquery-1.11.1.js">//<![CDATA[
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //]]></script>
+        <script type="text/javascript" src="/sites/Titan_2_2_1_DEV/_catalogs/masterpage/Titan2/Scripts/jquery.tabSlideOut.v1.3.js">//<![CDATA[
+		
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //]]></script>
+        <!-- <script type="text/javascript" src="/Titan2/Scripts/simple-lightbox.js">//<![CDATA[       
+        //]]></script>-->
+        <script type="text/javascript" src="/sites/Titan_2_2_1_DEV/_catalogs/masterpage/Titan2/Scripts/bootstrap.min.js">//<![CDATA[
+       
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //]]></script>
+        <script type="text/javascript" src="/sites/Titan_2_2_1_DEV/_catalogs/masterpage/Titan2/Scripts/jquery.bootstrap.newsbox.min.js">//<![CDATA[             
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //]]></script>
+        <script type="text/javascript" src="/sites/Titan_2_2_1_DEV/_catalogs/masterpage/Titan2/Scripts/Master-JS.js">//<![CDATA[
+      
+       
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //]]></script>
+        <script type="text/javascript" src="/sites/Titan_2_2_1_DEV/_catalogs/masterpage/Titan2/Scripts/jquery.tr.js">//<![CDATA[
+         
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //]]></script>
+        <script type="text/javascript" src="/sites/Titan_2_2_1_DEV/_catalogs/masterpage/Titan2/Scripts/clientobject.js">//<![CDATA[
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //]]></script>
+        <script type="text/javascript" src="/sites/Titan_2_2_1_DEV/_catalogs/masterpage/Titan2/Scripts/jquery.simple-text-rotator.js">//<![CDATA[
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //]]></script>
+        <script type="text/javascript" src="/sites/Titan_2_2_1_DEV/SiteAssets/MasterPageScripts/CurtainPage.js">//<![CDATA[
+            
+       
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //]]></script>
+        <script type="text/javascript" src="/sites/Titan_2_2_1_DEV/SiteAssets/MasterPageScripts/WelcomePage.js">//<![CDATA[
+               
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //]]></script>
+        <script type="text/javascript" src="/sites/Titan_2_2_1_DEV/_catalogs/masterpage/Titan2/Scripts/bootstrap-tabcollapse.js">//<![CDATA[
+   
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //]]></script>
+        <script type="text/javascript" src="/sites/Titan_2_2_1_DEV/_catalogs/masterpage/Titan2/Scripts/custom.js">//<![CDATA[
+     
+       
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //]]></script>
+        <script type="text/javascript" src="/sites/Titan_2_2_1_DEV/_catalogs/masterpage/Titan2/Scripts/dcalendar.picker.js">//<![CDATA[       
+   
+       
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //]]></script>
+        <script type="text/javascript" src="/sites/Titan_2_2_1_DEV/_catalogs/masterpage/Titan2/Scripts/jquery.cookie.js">//<![CDATA[
+             
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //]]></script>
+        <script type="text/javascript" src="/sites/Titan_2_2_1_DEV/SiteAssets/MasterPageScripts/Authorization.js">//<![CDATA[       
+       
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //]]></script>
+        <script type="text/javascript" src="/sites/Titan_2_2_1_DEV/SiteAssets/EmployeeSynchronous/jquery-ui.js">//<![CDATA[       
+            
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //]]></script>
+        <script type="text/javascript" src="/sites/Titan_2_2_1_DEV/_catalogs/masterpage/Titan2/Scripts/bootstrap-dialog.min.js">//<![CDATA[
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //]]></script>
+        <script type="text/javascript" src="/sites/Titan_2_2_1_DEV/SiteAssets/MasterPageScripts/titanCommon_bakup.js">//<![CDATA[       
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //]]></script>
+        <!--   <script type="text/javascript" src="/Titan2/Scripts/simple-lightbox.js">//<![CDATA[       
+        //]]></script>-->
+        </head>
+    <body onhashchange="if (typeof(_spBodyOnHashChange) != 'undefined') _spBodyOnHashChange();"><SharePoint:SharePointForm onsubmit="if (typeof(_spFormOnSubmitWrapper) != 'undefined') {return _spFormOnSubmitWrapper();} else {return true;}" runat="server">
+        <SharePoint:ImageLink runat="server" />
+        <SharePoint:SPNoScript runat="server" />
+        <SharePoint:SPClientIDGenerator runat="server" ServerControlID="DeltaPlaceHolderMain;DeltaPlaceHolderPageTitleInTitleArea;DeltaPlaceHolderUtilityContent" />
+        <WebPartPages:SPWebPartManager runat="Server" />
+        <asp:ScriptManager id="ScriptManager" runat="server" EnablePageMethods="false" EnablePartialRendering="true" EnableScriptGlobalization="false" EnableScriptLocalization="true" />
+        <SharePoint:AjaxDelta id="DeltaDelegateControls" runat="server">
+        <SharePoint:DelegateControl runat="server" ControlId="GlobalNavigation" />
+        <SharePoint:DelegateControl ControlId="GlobalSiteLink3" Scope="Farm" runat="server" Visible="false" />
+        </SharePoint:AjaxDelta>
+        <!--
+        <div id="overlay">
+            <div id="overlay-content">
+                <div class="thought">
+                    <div class="col-md-12">
+                        <br/>
+                        <h1 class="tip-text" style="animation-delay:0.2s; animation-duration:1.2s;" data-localize="ThoughtOfTheDay">Thought For The Day                                                                                       
+						</h1>
+                        <h2 class="curtain_text1 thougthOfTheDay" style="text-transform:lowercase; animation-delay:0.4s; animation-duration:1.5s;">
+                        </h2>
+                    </div>
+                </div>
+                <br/>
+                <div class="thought " style="position: absolute;bottom: 0; left: 0;">
+                    <div class="col-md-4 col-xs-12 thought_width" style="float:right">
+                        <h1 class="tip-text" style="animation-delay:0.2s; animation-duration:1.2s;" data-localize="TipOfTheDay">
+								Today's Tip
+						<br/>
+                        </h1>
+                    </div>
+                    <div class="col-md-12 col-xs-12">
+                        <h2 class="tip-desc tipOfTheDay" style="animation-delay:0.4s; animation-duration:1.5s;">
+                        </h2>
+                    </div>
+                    <br/>
+                </div>
+            </div>
+        </div> -->
+        <!-- Curtain -->
+        <div id="overlay" style="display:none">
+            <div id="overlay-content" style="overflow-y:auto !important;">
+                <div class="col-md-12">
+                    <div class="col-md-6 left-side-div">
+                        <div class="col-md-12 thought-day">
+                            <h1 class="tip-text">
+                                <span data-localize="ThoughtOfTheDay">Thought Of The Day	            
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                </span>
+                            </h1>
+                            <div class="thought-quotionby">
+                                <h2 class="curtain_text1 thougthOfTheDay">
+                                </h2>
+                                <h4 class="pull-right curtain_text1 QuotationBy" style="color:#fff">
+                                </h4>
+                            </div>
+                            <div class="clearfix">
+                            </div>
+                        </div>
+                        <div class="col-md-12 tip-day">
+                            <h1 class="tip-text" data-localize="TipOfTheDay">Tip Of The Day
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            </h1>
+                            <h2 class="curtain_text1 tipOfTheDay">
+                            </h2>
+                        </div>
+                        <div class="col-md-12">
+                            <a href="javascript:void(0);" id="opacity_id">
+                                <div class="row">
+                                    <div class="col-sm-5 col-xs-8 my-digital myDigitalWorkplace">
+                                        <h1 class="tip-text">My Digital
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        </h1>
+                                        <h1 class="tip-text" style="margin-top:0px;">Workplace
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        </h1>
+                                    </div>
+                                    <div class="col-sm-2 col-xs-4 mt-35 res-right-arrow">
+                                        <img src="/sites/Titan_2_2_1_DEV/_catalogs/masterpage/Titan2/Images/explore-btn.png" class="img-responsive" />
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 top30 right-side-div" style=" border:1px solid #efefef; padding-bottom:40px;">
+                        <div id="myCarousela" class="carousel slide curtan-page-slider CEOMessagePanel" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators indicators" id="indicators" style="bottom:-40px;">
+                                <li data-target="#myCarousela" data-slide-to="0" class="active">
+                                </li>
+                                <li data-target="#myCarousela" data-slide-to="1">
+                                </li>
+                            </ol>
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner" id="CEOMessageSection" style="display:none;">
+                                <div class="item active" style="background:transparent !important; ">
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-md-7 padding-top-50  pic_center">
+                                                <h4 class="tip-text2">From The 
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                </h4>
+                                                <h4 class="tip-text2">CEO's Desk 
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                </h4>
+                                                <h4 class="tip-text3 ChairmanName">
+                                                </h4>
+                                            </div>
+                                            <div class="col-md-5 ceo_image_div">
+                                                <img id="ChairmanPhoto" class="img-responsive ceo_image center-block" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12 curtain_text1 ChairmanMessage" style="text-align:justify">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item " style="background:transparent !important;">
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-md-7 padding-top-50 pic_center">
+                                                <h4 class="tip-text2">From The 
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                </h4>
+                                                <h4 class="tip-text2">CTO's Desk 
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                </h4>
+                                                <h4 class="tip-text3 CEOName">
+                                                </h4>
+                                            </div>
+                                            <div class="col-md-5 ceo_image_div">
+                                                <img id="CEOPhoto" class="img-responsive ceo_image center-block" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12 curtain_text1 CEOMessage" style="text-align:justify">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Curtain -->
+        <script type="text/javascript">//<![CDATA[
+ 	
+   
+        
+        
+        
+        
+        
+     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //]]></script>
+        <div id="TurnOnAccessibility" style="display:none" class="s4-notdlg noindex">
+            <a id="linkTurnOnAcc" data-accessibility-nocheck="true" href="#" class="ms-TurnOnAcc" onclick="SetIsAccessibilityFeatureEnabled(true);UpdateAccessibilityUI();document.getElementById('linkTurnOffAcc').focus();return false;">
+                <SharePoint:EncodedLiteral runat="server" text="&lt;%$Resources:wss,master_turnonaccessibility%&gt;" EncodeMethod="HtmlEncode" />
+            </a>
+        </div>
+        <div id="TurnOffAccessibility" style="display:none" class="s4-notdlg noindex">
+            <a id="linkTurnOffAcc" data-accessibility-nocheck="true" href="#" class="ms-TurnOffAcc" onclick="SetIsAccessibilityFeatureEnabled(false);UpdateAccessibilityUI();document.getElementById('linkTurnOnAcc').focus();return false;">
+                <SharePoint:EncodedLiteral runat="server" text="&lt;%$Resources:wss,master_turnoffaccessibility%&gt;" EncodeMethod="HtmlEncode" />
+            </a>
+        </div>
+        <div class="s4-notdlg s4-skipribbonshortcut noindex">
+            <a href="javascript:;" data-accessibility-nocheck="true" onclick="document.getElementById('startNavigation').focus();" class="ms-SkiptoNavigation" accesskey="&lt;%$Resources:wss,skipribbon_accesskey%&gt;" runat="server">
+                <SharePoint:EncodedLiteral runat="server" text="&lt;%$Resources:wss,skipRibbonCommandsLink%&gt;" EncodeMethod="HtmlEncode" />
+            </a>
+        </div>
+        <div class="s4-notdlg noindex">
+            <a href="javascript:;" data-accessibility-nocheck="true" onclick="document.getElementById('mainContent').focus();" class="ms-SkiptoMainContent" accesskey="&lt;%$Resources:wss,maincontent_accesskey%&gt;" runat="server">
+                <SharePoint:EncodedLiteral runat="server" text="&lt;%$Resources:wss,mainContentLink%&gt;" EncodeMethod="HtmlEncode" />
+            </a>
+        </div>
+        <div id="TurnOffAnimation" style="display:none;" class="s4-notdlg noindex">
+            <a id="linkTurnOffAnimation" data-accessibility-nocheck="true" href="#" class="ms-accessible ms-acc-button" onclick="ToggleAnimationStatus();return false;">
+                <SharePoint:EncodedLiteral runat="server" text="&lt;%$Resources:wss,master_disableanimation%&gt;" EncodeMethod="HtmlEncode" />
+            </a>
+        </div>
+        <div id="TurnOnAnimation" style="display:none;" class="s4-notdlg noindex">
+            <a id="linkTurnOnAnimation" data-accessibility-nocheck="true" href="#" class="ms-accessible ms-acc-button" onclick="ToggleAnimationStatus();return false;">
+                <SharePoint:EncodedLiteral runat="server" text="&lt;%$Resources:wss,master_enableanimation%&gt;" EncodeMethod="HtmlEncode" />
+            </a>
+        </div>
+        <a id="HiddenAnchor" href="javascript:;" style="display:none;">
+        </a>
+        <div id="ms-hcTest">
+        </div>
+        <div id="ms-designer-ribbon">
+            <PublishingRibbon:PublishingRibbon runat="server" />
+            
+        </div>
+        <SharePoint:SPSecurityTrimmedControl runat="server" AuthenticationRestrictions="AnonymousUsersOnly">
+            <wssucw:Welcome runat="server" EnableViewState="false" />
+        </SharePoint:SPSecurityTrimmedControl>
+        <input type="hidden" id="progress_width" value="0" />
+        <div class="progress" id="progress_div" style="display:none">
+            <div class="bar" id="bar1">
+            </div>
+            <div class="percent" id="percent1">
+            </div>
+        </div>
+        <div id="s4-workspace" class="ms-core-overlay s4-nosetwidth">
+            <!--Wrapper Start-->
+            <div class="wrapper">
+                <!--outer user top ribbon-->
+                <div class="top_item ms-dialogHidden">
+                    <div class="header-container" id="dvUser">
+                        <div class="text-1 pull-right">
+                            <span class="link-color-2" id="aUser" style="line-height: 33px;">
+                                <span class="glyphicon glyphicon-user" style="font-size:18px;">
+                                </span>
+                                <span>Welcome
+                                
+                                
+                                
+                                
+                                
+                                
+                                </span>
+                            </span>
+                            <div data-name="SignIn" class="SignIn pull-right">
+                                
+                                
+                                
+                                
+                                <wssucw:Welcome runat="server" EnableViewState="false">
+                                    
+                                </wssucw:Welcome>
+                                
+                                
+                                <SharePoint:SPLinkButton runat="server" class="aVisited" title="Site Content" NavigateUrl="~site/_layouts/15/viewlsts.aspx" id="lnkSiteContent">
+                                    <img src="/sites/Titan_2_2_1_DEV/_catalogs/masterpage/img/SiteContent.png" />
+                                </SharePoint:SPLinkButton>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End outer user top ribbon-->
+                <div id="s4-bodyContainer">
+                    <div class="clearfix">
+                    </div>
+                    <nav class="row-fluid shadow3 nav-fix header-nav" role="navigation">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="header-container">
+                            <nav class="container navbar navbar-default ms-dialogHidden" role="navigation">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                        <span class="sr-only">Toggle navigation                                                                                                            
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        </span>
+                                        <span class="icon-bar">
+                                        </span>
+                                        <span class="icon-bar">
+                                        </span>
+                                        <span class="icon-bar">
+                                        </span>
+                                    </button>
+                                    <div class="navbar-brand">
+                                        <img id="LogoImage" alt="Logo" src="" style="width:100px; height:100px;" />
+                                    </div>
+                                </div>
+                                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                    <div class="Navigation" style="margin-left: 30px;">
+                                    </div>
+                                    <!--  <div class="navbar-form pull-right search " role="search">
+                                    </div>-->
+                                </div>
+                            </nav>
+                        </div>
+                    </nav>
+                    <div class="header-container content-margin">
+                        <div class="col-md-12">
+                            <div class="col-md-12">
+                                <div class="ticker-container" id="tickerDiv">
+                                    <div class="ticker-caption">
+                                        <nb data-localize="Announcements">
+                                            <p> Announcements
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            </p>
+                                        </nb>
+                                    </div>
+                                    <ul id="emergencyAnnouncment">
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <SharePoint:AjaxDelta id="DeltaPlaceHolderMain" BlockElement="true" IsMainContent="true" runat="server">
+                        <asp:ContentPlaceHolder id="PlaceHolderMain" runat="server">
+                        </asp:ContentPlaceHolder>
+                        </SharePoint:AjaxDelta>
+                        
+                        <div id="contentRow" style="display:none">
+                            <div class="ms-hide">
+                                <asp:ContentPlaceHolder id="PlaceHolderSiteName" runat="server" Visible="false" />
+                                <asp:ContentPlaceHolder id="PlaceHolderHorizontalNav" runat="server" Visible="false" />
+                                <asp:ContentPlaceHolder id="PlaceHolderPageImage" runat="server" Visible="false" />
+                                <asp:ContentPlaceHolder id="PlaceHolderTitleLeftBorder" runat="server" Visible="false" />
+                                <asp:ContentPlaceHolder id="PlaceHolderMiniConsole" runat="server" Visible="false" />
+                                <asp:ContentPlaceHolder id="PlaceHolderTitleRightMargin" runat="server" Visible="false" />
+                                <asp:ContentPlaceHolder id="PlaceHolderTitleAreaSeparator" runat="server" Visible="false" />
+                                <asp:ContentPlaceHolder id="PlaceHolderNavSpacer" runat="server" Visible="false" />
+                                <asp:ContentPlaceHolder id="PlaceHolderLeftNavBarBorder" runat="server" Visible="false" />
+                                <asp:ContentPlaceHolder id="PlaceHolderBodyLeftBorder" runat="server" Visible="false" />
+                                <asp:ContentPlaceHolder id="PlaceHolderBodyRightMargin" runat="server" Visible="false" />
+                                <asp:ContentPlaceHolder id="PlaceHolderBodyAreaClass" runat="server" Visible="true" />
+                                <asp:ContentPlaceHolder id="PlaceHolderTitleAreaClass" runat="server" Visible="false" />
+                                <asp:ContentPlaceHolder id="PlaceHolderGlobalNavigation" runat="server" Visible="false" />
+                                <asp:ContentPlaceHolder id="PlaceHolderGlobalNavigationSiteMap" runat="server" Visible="false" />
+                                <asp:ContentPlaceHolder id="WSSDesignConsole" runat="server" Visible="false" />
+                            </div>
+                        </div>
+                        <div id="myModal" class="modal1">
+                            <span class="close">×                       
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            </span>
+                            <img class="modal-content1" id="img01" />
+                            <div id="caption">
+                            </div>
+                        </div>
+                        <!-- Creates the bootstrap modal where the image will appear -->
+                        <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">Close                                                                                                                      
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <img src="" id="imagepreview" style="width: 100%;  max-width:749px; max-height: 600px;" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="imagemodal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog1">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">Close                                      
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <img src="" id="imagepreview1" style="max-width: 348px; width:100%" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Push is needed for the footer to be correctly placed on the page-->
+                <div class="push ms-dialogHidden">
+                </div>
+                <!--search-language-company-->
+                <!--end search-language-company-->
+            </div>
+            <!--Footer Start -->
+            <footer class="footer ms-dialogHidden">
+                <div class="container-fluid" style="background-color:#6f6e6e;border-top:3px solid #f69522;">
+                    <div class="titan-footer">
+                        <div class="col-md-12  col-xs-12 footer-bg">
+                            <div class="col-md-10 col-sm-8 col-xs-12 foot-text1">© 2017-18 Adapt Software India Pvt. Ltd.
+                                
+                                
+                                
+                                
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            </div>
+                            <div class="col-md-2 col-sm-4 col-xs-12 foot-text2">Version 2.1.7
+                                
+                                
+                                
+                                
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!--End Footer Start -->
+            <!--End Wrapper Start-->
+        </div>
+        <div id="tabmenu">
+            <div class="slide-out-div2" style="z-index:11;width: 265px;">
+                <a class="handle2" href="#">Content
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                </a>
+                <div class="slide-out-content2">
+                    <!--company-->
+                    <div class="cmpny-style">
+                        <label id="companyName" style="margin-top:8px;font-size: 13px;">
+                        </label>
+                        <select name="Select1" id="ddlCompany" class="form-control select_list" style="height: 26px;border: 1px solid #ddd;width: 99% !important;">
+                            <option>
+                            </option>
+                        </select>
+                    </div>
+                    <!--end company-->
+                </div>
+            </div>
+            <div class="slide-out-div1" style="z-index:11;width: 265px;">
+                <a class="handle1" href="#">Content
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                </a>
+                <div class="slide-out-content1">
+                    <!--language-->
+                    <div class="lngy-style">
+                        <select name="Select1" id="ddlLanguages" class="form-control select_list" style="height: 26px;border:none !important;width: 99% !important;">
+                        </select>
+                    </div>
+                    <!--end language-->
+                </div>
+            </div>
+            <div class="slide-out-div3" style="z-index:11;width: 265px;">
+                <a class="handle3" href="#">Content
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                </a>
+                <div class="slide-out-content3">
+                    <!--search-->
+                    <div class="srch-style" style="padding: 2px 0px 2px 0px;">
+                        <div class="input-group search">
+                            <SharePoint:AjaxDelta id="DeltaPlaceHolderSearchArea" BlockElement="true" CssClass="ms-mpSearchBox ms-floatRight" runat="server">
+                            
+                            <asp:ContentPlaceHolder id="PlaceHolderSearchArea" runat="server">
+                            <div id="searchInputBox">
+                                <SharePoint:DelegateControl runat="server" ControlId="SmallSearchInputBox" />
+                                
+                            </div>
+                            </asp:ContentPlaceHolder>
+                            
+                            </SharePoint:AjaxDelta>
+                        </div>
+                    </div>
+                    <!--end search-->
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="/sites/Titan_2_2_1_DEV/SiteAssets/MasterPageScripts/masterpage.js">//<![CDATA[
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //]]></script>
+        <script type="text/javascript">//<![CDATA[
+       
+         
+       
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //]]></script>
+        <SharePoint:ScriptBlock runat="server">
+        var g_Workspace = "s4-workspace";
+        </SharePoint:ScriptBlock>
+        <script type="text/javascript" src="/sites/Titan_2_2_1_DEV/SiteAssets/MasterPageScripts/MultiLingualTitanSite.js">//<![CDATA[
+               
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //]]></script>
+    <SharePoint:AjaxDelta id="DeltaFormDigest" BlockElement="true" runat="server"><asp:ContentPlaceHolder id="PlaceHolderFormDigest" runat="server"><SharePoint:formdigest runat="server" /></asp:ContentPlaceHolder></SharePoint:AjaxDelta></SharePoint:SharePointForm><SharePoint:AjaxDelta id="DeltaPlaceHolderUtilityContent" runat="server"><asp:ContentPlaceHolder id="PlaceHolderUtilityContent" runat="server" /></SharePoint:AjaxDelta><asp:ContentPlaceHolder id="PlaceHolderTitleBreadcrumb" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderLeftNavBar" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderTopNavBar" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderLeftNavBarDataSource" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderCalendarNavigator" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderLeftActions" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderLeftNavBarTop" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderPageTitleInTitleArea" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderPageDescription" Visible="False" runat="server" /><asp:ContentPlaceHolder id="SPNavigation" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderQuickLaunchTop" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderQuickLaunchBottom" Visible="False" runat="server" /></body>
+</SharePoint:SPHtmlTag>

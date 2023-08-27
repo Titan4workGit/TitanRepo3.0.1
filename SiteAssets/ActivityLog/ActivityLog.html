@@ -1,0 +1,203 @@
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=no" />
+    <meta charset="utf-8">
+    <!--<script src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/ActivityLog/three.min.js"></script>-->
+
+   <link rel="stylesheet" href="https://developer.api.autodesk.com/modelderivative/v2/viewers/style.min.css" type="text/css">
+  <script src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/ActivityLog/three.min.js"></script>
+  <script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/viewer3D.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.SPServices/2014.02/jquery.SPServices.min.js"></script>
+
+ <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+	  <script src="https://cdn.jsdelivr.net/npm/sharepointplus/browser/sharepointplus.min.js"></script>
+	  <script type="text/javascript" src="/_layouts/15/SP.UI.Controls.js"></script>
+	  <script type="text/javascript" src="/_layouts/15/SP.RequestExecutor.js"></script>
+
+	  <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css">-->
+	  
+	  <script type="text/javascript" src="/_layouts/15/SP.RequestExecutor.js"></script>
+	    <style>
+    #forgeViewer {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background-color: #F0F8FF;
+    }
+  </style>
+	  
+	  <div id="forgeViewer"></div>
+
+	   <h1>Library Activity</h1>
+    <ul id="activity-list"></ul>
+
+    <!-- Import required scripts -->
+
+	
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/ActivityLog/displayrecentlymodified.js"></script>
+    <style>
+    #viewer {
+      width: 100%;
+      height: 600px;
+     }      
+    </style>
+
+
+<table id="documentTable">
+  <thead>
+    <tr>
+      <th>Document Name</th>
+      <th>Site Name</th>
+      <th>Last Modified Date</th>
+      <th>Last Accessed Date</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+    
+    
+    
+    <div id="recentActivities"></div>
+
+    
+
+<div id="progress"></div>
+
+    <table>
+  <thead>
+    <tr>
+      <th>File Name</th>
+      <th>Version</th>
+      <th>Edit Activity</th>
+      <th>Delete Activity</th>
+      <th>Add Activity</th>
+      <th>Download Activity</th>
+    </tr>
+  </thead>
+  <tbody id="activity-table-body"></tbody>
+</table>
+
+
+	<div class="container">
+		<div class="row">
+		<p>The current time is: <span id="time"></span></p>
+			<div id="library-activity"></div>
+			
+			
+			
+			<h1>SharePoint Library Activity</h1>
+	<table id="activityTable">
+		<thead>
+			<tr>
+				<th>Activity Type</th>
+				<th>User</th>
+				<th>Date</th>
+			</tr>
+		</thead>
+		<tbody>
+		</tbody>
+	</table>
+	
+<h1>Information Audit Activity Details</h1>
+    <div id="details-pane"></div>
+  <div id="detailsPane"></div>
+			
+			
+		</div>
+		
+		
+		<input type="file" id="fileInput">
+<button type="button" onclick="displayRecentActivitiess()">Upload</button>
+<br><br>
+<label id="progressLabel"></label>
+<progress id="progressBar" value="0" max="100"></progress>
+	</div>
+	
+<button type="button" onclick="downloadFiles()">Download Files as ZIP</button>
+
+
+
+
+<div>
+    <input type="file" id="fileInputs" accept=".dwg">
+    <button type="button" onclick="convert()">Convert to PDF</button>
+</div>
+
+
+
+
+
+
+<!--<h1>Create Folder and Upload File</h1>
+  <input type="file" id="file-input">
+  <button type="button" onclick="createFolderAndUploadFile()">Upload</button>
+<iframe id="myFrame"
+    title="Inline Frame Example"
+    width="300"
+    height="200"
+    src="https://www.openstreetmap.org/export/embed.html?bbox=-0.004017949104309083%2C51.47612752641776%2C0.00030577182769775396%2C51.478569861898606&layer=mapnik">
+</iframe>
+-->
+<iframe src="" width="100%" height="500px" frameborder="0"></iframe>
+
+ <h1>Create New File in SharePoint Library</h1>
+<label for="filename">File Name:</label>
+    <input type="text" id="filename"><br>
+    <label for="filecontents">File Contents:</label>
+    <textarea id="filecontents"></textarea><br>
+    <button type="button" onclick="createFile()">Create File</button>
+
+  <br>
+  <div id="commandBar"></div>
+  
+  
+  
+  <button type="button" role="menuitem" name="Save" title="Save" class="ms-Button ms-Button--commandBar ms-CommandBarItem-link od-Command--SaveTextFile root-81" data-is-focusable="true" data-automationid="save" aria-label="Save" tabindex="0"><span class="ms-Button-flexContainer flexContainer-51" data-automationid="splitbuttonprimary"><i data-icon-name="Save" aria-hidden="true" class="ms-Button-icon icon-93"></i><span class="ms-Button-textContainer textContainer-62"><span class="ms-Button-label label-64" id="id__147">Save</span></span></span></button>
+  
+  
+   <button type="button" onclick="saveFile()">Save Changes</button>
+ <!-- <iframe id="result" src="https://adaptindia.sharepoint.com/sites/Titan_2_2_1_DEV/DemoLibrary/MAIL2.EML
+" name="result" frameborder="0" width="100%" height="500"></iframe>-->
+  
+  
+     	<div id="myCommandBar"></div>
+     	<br>
+     	<br><br><br><br><br>
+
+<button type="button" id="btnedit" onclick="edittext()">Edit file</button>  
+
+
+<div id="editor" contentEditable="false" style="width: 100%; height: 500px; background-color:white"></div>
+
+
+<button type="button" id="btnSave" onclick="clickSaveButton()">Save</button>
+
+
+<div id="fileList"></div>
+<button type="button" onclick="downloadSelectedFilesAsZip()">Download Selected Files</button>
+
+<div id="viewer"></div>
+
+
+
+
+
+
+  
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"><head>
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:_dlc_DocId msdt:dt="string">ADMIN-1645029823-5322</mso:_dlc_DocId>
+<mso:_dlc_DocIdItemGuid msdt:dt="string">3da49ec6-d7fa-456a-9055-6cd71a877eda</mso:_dlc_DocIdItemGuid>
+<mso:_dlc_DocIdUrl msdt:dt="string">https://adaptindia.sharepoint.com/sites/Titan_2_2_1_DEV/_layouts/15/DocIdRedir.aspx?ID=ADMIN-1645029823-5322, ADMIN-1645029823-5322</mso:_dlc_DocIdUrl>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor msdt:dt="string">Indramani Gautam</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor>
+<mso:Order msdt:dt="string">532200.000000000</mso:Order>
+<mso:_ExtendedDescription msdt:dt="string"></mso:_ExtendedDescription>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author msdt:dt="string">Indramani Gautam</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author>
+<mso:ContentTypeId msdt:dt="string">0x010100888F714E82EDFB4390B58950E6EEDFE5</mso:ContentTypeId>
+<mso:MediaServiceImageTags msdt:dt="string"></mso:MediaServiceImageTags>
+<mso:lcf76f155ced4ddcb4097134ff3c332f msdt:dt="string"></mso:lcf76f155ced4ddcb4097134ff3c332f>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+<title>Titan</title></head>

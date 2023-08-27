@@ -1,0 +1,650 @@
+<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/EmployeeSynchronous/jquery-ui.css">
+<script type="text/javascript" src='https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/EmployeeSynchronous/Permission/CheckUserAuthentication.js'></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/CompanyHomePage/Announcements/NormalAnnouncements/ManageAnnouncements/Plugin/jquery.richtext.js"></script>
+<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/CompanyHomePage/Announcements/NormalAnnouncements/ManageAnnouncements/Plugin/richtext.min.css">
+<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/CompanyHomePage/Announcements/NormalAnnouncements/ManageAnnouncements/assets/css/add_announce.css">
+
+<script type="text/javascript" src="_layouts/15/sp.runtime.js"></script>
+		<script type="text/javascript" src="_layouts/15/sp.js"></script>
+		<script type="text/javascript" src="/_layouts/15/SP.RequestExecutor.js"></script>
+
+<style>
+
+</style>
+
+
+<div class="row department-header" style="display: none;"> 
+	<ol class="breadcrumb">    
+		<li><h4 data-localize="Announcements"><b>Announcements</b></h4></li>           
+	</ol>
+</div>	
+
+
+<div class="container all-align-gap-container">
+	<div class="row">
+	<!-- <div class="col-md-6"> -->
+	<div class="col-md-12">
+			<div class="panel panel-default entry-alert-announce-panel">                          
+				   <div class="">
+					  <div class="panel-head">
+					  <!--<h4 class="h4-color" data-localize="Announcements">Announcements</h4>-->
+					  <div id="HeaderTitleDiv">
+					     <!--<h1 class="panel-head-text" id="HeaderTitle">Announcement</h1>-->					  
+					  </div>
+					  
+					</div>
+				  </div>
+			   <div class="panel-body">
+			   <div class="row">
+			   <div class="col-md-12">
+				  <div class="form-horizontal">
+				  		<!-- New Form Fields Code Addeed START -->
+				  		<div class="form-group">
+                     <div class="col-sm-6">
+                         <label class="required">Type:</label>
+                         <!--<select class="form-control ViewMode" id="AnounacementType" onchange="ValidateLoginUserEntryscreen(this.value);" disabled>-->
+                         <select class="form-control ViewMode" id="AnounacementType" disabled>
+                         <option data-localize="Announcement" value="Announcement">Announcement</option>
+                         <option data-localize="Alert" value="Alert">Alert</option>
+                         </select>
+                     </div>
+                     <div class="col-sm-6">
+                         <label class="required">Allow User's Comments:</label>
+                         <!--<input type="checkbox" name="" class="Allow-Comments-ChkBox" id="Allow-Comments" checked="checked">-->
+                         <select class="Allow-Comments-ChkBox form-control ViewMode" id="Allow-Comments">
+                         	<option value="Allowed">Allowed</option>
+                         	<option value="Not Allowed">Not Allowed</option>
+                         	<option value="Stop">Stop</option>
+                         </select>
+                         
+                     </div>
+
+                 </div>
+					   <div class="form-group">
+					   	<div class="col-sm-12">
+								<label for="" class="control-label required" data-localize="Title">Title</label>
+								<div class="Announce_title_box">
+									<input id="Title" type="text" maxlength="250" class="form-control ViewMode">
+								</div>
+							</div>
+						 </div>
+						 <div class="form-group">
+						 	<div class="col-sm-6">
+								<label for="" class="control-label required">Display From</label>
+								<div class="Announce_pub_date_box">
+								 <div class="input-group">
+									<input id="PublishingDate" type="text" class="form-control ViewMode" name="date">
+									</div>
+								</div>
+							</div>
+						 	<div class="col-sm-6">
+								<label for="" class="control-label required">Display To</label>
+								<div class="Announce_exp_date_box">
+								 <div class="input-group">
+									<input id="ExpiryDate" type="text" class="form-control ViewMode" name="date">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-12 description-box-add-announcement">
+								<label for="" class="control-label required" data-localize="Description">Description</label>
+						
+									<span id="formt_tool" style="float:right;"><input type="checkbox" id="Ftools" onchange="ShowFormattingtools();"><label for="FormatTools">&nbsp; Show Formatting Tools</label></span>
+									<div class="input-group">
+									  	<textarea id="Description" class="form-control container ViewMode" rows="8"></textarea>
+									  	<div class="container">
+	  										<!--<a href="#" data-toggle='modal' data-target='#myModal'>Click here of open text editor</a>-->
+	  									</div>
+									</div>
+							</div>
+						</div>	
+						<div class="form-group" >
+							<div class="col-sm-6">
+								<label class="required">Audience</label>
+								<select id="Audience" class="form-control ViewMode" onchange="DisplayDepartmentBox(this.value);">
+								  <option value="0">--Select--</option>
+								  <option value="Corporate">All Companies</option>
+								  <option value="Company">Company</option>
+								  <option value="Department">Department</option>
+								  <option value="Location">Location</option>
+								  <option value="Selective">Selective</option>
+								</select>
+							</div>
+							
+							<!-- New Multiple Select Dropdown  START -->
+								<div class="col-sm-6 my_announce_department_main_box" id="DepartmentListBox" style="display:none;">
+									<label class="required" id="DropLable">Department</label>
+									<div class="button-group my_announce_department_list">
+								        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><span id="SelectedItems">Select</span><span class="caret"></span>
+								        </button>
+										<ul class="dropdown-menu" style="width:96% !important;" id="DpdownData">
+										
+										  <!--<li><a href="#" class="small" data-value="option1" tabIndex="-1"><input type="checkbox"/><span>Sales</span></a></li>
+										  <li><a href="#" class="small" data-value="option2" tabIndex="-1"><input type="checkbox"/><span>Human Resources</span></a></li>
+										  <li><a href="#" class="small" data-value="option3" tabIndex="-1"><input type="checkbox"/><span>IT</span></a></li>
+										  <li><a href="#" class="small" data-value="option4" tabIndex="-1"><input type="checkbox"/><span>Delivery</span></a></li>
+										  <li><a href="#" class="small" data-value="option5" tabIndex="-1"><input type="checkbox"/><span>Technical</span></a></li>-->
+										</ul>
+								  	</div>
+								</div>
+							<!-- New Multiple Select Dropdown  END -->
+							<div class="col-sm-6 my_announce_department_main_box" id="PplPickerBox" style="display:none;">
+							   <label class="required">Selective Users</label>  
+								<div class="" id="SelectivePplPicker">
+								</div>
+							</div>
+							
+							
+						<!--	<div class="col-sm-6" id="DepartmentListBox" style="display:none;">
+								<label class="required" id="DropLable">Department</label>
+								<select id="DpdownData" class="form-control">
+								  <option>Sales</option>
+								  <option>Human Resources</option>
+								  <option>IT</option>
+								  <option>Delivery</option>
+								  <option>Technical</option>
+								</select>
+							</div>-->
+						</div>
+						<div class="form-group" id="">
+							<div class="">
+								<div class="col-sm-6 righsidebox">
+								
+									<div class="form-group both_mgset" id="coverImageDiv" style="display:none">
+								    	<label for="">Cover Image:<span class="color-red"></span></label>
+								    	<!-- <input type="file" class="form-control ApproverView" accept="image/x-png,image/gif,image/jpeg,image/jpg" id="CoverImage"> -->
+								    	
+								    						<ul class="exp-entry-cover-image">
+  																<li>
+    																<label class="radio">
+      																	<input type="radio" name="coverimage" id="Gallery" class="exp-entry-cover-image-radio" value="Gallery" checked>
+      																	<span>From Gallery</span>
+    																</label>
+  																</li>
+  																<li>
+    																<label class="radio">
+     									 								<input type="radio" name="coverimage" id="Browse" class="exp-entry-cover-image-radio" value="Browse">
+      																	<span>Browse</span>
+    																</label>
+  																</li>
+															</ul>
+															
+															<input type="file" class="form-control ApproverView" accept="image/x-png,image/gif,image/jpeg,image/jpg" id="CoverImage" style="display: none;">
+															
+															<div class="my_events_slider_contain" id="exp-entry-silder-cont">
+																<div id="mysliderDiv">
+																	<!--<img width="100%" src="https://adaptindia.sharepoint.com/sites/Titan_2_2_1_DEV/ImageGallery/learning4.jpeg" data-themekey="#" class="">
+																	<img width="100%" src="https://adaptindia.sharepoint.com/sites/Titan_2_2_1_DEV/ImageGallery/learn2.jpg" data-themekey="#">
+																	<img width="100%" src="https://adaptindia.sharepoint.com/sites/Titan_2_2_1_DEV/ImageGallery/learning3.jpg" data-themekey="#">
+																	<img width="100%" src="https://adaptindia.sharepoint.com/sites/Titan_2_2_1_DEV/ImageGallery/learning5.jpg" data-themekey="#">
+																	<img width="100%" src="https://adaptindia.sharepoint.com/sites/Titan_2_2_1_DEV/ImageGallery/learning7.jpg" data-themekey="#">
+																	<img width="100%" src="https://adaptindia.sharepoint.com/sites/Titan_2_2_1_DEV/ImageGallery/learning6.png" data-themekey="#">
+																	<img width="100%" src="https://adaptindia.sharepoint.com/sites/Titan_2_2_1_DEV/ImageGallery/lerning1.jpg" data-themekey="#" class="">-->
+																</div>
+															</div>
+															<input type="hidden" id="txtImageUrl">
+
+								    	
+								    </div>
+									<div class="coverImage">
+									    <div id='coverImage' class="conerImage1" style="padding:0px 0px 5px 0px;"></div>
+									</div>
+									<div class="form-group both_mgset">
+								      <div class="block add-button-box">
+	                                        <div>
+	                                            <label for="">Video Link:</label>
+	                                            <a class="video-help-btn" data-toggle="modal" data-target="#videoHelpModel"><i class="fa fa-question-circle" aria-hidden="true"></i></a>
+	                                        </div>
+	                                        <input type="text" class="form-control link-input-fild ApproverView" name="" id="VideoLinkInput0"> 
+	                                        <a class="btn custom-btn add link-add-btn ApproverHide"><i class="fa fa-plus"></i></a>
+	                                   </div> 
+	                                 <div class="block"> 
+	                                 </div>
+	                                 
+									</div>
+									
+									<div class="form-group both_mgset">	
+										<label class="">Web Link:</label>
+										<input id="Link" type="text" class="form-control ViewMode" name="Link">
+									</div>
+									
+								</div><!---col-6--->
+								<div class="col-sm-6">
+									
+										<div class="form-group both_mgset" id="Attachmentbox">
+										    
+											<div class="form-group custom-form-group">
+
+											  <label class="">Images</label>
+											   <!-- <div class="ajustmentbxsec"> -->
+												
+													<!-- <div id="drop-zone" class="entry_screen_dropzone_images">
+														<div id="clickHere">
+															<input type="file" class="form-control ViewMode ImageDragUpload" name="file" style="display:block;" id="ImageUpload" accept="image/x-png,image/gif,image/jpeg,image/jpg" title="Maximum file upload size is 500Mb, Maximum number of photos that can be uploaded are 5, files extensions allowed are jpg, png, jpeg and gif." multiple >
+															<label for="ImageUpload" class="control-label LabelAsButton ViewMode" data-localize="Click to upload" title="Upload upto 5 images of total file size upto 500Mb. Only JPEG, JPG, GIF and PNG formats are allowed.">Click & Drop here <i class="fa fa-download"></i></label>
+														</div>
+													</div> -->
+													<div class="drop-container" id="drop-zone">
+                                                        <div class="btn custom-btn" id="clickHere1" onclick="">
+															<span class="click-drop-box">Click or Drop here<i class="fa fa-download pl-4"></i></span>
+                                                            <input type="file" name="file" id="ImageUpload" class="FileUpload ImageDragUpload" style="height:100%" accept="image/x-png,image/gif,image/jpeg,image/jpg" title="Maximum file upload size is 500Mb, Maximum number of photos that can be uploaded are 5, files extensions allowed are jpg, png, jpeg and gif." multiple>
+                                                    	</div>
+													
+
+														<div class="entry_screen_images">
+															<div id='Imagefilename' class="oldfilename1" style="padding:10px 0px 0px 0px;"></div>
+															<div id='OldImagename' class="oldfilename1" style="padding:0px 0px 0px 0px;"></div>
+														</div>
+												
+													</div>
+											</div>
+
+											<div class="form-group custom-form-group">
+												<label class="">Attachments</label>							
+												<!-- <div class="ajustmentbxsec"> -->
+												
+														<!-- <div id="drop-zone" class="entry_screen_dropzone_attachments">
+					  										<div id="clickHere">
+					  											<input type="file" name="file" id="FileUpload" style="display:none;" class="form-control ViewMode" multiple />
+					  											<label for="FileUpload" class="control-label LabelAsButton ViewMode" data-localize="Click to upload">Click & Drop here <i class="fa fa-download"></i></label>
+					  										</div>
+					  									</div>	 -->
+
+													<div class="drop-container" id="drop-zone1">
+														    <div class="btn custom-btn" id="clickHere0"><span class="click-drop-box">Click or Drop here <i class="fa fa-download pl-4"></i></span> 
+                                                            <input type="file" name="file" id="FileUpload" class="UploadDoc" style="height:100%" multiple>
+                                                            </div>
+													
+
+					  										<div id='filename' class="oldfilename1" style="padding:10px 10px 0px 0px;"></div>
+					  										<div id='oldfilename' class="oldfilename" style="padding:0px 0px 0px 0px;"></div>
+					  									<!-- <div class="entry_screen_attachments">
+															<div id='filename' class="oldfilename1" style="padding:10px 10px 0px 0px;"></div>
+					  										<div id='oldfilename' class="oldfilename" style="padding:0px 0px 0px 0px;"></div>
+														</div> -->
+													</div>	
+											</div>
+										</div>									
+													
+								</div><!---col6--->
+								
+							</div>
+							
+						</div>
+						<div class="form-group" id="" style="display:none">
+							<div class="col-sm-12">
+							    <input type="checkbox" id="flagCheckbox" >
+								<label class="">Pin Flag Up:</label>
+							
+							</div>
+						</div>
+
+
+						
+						<!-- Note For Developer - This Below Multiple Attachments Section Is Static only, you need to make it dynamic for uploading multiple attachments -->
+						
+						<!-- New Form Fields Code Addeed END -->	
+						<div class="form-group" style="display:none;">
+							<label for="" class="col-sm-4 control-label">Publish</label>
+							<div class="col-sm-8">
+							 <select class="form-control ViewMode">
+							   <option>This Company Only</option>
+							   <option>All Companies</option>
+							 </select>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+						<div class="form-group addAnnouncementsMainDiv">
+							<!--<label for="" class="col-sm-4 control-label" style="display:none;" data-localize="Attachments">Attachments</label>-->
+							<div class="col-sm-4"></div>
+							<div class="col-sm-8">
+							<!--  <a class="addAnnouncements" style="cursor:pointer;"></a>-->
+							</div>
+						</div>		
+						
+						<div class="clearfix"></div>
+						<div class="row text-center top20">
+						     <input type="button" class="btn button btn-outline-success ViewMode" data-dismiss="modal" id="btnDraftAlertAnnounce" value="Save as Draft">
+                             <input type="button" class="btn button btn-outline-success"   id="btnPreviewAlertAnnounce" value="Preview">
+							 <input id="Submit" type="button" style="font-size:13px;" class="btn btn-outline-success button ViewMode" data-localize="Submit" value="Submit">							 
+                  			<input id="Close" type="button" style="font-size:13px" class="btn btn-outline-secondary button" data-localize="Close" value="Close">
+                  			<input id="btnDelete" type="button" style="font-size:13px; display:none" class="btn btn-outline-danger button ViewMode" data-localize="Delete" value="Delete">							
+						</div> 
+				  </div>
+				</div>
+			 </div>
+		   </div>
+							<!--/panel content-->
+		</div>
+	</div>
+
+	<!-- <div class="col-md-6">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel-group" role="tablist" aria-multiselectable="true">
+					<div class="otherLanguages" id="accordion"></div>
+				</div>
+			</div>
+		</div>
+	</div> -->
+	</div>
+</div>
+
+<div id="modalManageAnnouncements" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content" class="modal-dialog">
+            <div class="modal-header panel-head-4">
+                <button type="button" class="close h4-color" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title h4-color" data-localize="UploadAttachments">Upload Attachments</h4>
+            </div>
+			<div class="modal-body">
+			 <div class="panel-body">
+			    <div class="form-horizontal">
+				 <div class="form-group">
+			        <label for="" class="col-sm-3 control-label popup_label" data-localize="Attachment" style="padding-top: 0px !Important;">Attachment</label>
+			     	<div class="col-md-6">
+				     	 <input type="file" id="announcementsFiles" onchange="objAddAnnouncements.readURL(this);" class="ViewMode" >
+						 <img id="blah" style="width:120px;" src="" alt="">
+			     	</div>
+			     	<div class="col-md-3">
+			     		<button type="button" class="btn  btn-outline-success ViewMode" name="btnUpload" id="btnUpload" data-localize="Upload">Upload</button>
+			     	</div>
+			     </div>
+			     <div class="form-group attachmentsDiv">
+			     		<table class="table">
+						  <thead>
+						    <tr>
+					    	  <th scope="col"><span class="fa fa-file-o"></span></th>
+						      <th scope="col" data-localize="FileName">File Name</th>
+						      <th scope="col" data-localize="Download">Download</th>
+						      <th scope="col" data-localize="Action">Action</th>
+						    </tr>
+						  </thead>
+						  <tbody class="announcementsAttachments">
+						    
+						  </tbody>
+						</table>
+				 </div>
+				 <div class="form-group">				 	 
+				     <div class="top20 col-md-12 text-center">               				     	
+							<button type="button" class="btn btn-outline-secondary" name="btnAttachmentClose" id="btnAttachmentClose" data-localize="Close">Close</button>						
+							<input type="hidden" id="newAddedItemID" value="0">
+					 </div>
+				</div>
+			    </div>
+			   </div>
+			  </div>
+		</div>
+	</div>
+</div>
+
+    <!--new Display Announcements popup starts-->
+    <div id="myModalPreviewAlertAnnounce" data-backdrop="static" data-keyboard="false" class="modal fade" role="dialog" aria-hidden="false">
+        <div class="modal-dialog modal-lg new-announcement-alert-modal at-a-glance-modal">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="col-md-12 col-sm-12 col-xs-12 pl0 pr0 common-modal-header">
+                        <button type="button" class="close common-modal-close annClosePopup" onclick="clearArrary()" data-dismiss="modal">×</button>
+                        <div class="panel-heading panel-heading-common-popup">
+                            <span class="common-head-text-popup" id="_TextTitle"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12 pl0 pr0 modal-body-bg">
+                        <div class="common-image-section-popup">
+                            <img src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/DevelopersCode/DefaultHome/images/announcement-popup.png" id="NoticeBgImage" class="img-responsive" alt="" />
+                            <div class="shade-common-popup"></div>
+                        </div>
+
+                        <div class="col-md-9 col-sm-9 col-xs-12 common-content-popup pl20 pr0">
+                            <!-- <p class="common-title-popup" id="_TextTitle"></p> 
+                            <p><span class="date-time-card" id="AnnouncmntAuthor"></span> | <span class="date-time-card" id="AnnouncmntCreated"> </span></p> -->
+                            <div class="experiences-inner-card at-a-glance-user-info">
+                            	<div class="experiences-inner-card-head">
+                            		<img src="" alt="user" id="userImage" data-themekey="#">
+                            	</div>
+                            	<div class="experiences-inner-card-body text-ellipsis">
+                            		<div class="experiences-inner-card-body-info text-ellipsis">
+                            			<h3 class="member-name text-ellipsis" id="AnnouncmntAuthor">Dipankar Goswami</h3>
+                            			<p class="member-deg text-ellipsis" id="User-Dept-Desig" style=""><span id="userDesig">CTO</span>&nbsp;&nbsp;|&nbsp;&nbsp;<span id="userDept">IT</span></p>
+                            			<p class="member-date text-ellipsis"><span class="mr-4">Posted on:</span><span id="AnnouncmntCreated">07 Oct 2022</span></p>
+                            			<p class="member-category text-ellipsis"><span class="mr-4" data-localize="Category">Category:</span><span id="modelType">At a Glance</span></p>
+                            		</div>
+                            	</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12 pt15 pl20 pr20 pb15 mangheight scrollbar-panel">
+                        <div class="col-md-12 col-sm-12 col-xs-12 pl0 pr0 common-popup-description-text">
+                            <p id="_DtlDescription"><a class="common-popup-description-more panel-heading-bg-txt-clr" href="javascript:void(0);" id="annReadMore" style="display:none;">Read More</a></p>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12 common-popup-link p0" id="divLink">
+                            <strong>Link :</strong>
+                            <a href="javascript:void(0);" id="_WebLink"></a>
+                        </div>
+                        <div class="clearfix"></div>
+
+
+                        <div class="col-md-12 col-sm-12 col-xs-12 pt10 pl0 pr0">
+                            <div class="attachment-badge-popup mt-10" id="_AttachDocument">
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+						<!-- <div class="col-md-10 col-sm-12 col-xs-12 p0 ma0">
+	<div id="imagesgeneral" class="col-lg-6 col-md-6 pb-40 image-media-area-p">
+		<div id="myCarousel" class="carousel slide common-media-image " data-ride="carousel" data-interval="false">
+
+			<div class="carousel-inner" id="AnnouncemntImages">
+			</div>
+
+			<a class="left carousel-control arrow-custom ImageArrow" href="#myCarousel" data-slide="prev">
+				<span class="glyphicon"><img src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/DevelopersCode/New_DefualtHome/images/c_ar.png" width="35"
+						height="35" alt=""></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="right carousel-control arrow-custom ImageArrow" href="#myCarousel" data-slide="next">
+				<span class="glyphicon"><img src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/DevelopersCode/New_DefualtHome/images/c_ar.png" width="35"
+						height="35" alt=""></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+	</div>
+</div> -->
+
+<!-- new code added for making 2 sections one on left for images and one on right for vidoes START -->
+
+<div id="media_area" class="row info-content-media">
+	<div id="imagesgeneral" class="col-lg-6 col-md-6 pb-40 image-media-area-p">
+		<div id="myCarousel" class="carousel slide common-media-image " data-ride="carousel" data-interval="false">
+
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner" id="AnnouncemntImages">
+			</div>
+
+			<!-- Left and right controls -->
+			<a class="left carousel-control arrow-custom ImageArrow" href="#myCarousel" data-slide="prev">
+				<span class="glyphicon"><img src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/DevelopersCode/New_DefualtHome/images/c_ar.png" width="35"
+						height="35" alt=""></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="right carousel-control arrow-custom ImageArrow" href="#myCarousel" data-slide="next">
+				<span class="glyphicon"><img src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/DevelopersCode/New_DefualtHome/images/c_ar.png" width="35"
+						height="35" alt=""></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+	</div>
+	<div id="video_media_area" class="col-lg-6 col-md-6 pb-40 video-media-area-p">
+		<div id="myCarousel1" class="carousel slide" data-ride="carousel" data-interval="false">
+			<div class="carousel-inner" id="allvideolink1">
+			</div>
+			<a class="left carousel-control arrow-custom-video" href="javascript:void(0);" data-slide="prev"
+				data-target="#myCarousel1">
+				<span class="glyphicon" id="LeftArrowSign"><img
+						src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/Biography/Experience/assets/images/c_ar.png" width="35" height="35" alt=""></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="right carousel-control arrow-custom-video" href="javascript:void(0);" data-slide="next"
+				data-target="#myCarousel1">
+				<span class="glyphicon" id="RightArrowSign"><img
+						src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/Biography/Experience/assets/images/c_ar.png" width="35" height="35" alt=""></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+	</div>
+</div>
+
+<!-- new code added for making 2 sections one on left for images and one on right for vidoes END -->                        
+                        
+                    </div>
+
+                                        
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+
+    <!--new Display Announcements popup ends-->
+    
+    <!--Iframe Image POpup starts-->
+    <div class="modal fade" id="AttachmentView" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" id="modalHeding">
+                        Attachment View
+                    </h4>
+                </div>
+                <div class="modal-body form-horizontal">
+
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <!--<iframe name="iframe_a" id="Iframeview" class="embed-responsive-item" style="width: 99%;height: 423px;"></iframe>-->
+                        <div id="doc-viewer" style="height:415px">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!--Iframe Image POpup ends-->
+
+
+<div id="videoHelpModel" class="modal fade"  role="dialog">
+   <div class="modal-dialog modal-lg">
+                <!-- Modal content-->
+     <div class="modal-content">
+        <div class="modal-body help-modal-body">
+           <img class="" src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/Biography/Experience/ExperiencesNew/assets/images/Help_Image.png">
+        </div>
+    </div>
+ </div>
+</div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/CompanyHomePage/Announcements/NormalAnnouncements/ManageAnnouncements/AddAnnouncement.js">	</script>
+<script src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/EmployeeSynchronous/DMS/dropzone.js"></script>
+
+        <!-- radio button Js for cover image START -->
+        <script>
+            
+		$('input.exp-entry-cover-image-radio[type="radio"]').change(function() {
+        	var selectedValue = $('input.exp-entry-cover-image-radio[name="coverimage"]:checked').val();
+        	console.log(selectedValue);
+
+        	if(selectedValue === "Gallery") {
+            	$("#CoverImage").hide();
+            	$("#exp-entry-silder-cont").show();
+            	$("#OldCoverImage").hide();
+        	}
+        	if(selectedValue === "Browse") {
+            	$("#CoverImage").show();
+            	$("#OldCoverImage").show();
+            	$("#exp-entry-silder-cont").hide();
+        	}
+
+    	});
+            
+        </script>	
+        
+        <!-- radio button Js for cover image END -->
+
+        <!-- for drag and drop --> 
+		<script>
+			debugger
+            var dropZoneB = $('#clickHere1');
+        	
+			dropZoneB.on('dragenter', function() {
+  				dropZoneB.parent().addClass('highlight-zone');
+			});
+			dropZoneB.on('dragleave', function() {
+  				dropZoneB.parent().removeClass('highlight-zone');
+			});
+			dropZoneB.on('drop', function(event) {
+  				dropZoneB.parent().removeClass('highlight-zone');
+			});
+			
+			var dropZoneA = $('#clickHere0');
+        	
+			dropZoneA.on('dragenter', function() {
+  				dropZoneA.parent().addClass('highlight-zone');
+			});
+			dropZoneA.on('dragleave', function() {
+  				dropZoneA.parent().removeClass('highlight-zone');
+			});
+			dropZoneA.on('drop', function(event) {
+  				dropZoneA.parent().removeClass('highlight-zone');
+			});
+
+			
+        </script>
+
+
+<!-- custom JS trial START -->
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#Description').richText();
+		$('a[title="Add image"]').hide();
+  		$('a[title="Add file"]').hide();
+  		$('a[title="Add video"]').hide();
+  		$('a[title="Add URL"]').hide();
+  		$('a[title="Add table"]').hide();
+  		$('a[title="Show HTML code"]').hide();
+  		$('a[title="Remove styles"]').hide();
+  		$('.richText-help').hide();
+  		$('.richText-toolbar').hide();
+  	});	
+  	
+
+</script>
+
+<!-- custom JS trial END -->
+
+<!--  --><html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"><head>
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor msdt:dt="string">Lakhan Kumar Sharma</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author msdt:dt="string">System Account</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author>
+<mso:_dlc_DocId msdt:dt="string">ADMIN-1645029823-370</mso:_dlc_DocId>
+<mso:_dlc_DocIdItemGuid msdt:dt="string">2fe7233e-e07f-401e-9089-3f7a3e69324b</mso:_dlc_DocIdItemGuid>
+<mso:_dlc_DocIdUrl msdt:dt="string">https://adaptindia.sharepoint.com/sites/Titan_2_2_1_DEV/_layouts/15/DocIdRedir.aspx?ID=ADMIN-1645029823-370, ADMIN-1645029823-370</mso:_dlc_DocIdUrl>
+<mso:MediaServiceImageTags msdt:dt="string"></mso:MediaServiceImageTags>
+<mso:lcf76f155ced4ddcb4097134ff3c332f msdt:dt="string"></mso:lcf76f155ced4ddcb4097134ff3c332f>
+<mso:TaxCatchAll msdt:dt="string"></mso:TaxCatchAll>
+<mso:Order msdt:dt="string">37000.0000000000</mso:Order>
+<mso:_ExtendedDescription msdt:dt="string"></mso:_ExtendedDescription>
+<mso:ContentTypeId msdt:dt="string">0x010100888F714E82EDFB4390B58950E6EEDFE5</mso:ContentTypeId>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+<title>Untitled 1</title></head>

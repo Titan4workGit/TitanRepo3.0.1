@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+
+<style>
+
+body {
+    font-family: "Segoe UI Semilight","Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif !important;
+}
+
+body #s4-workspace {
+    height: auto !important;
+}
+
+#s4-bodyContainer {
+    min-height: calc(100vh - 1px) !important;
+}
+
+.ms-webpart-titleText{
+ display:none !important;	
+}
+
+.wrapper {
+  background: #4d8ce9 !important;
+}
+  
+.middle_alert {
+    max-width: 420px;
+    border-radius: 10px;
+    box-shadow: 1px 2px 10px #373636;
+    text-align: center;
+    padding-bottom: 30px;
+    background: #fff;
+}
+.checkarea{
+ padding:5px 15px;
+ text-align:center;
+ background-color:#1962cb;
+ border-radius:10px 10px 0 0;
+ position:relative;
+}
+
+.checkarea::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -30px;
+    border: 15px solid transparent;
+    border-top-color: #1962cb;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+}
+
+.checkarea img{
+  width:140px;
+}
+
+.logoarea {
+    margin: 20px 0 10px;
+}
+
+.logoarea{
+
+text-align:center;	
+	
+}
+.logoarea img {
+    max-width: 60px;
+}
+
+.middle_alert h2 {
+    color: #858484;
+    font-size: 30px;
+    margin: 10px 0 15px;
+} 
+
+.middle_alert p {
+    margin-bottom: 0;
+    font-size: 14px;
+    color: #333;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+
+.navbar-custom{
+	display:none;
+}
+#global-menu-gear{
+	display:none;
+}
+#masterFooter{
+	display:none;
+}
+.navbar-custom-for-teams{
+	display:none;
+}
+
+#company_name{
+font-size: 17px;
+font-weight: 600;
+margin-left: 2px;	
+}
+
+</style>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>successfully</title>
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:_dlc_DocId msdt:dt="string">ADMIN-1645029823-6174</mso:_dlc_DocId>
+<mso:_dlc_DocIdItemGuid msdt:dt="string">d21467a4-923c-4dd5-b24c-be203bdf9145</mso:_dlc_DocIdItemGuid>
+<mso:_dlc_DocIdUrl msdt:dt="string">https://adaptindia.sharepoint.com/sites/Titan_2_2_1_DEV/_layouts/15/DocIdRedir.aspx?ID=ADMIN-1645029823-6174, ADMIN-1645029823-6174</mso:_dlc_DocIdUrl>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor msdt:dt="string">Sunil Kumar</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor>
+<mso:Order msdt:dt="string">617400.000000000</mso:Order>
+<mso:_ExtendedDescription msdt:dt="string"></mso:_ExtendedDescription>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author msdt:dt="string">Lakhan Kumar Sharma</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author>
+<mso:ContentTypeId msdt:dt="string">0x010100888F714E82EDFB4390B58950E6EEDFE5</mso:ContentTypeId>
+<mso:MediaServiceImageTags msdt:dt="string"></mso:MediaServiceImageTags>
+<mso:lcf76f155ced4ddcb4097134ff3c332f msdt:dt="string"></mso:lcf76f155ced4ddcb4097134ff3c332f>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+
+<body>
+
+<div class="middle_alert" style="margin:50px auto;">
+ <div class="checkarea">
+  <img src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/AdminPortal/Thank You/img/successfully.png" alt=""/>
+ </div>
+ <div class="logoarea">
+  <img  id="company_logo" src="" alt=""/>
+  <span id="company_name"></span>
+     
+ </div>
+ <h2>Thank You.</h2>
+ <p>You have successfully submitted your data.</p>   
+</div>
+
+
+<script>
+
+$(document).ready(function (){
+   getCorporateCompanyEmail();
+})
+
+function getCorporateCompanyEmail()
+{
+	var requestURL=_spPageContextInfo.webAbsoluteUrl+"/_api/web/lists/GetByTitle('CompanySettings')/Items?$select=CorporateName,CompanyLogo&$top=1";
+	
+	$.ajax({
+		url:requestURL,
+		type:'GET',
+		headers:{"accept": "application/json;odata=verbose"},
+		success:function(data)
+		{
+			var results=data.d.results;
+			debugger;
+			if(results.length>0)
+			{
+			var CorporateName= results[0].CorporateName;
+			var imageUrl= results[0].CompanyLogo.Url;
+			$("#company_name").text(CorporateName);
+			$("#company_logo").attr("src", imageUrl);
+			}
+			
+			
+		},
+		error:function(error)
+		{
+			console.log("Error occured in GetEnvironmentalSettings()");
+		}
+	})
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+////////////////////////////////////////// Admin Portal (NEW HTML) /////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+<style>
+.required:after {
+  content:"*";
+  color:red;
+}
+
+</style>
+
+<style>
+.tile_box2{
+    background-color:#efefef;
+      height:auto ;
+     box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0   rgba(0,0,0,.12);
+     /*border-radius: 2px;*/
+	 padding:15px;
+	 border:1px solid #efefef;
+	 min-height:185px;
+	 transition:all 0.3s ease;
+	 color:#666;
+}
+
+.tile_box2:hover{
+    /*background-color:#999;*/
+     box-shadow: none;
+	     transition: background 0.5s;
+		color:#1d6ec0 !important;
+		 border:3px solid #1d6ec0;
+		
+     /*border-radius: 2px;*/
+	 }
+
+
+.h4-color2{ margin-top:15px; font-size:16px; text-decoration:none}
+
+/* .control-menu {
+    top: 142px !important;
+}
+.menu-open {
+    left: 26px !important;
+    top: 173px !important;
+} */
+
+@media (max-width: 768px) {
+  .marginTop {
+    margin-top: 15px;
+  }
+}
+</style>
+<script src='https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/EmployeeSynchronous/Permission/CheckUserAuthentication.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/AdminPortal/AdminPortal.js"></script>
+<script>
+
+
+
+
+</script>
+	
+	<div class="modal fade" id="modelForRooms" role="dialog" data-backdrop="static">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header panel-head-4">
+                <button type="button" class="close h4-color" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title h4-color">Rooms</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">                                       
+                        <div class="panel-body">
+                            <div class="form-horizontal">
+
+                                <div class="form-group">
+                                    <label for="" class="col-sm-4 control-label required">Location</label>
+                                    <div class="col-sm-8">
+                                   
+                                           <select name="select2" id="txtLocation" class="form-control">
+                                                           
+											</select>
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="" class="col-sm-4 control-label required">Room</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" id="txtRooms" class="form-control">
+                                    </div>
+                                </div>
+                                 <div class="form-group">
+                                    <label for="" class="col-sm-4 control-label">Description</label>
+                                    <div class="col-sm-8">
+                                        <textarea type="text" id="txtDescription" cols="10" rows="5" class="form-control"></textarea>
+                                    </div>
+                                </div>
+ 								<div class="form-group">
+                                    <label for="" class="col-sm-4 control-label">Facility</label>
+                                    <div class="col-sm-8">
+                                        <textarea type="text" id="txtFacility" cols="10" rows="5" class="form-control"></textarea>
+                                    </div>
+                                </div>
+
+                                 
+                                <div class="form-group">
+                                    <label for="" class="col-sm-4 control-label">Occupancy</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" id="txtOccupancy" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/panel content-->
+                   
+                    <div class="form-group">
+                        <!--<label for="" class="col-sm-4 control-label"></label>-->
+                        <div class="col-sm-12" style="text-align:center;">
+                            <button type="button" class="btn  btn-outline-success  btnAddRooms">Submit</button>
+                            <button type="button" class="btn btn-outline-secondary closeRoomForm">Close</button>
+                        </div>
+                    </div>
+                </div>             
+            </div>
+        </div>
+    </div>
+</div>
+
+	
+	
+
+
+
+
+	<div id="modelForPermissions" class="modal fade">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title">Coming Soon...</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	       <img src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/_catalogs/masterpage/Titan2/Images/under_construction.jpg" class="img-responsive center-block">
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+
+	
+        <!-----------<div class=" row department-header">
+            <ol class="breadcrumb">                
+                <li></li>
+            </ol>
+        </div>--------------->
+   
+
+    
+     <!--   <div class="col-md-12">-->
+<div id="messageAdminNotAthorizedAcces" style="font-size:20px;font-weight:bold;">
+</div>
+
+<div class="row" style="display:none;" id="adminmanagepermissionIDS">
+		<div class="col-md-12">
+			<div class="row adminportalsections">
+			</div>
+			<div style="clear:both; padding-bottom:40px;">
+			</div>
+		</div>
+</div>
+
+
+   
+
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"><head>
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:_dlc_DocId msdt:dt="string">ADMIN-1645029823-335</mso:_dlc_DocId>
+<mso:_dlc_DocIdItemGuid msdt:dt="string">ed7203f8-1e79-461a-a289-39ed9dc578ea</mso:_dlc_DocIdItemGuid>
+<mso:_dlc_DocIdUrl msdt:dt="string">https://adaptindia.sharepoint.com/sites/Titan_2_2_1_DEV/_layouts/15/DocIdRedir.aspx?ID=ADMIN-1645029823-335, ADMIN-1645029823-335</mso:_dlc_DocIdUrl>
+<mso:MediaServiceImageTags msdt:dt="string"></mso:MediaServiceImageTags>
+<mso:lcf76f155ced4ddcb4097134ff3c332f msdt:dt="string"></mso:lcf76f155ced4ddcb4097134ff3c332f>
+<mso:TaxCatchAll msdt:dt="string"></mso:TaxCatchAll>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor msdt:dt="string">Lakhan Kumar Sharma</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor>
+<mso:Order msdt:dt="string">33500.0000000000</mso:Order>
+<mso:_ExtendedDescription msdt:dt="string"></mso:_ExtendedDescription>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author msdt:dt="string">Rakesh Khambra</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author>
+<mso:ContentTypeId msdt:dt="string">0x010100888F714E82EDFB4390B58950E6EEDFE5</mso:ContentTypeId>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+<title></title></head>

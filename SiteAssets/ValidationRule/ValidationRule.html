@@ -1,0 +1,160 @@
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/ValidationRule/Exucute.js"></script>
+
+
+	<style>
+		table {
+			border-collapse: collapse;
+			margin-top: 50px;
+		
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 50px;
+		}
+		
+		label {
+			display: block;
+			margin-bottom: 10px;
+			font-weight: bold;
+		}
+		
+		input[type="text"], input[type="number"], input[type="date"] {
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			margin-bottom: 20px;
+			width: 300px;
+			font-size: 16px;
+		}
+		
+		input[type="button"] {
+			background-color: #4CAF50;
+			color: white;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			font-size: 16px;
+		}
+		
+		input[type="button"]:hover {
+			background-color: #3e8e41;
+		}	
+		
+				td {
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			font-size: 16px;
+		}
+		
+		</style>
+
+
+
+<textarea  name="w3review" rows="10" id="tile-input" cols="100">
+    
+    var siteUrl = _spPageContextInfo.webAbsoluteUrl;
+    var listName = 'ApprovalProcessList';
+    var filterColumn1Value = $("#textbox1").val();
+    var filterColumn2Value = $("#textbox2").val();
+    var filterDateValue = $("#datetimepicker1").val();
+    var startdate="";
+    var endDate="";
+    var peoplePickerValue ="";
+    var templateId="480"
+  checkForDuplicates(siteUrl, listName, templateId, filterColumn1Value, filterColumn2Value, filterDateValue,startdate,endDate,).then(function(result) {
+        if(result) {
+            // no items found, continue with your code
+            alert('Record found in the ApprovalProcessList');
+        } else {
+            // items found, show alert and return false
+            alert('Record found not in the ApprovalProcessList');
+            return false;
+        }
+    }).catch(function(error) {
+        // handle error
+        console.log(error);
+    });
+
+
+</textarea>
+
+
+
+
+
+
+	<table>
+		<tr>
+			<td><label for="textbox1">Text Box:1</label></td>
+			<td><input type="text" id="textbox1" name="textbox1"></td>
+		</tr>
+		<tr>
+			<td><label for="textbox2">Text Box:2</label></td>
+			<td><input type="text" id="textbox2" name="textbox1"></td>
+		</tr>
+
+		
+		
+		
+		<tr>
+			<td><label for="numberbox1">Number Box:</label></td>
+			<td><input type="number" id="numberbox1" name="numberbox1"></td>
+		</tr>
+				<tr>
+			<td><label for="numberbox2">Number Box:</label></td>
+			<td><input type="number" id="numberbox2" name="numberbox2"></td>
+		</tr>
+
+		<tr>
+			<td><label for="datetimepicker1">Date/Time Picker:</label></td>
+			<td><input type="datetime-local" id="datetimepicker1" name="datetimepicker1"></td>
+		</tr>
+		
+		<tr>
+			<td><label for="datetimepicker2">Date/Time Picker:</label></td>
+			<td><input type="datetime-local" id="datetimepicker2" name="datetimepicker2"></td>
+		</tr>
+
+
+		<tr>
+		<td></td>
+       <td><input type="button" onclick="createDynamicTile()" value="Submit"></td>
+
+
+		</tr>
+
+		
+	</table>
+
+
+
+
+
+  
+		
+
+
+
+
+
+
+
+
+
+
+<button type="button"  id="create-tile-button">Create Tile</button><html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"><head>
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor msdt:dt="string">Indramani Gautam</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor>
+<mso:Order msdt:dt="string">609600.000000000</mso:Order>
+<mso:_ExtendedDescription msdt:dt="string"></mso:_ExtendedDescription>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author msdt:dt="string">Indramani Gautam</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author>
+<mso:ContentTypeId msdt:dt="string">0x010100888F714E82EDFB4390B58950E6EEDFE5</mso:ContentTypeId>
+<mso:MediaServiceImageTags msdt:dt="string"></mso:MediaServiceImageTags>
+<mso:lcf76f155ced4ddcb4097134ff3c332f msdt:dt="string"></mso:lcf76f155ced4ddcb4097134ff3c332f>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+<title></title></head>

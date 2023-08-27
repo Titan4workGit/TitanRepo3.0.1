@@ -1,0 +1,217 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/EmployeeSynchronous/jquery-ui.css">
+<script src='https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/EmployeeSynchronous/Permission/CheckUserAuthentication.js'></script>
+
+<style>
+	label.required:after {content: " *"; color: red;}
+
+	.browse{ padding:5px; border:1px solid #ddd !important; width:100%; background:transparent}
+	.panel-group .panel {
+		border-radius: 5px;
+		border-color: #EEEEEE;
+		padding:0;
+		
+	}
+	.panel-group {
+	margin-bottom: 10px;
+	}
+
+		.panel-title {
+		font-size: 14px;
+	}
+
+	.panel-title > a {
+		display: block;
+		padding: 10px;
+		text-decoration: none;
+	}
+</style>
+
+
+<!--<div class="row department-header"> 
+	<ol class="breadcrumb">    
+		 <li><h4 data-localize="Sliders"><b>Sliders</b></h4></li>         
+	</ol>
+</div>-->
+<div class="row" style="padding-top:10px;">
+	<div class="col-md-6">
+			<div class="panel panel-default">                          
+		       <div class="panel-heading panel-head-4">
+				  <div class="panel-title">
+				      <h4 class="h4-color">News (In English)</h4>
+				  </div>
+			   </div>
+			   <div class="panel-body">
+			   <div class="row">
+			   <div class="col-md-12">
+				  <div class="form-horizontal">
+				  		 <div class="form-group">
+							<label for="" class="col-sm-4 control-label required" data-localize="SliderType"></label>
+							<div class="col-sm-8">
+								<input type="radio" name="SliderType" value="News" class="sliderType" checked="checked" style="margin: 0px !important;"><span style="padding:0 30px 0 10px" data-localize="News"></span> 
+								<input type="radio" name="SliderType" value="Banners" class="sliderType" style="margin: 0px !important;"><span style="padding:0 30px 0 10px" data-localize="Banner"></span>
+							</div>
+						 </div>
+
+					     <div class="form-group">
+							<label for="" class="col-sm-4 control-label required" data-localize="Title"></label>
+							<div class="col-sm-8">
+								<input id="Title" type="text" maxlength="100" class="form-control">
+							</div>
+						 </div>
+						  <div class="form-group">
+							<label for="" class="col-sm-4 control-label required" data-localize="Description"></label>
+							<div class="col-sm-8">
+								<div class="input-group">
+									<textarea id="Description" rows="3" cols="58" class="form-control"></textarea>
+								</div>
+							</div>
+						 </div>
+						 <div class="form-group">
+							<label for="" class="col-sm-4 control-label required" data-localize="NewsDate"></label>
+							<div class="col-sm-8">
+								<div class="input-group">
+									<input id="NewsDate" type="text" class="form-control" name="date">
+								</div>
+							</div>
+						 </div>
+						<div class="form-group">
+							<label for="" class="col-sm-4 control-label required" data-localize="DisplayFrom"></label>
+							<div class="col-sm-8">
+								<div class="input-group">
+									<input id="DisplayFrom" type="text" class="form-control" name="date">
+								</div>
+							</div>
+						 </div>
+						 <div class="form-group">
+							<label for="" class="col-sm-4 control-label required" data-localize="DisplayTill"></label>
+							<div class="col-sm-8">
+								<div class="input-group">
+									<input id="DisplayTill" type="text" class="form-control" name="date">
+								</div>
+							</div>
+						 </div>
+						
+						 <div class="form-group">
+							<label for="" class="col-sm-4 control-label" data-localize="IsActive"></label>
+							<div class="col-sm-8">
+								<div class="input-group">
+									<input type="checkbox" id="IsActive" checked="checked">
+								</div>
+							</div>
+						 </div>
+						  <div class="form-group">
+							<label for="" class="col-sm-4 control-label required" data-localize="Image"></label>
+							<div class="col-sm-8">
+								<div class="input-group">
+									 <input type="file" id="sliderImage" onchange="objAddSlider.readURL(this);">
+									 <br>
+						 			 <img id="blah" style="width:350px;" src="" alt="">
+								</div>
+								<div class="input-group">
+									<i style="font-size:11px;">(<span data-localize="RecommendedImageSizeColon845*340"></span>)</i>
+								</div>
+							</div>
+						 </div>
+						
+						<div class="clearfix"></div>
+						<div class="form-group addAttachmentMainDiv">
+							<div class="col-sm-4"></div>
+							<div class="col-sm-8">
+							  <a class="addAttachment" style="cursor:pointer;"></a>
+							</div>
+						</div>		
+						
+						<div class="clearfix"></div>
+						<div class="row text-center top20">
+							 <input id="Submit" type="button" style="font-size:13px;display:none;" class="btn btn-outline-success button" data-localize="Submit">
+                  			<input id="Close" type="button" style="font-size:13px" class="btn btn-outline-secondary button" data-localize="Close">							
+						</div> 
+				  </div>
+				</div>
+			 </div>
+		   </div>
+							<!--/panel content-->
+		</div>
+	</div>
+
+	<div class="col-md-6">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+					<div class="otherLanguages"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<div id="modalAttachments" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content" class="modal-dialog">
+            <div class="modal-header panel-head-4">
+                <button type="button" class="close h4-color" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title h4-color" data-localize="UploadAttachments">Upload Attachments</h4>
+            </div>
+			<div class="modal-body">
+			 <div class="panel-body">
+			    <div class="form-horizontal">
+				 <div class="form-group">
+			        <label for="" class="col-sm-3 control-label popup_label" data-localize="Attachment" style="padding-top: 0px !Important;">Attachment</label>
+			     	<div class="col-md-6">
+				     	 <input type="file" id="attachments" onchange="objAddSlider.readURLAttachment(this);">
+						 <img id="blahAttachment" style="width:120px;" src="" alt="">
+			     	</div>
+			     	<div class="col-md-3">
+			     		<button type="button" class="btn  btn-outline-success" name="btnUpload" id="btnUpload" data-localize="Upload"></button>
+			     	</div>
+			     </div>
+			     <div class="form-group attachmentsDiv">
+			     		<table class="table">
+						  <thead>
+						    <tr>
+					    	  <th scope="col"><span class="fa fa-file-o"></span></th>
+						      <th scope="col">File Name</th>
+						      <th scope="col">Download</th>
+						      <th scope="col">Action</th>
+						    </tr>
+						  </thead>
+						  <tbody class="attachmentsTable">
+						    
+						  </tbody>
+						</table>
+				 </div>
+				 <div class="form-group">
+				 	 <div class="col-md-3"></div>
+				     <div class="top20 col-md-12 text-center">               
+							<button type="button" class="btn btn-outline-secondary" name="btnAttachmentClose" id="btnAttachmentClose" data-localize="Close"></button>
+							<input type="hidden" id="newAddedItemID" value="0">
+					 </div>
+				</div>
+			    </div>
+			   </div>
+			  </div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/DepartmentHomePage/Sliders/ManageSliders/AddSlider.js">	
+
+</script><html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"><head>
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:_dlc_DocId msdt:dt="string">ADMIN-1645029823-436</mso:_dlc_DocId>
+<mso:_dlc_DocIdItemGuid msdt:dt="string">05f02077-1a84-45a2-8bab-7b24cb35614e</mso:_dlc_DocIdItemGuid>
+<mso:_dlc_DocIdUrl msdt:dt="string">https://adaptindia.sharepoint.com/sites/Titan_2_2_1_DEV/_layouts/15/DocIdRedir.aspx?ID=ADMIN-1645029823-436, ADMIN-1645029823-436</mso:_dlc_DocIdUrl>
+<mso:MediaServiceImageTags msdt:dt="string"></mso:MediaServiceImageTags>
+<mso:lcf76f155ced4ddcb4097134ff3c332f msdt:dt="string"></mso:lcf76f155ced4ddcb4097134ff3c332f>
+<mso:TaxCatchAll msdt:dt="string"></mso:TaxCatchAll>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor msdt:dt="string">Rakesh Khambra</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor>
+<mso:Order msdt:dt="string">39700.0000000000</mso:Order>
+<mso:_ExtendedDescription msdt:dt="string"></mso:_ExtendedDescription>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author msdt:dt="string">Rakesh Khambra</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author>
+<mso:ContentTypeId msdt:dt="string">0x010100888F714E82EDFB4390B58950E6EEDFE5</mso:ContentTypeId>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+<title></title></head>

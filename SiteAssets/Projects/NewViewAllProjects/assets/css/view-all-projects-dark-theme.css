@@ -1,0 +1,264 @@
+﻿body.custom-scroll.dark-theme::-webkit-scrollbar-track {
+  box-shadow: none !important; 
+  background: #35363a !important;
+  border-radius: 0px !important;
+}
+body.custom-scroll.dark-theme::-webkit-scrollbar {
+  width: 12px !important;
+  height: 5px !important;
+}
+body.custom-scroll.dark-theme::-webkit-scrollbar-thumb {
+  background: #494948 !important; 
+  border-radius: 10px !important;
+}
+body.custom-scroll.dark-theme::-webkit-scrollbar-thumb:hover {
+  background: #cfcfcf !important; 
+}
+
+.dark-theme .custom-scroll::-webkit-scrollbar-track {
+  box-shadow: none !important; 
+  /* background: #35363a !important; */
+  border-radius: 0px !important;
+}
+.dark-theme .custom-scroll::-webkit-scrollbar {
+  width: 8px !important;
+  height: 5px !important;
+}
+.dark-theme .custom-scroll::-webkit-scrollbar-thumb {
+  background: #494948 !important; 
+  border-radius: 10px !important;
+}
+.dark-theme .custom-scroll::-webkit-scrollbar-thumb:hover {
+  background: #cfcfcf !important; 
+}
+
+
+.dark-theme .panel-scrollbar-panel::-webkit-scrollbar-track {
+  box-shadow: none !important; 
+  /* background: #35363a !important; */
+  border-radius: 0px !important;
+}
+.dark-theme .panel-scrollbar-panel::-webkit-scrollbar {
+  width: 8px !important;
+  height: 5px !important;
+}
+.dark-theme .panel-scrollbar-panel::-webkit-scrollbar-thumb {
+  background: #494948 !important; 
+  border-radius: 10px !important;
+}
+.dark-theme .panel-scrollbar-panel::-webkit-scrollbar-thumb:hover {
+  background: #cfcfcf !important; 
+}
+
+/* Navbar section css */
+
+.dark-theme .navbar-custom {
+    background: #202124 !important;
+}
+.dark-theme .nav > li > a {
+    color: #2196f3 !important;
+    /*color: #ffffff !important;*/
+    transition: 0.3s;
+}
+.dark-theme .nav>li>a:hover, .dark-theme .nav>li>a:focus {
+    background-color: #494948 !important;
+    color: #fff !important;
+}
+.dark-theme .nav > li.dropdown.open > .dropdown-menu {
+    background: #202124 !important;
+    border: 1px solid #7f7f80 !important;
+}
+.dark-theme .nav > li.dropdown.open > .dropdown-menu li>a {
+    color: #2196f3 !important;
+    /*color: #fff !important;*/
+    transition: 0.3s;
+}
+.dark-theme .nav .open>a, .dark-theme .nav .open>a:hover, .dark-theme .nav .open>a:focus {
+    background: #494948;
+    border-color: #494948 !important;
+}
+.dark-theme .nav > li.dropdown.open > .dropdown-menu {
+    background: #202124;
+    border: 1px solid #7f7f80 !important;
+}
+.dark-theme .nav > li.dropdown.open > .dropdown-menu li>a:hover, .dark-theme .nav > li.dropdown.open > .dropdown-menu li>a:focus {
+    background-color: #494948 !important;
+    color: #fff !important;
+}
+
+/* View all projects css -----start----- */
+
+
+
+/* View all projects css -----end----- */
+
+/* chatbox dark theme START */
+
+.dark-theme .scrollbar-panel::-webkit-scrollbar-track {
+  box-shadow: none !important; 
+  /* background: #35363a !important; */
+  border-radius: 0px !important;
+}
+.dark-theme .scrollbar-panel::-webkit-scrollbar {
+  width: 8px !important;
+  height: 5px !important;
+}
+.dark-theme .scrollbar-panel::-webkit-scrollbar-thumb {
+  background: #202124 !important; 
+  border-radius: 10px !important;
+}
+.dark-theme .scrollbar-panel::-webkit-scrollbar-thumb:hover {
+  background: #cfcfcf !important; 
+}
+.dark-theme .like-user-name h4 {
+  color: #fff !important;
+  font-weight: 500 !important;
+}
+.dark-theme .main-chat-text-area-border {
+  background: #202124 !important;
+}
+.dark-theme .main-comment-panel .comment-area .custom-form-group .form-control {
+  /* background: #202124 !important; */
+  background: #3f4044 !important;
+  border-color: #7f7f80 !important;
+}
+.dark-theme .main-comment-panel .emojionearea .emojionearea-editor {
+  color: #fff !important;
+}
+.dark-theme .emojionearea .emojionearea-button {
+  filter: invert(1) !important;
+  /* opacity: 1 !important; */
+}
+.dark-theme .comment-reply-user-name {
+  line-height: 26px !important;
+}
+.dark-theme .reply-box-my {
+  color: #fff !important;
+  background: #3f4044 !important;
+}
+.dark-theme .reply-box-my h4 {
+  /* background: #202124 !important; */
+  color: #fff !important;
+  box-shadow: 0 0 2px #ffffff !important;
+}
+.dark-theme .reply-box-ext {
+  color: #fff !important;
+  background: #3f4044 !important;
+}
+.dark-theme .reply-inside-text-box {
+  color: #fff !important;
+  background: #3f4044 !important;
+}
+.dark-theme .attachment-badge .upload-chip {
+  background: #3f4044 !important;
+  color: #fff !important;
+  /* box-shadow: 0 0 2px #ffffff !important; */
+}
+.dark-theme .chatAttach_Docx, .dark-theme .chatAttach_PDF, 
+.dark-theme .chatAttach_xlsx, .dark-theme .chatAttach_Others {
+  border: 1px solid #ffffff !important;
+}
+.dark-theme .reply-box-my .attachment-badge a {
+  color: #fff !important;
+}
+.dark-theme .reply-box-ext .attachment-badge a {
+  color: #fff !important;
+}
+.dark-theme .chip-icon-box {
+  background: transparent !important;
+}
+.dark-theme .msg-like-img {
+  filter: invert(100%) !important;
+}
+.dark-theme .replymsgAnn {
+  color: #4A4A4A !important;
+}
+
+/* chatbox dark theme END */
+
+/* Side Tab Section css */
+
+.dark-theme .menu-area {
+  color: #fff !important;
+  background-color: #202124 !important;
+  border: 1px solid #7f7f80 !important;
+  z-index: 100 !important;
+}
+.dark-theme .menu-area>ul li span, .dark-theme .menu-area>ul li .dark-theme-btn-label {
+  color: #fff !important;
+}
+#dark-light-side-opt {
+  position: relative;
+}
+#dark-light-side-opt input#dark-theme-btn {
+  opacity: 0;
+}
+#dark-light-side-opt .dark-theme-btn-label {
+  /*position: absolute;
+  left: 2.8vw;
+  top: 6px;*/
+  cursor: pointer;
+  font-weight: 400;
+  color: #333;
+  display: inline;
+  position: relative;
+  left: -17px;
+  top: -1px;
+  z-index: 9;
+}
+.dark-theme select#ddlCompany {
+  background-color: #202124 !important;
+  border: 1px solid #7f7f80 !important;
+  color: #fff !important;
+}
+.dark-theme select#ddlLanguages {
+  background-color: #202124 !important;
+  border: 1px solid #7f7f80 !important;
+  color: #fff !important;
+}
+
+/* All Modals Common css */
+
+.dark-theme .modal-content {
+  background-color: #3f4044 !important;
+  border-color: #7f7f80 !important;
+}
+.dark-theme .modal-header {
+  background-color: #202124 !important;
+  border-top-left-radius: 5px !important;
+  border-top-right-radius: 5px !important;
+}
+.dark-theme .modal-body {
+  /*background-color: #35363a !important;*/
+  background-color: #3f4044 !important;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.dark-theme .modal-body label {
+  color: #fff !important;
+}
+.dark-theme .modal-footer {
+  border-top: 1px solid #7f7f80 !important;
+}
+.dark-theme .modal-footer .custom-btn-two-cancel {
+  color: #fff !important;
+  background-color: #202124 !important;
+  border: 1.4px solid #202124 !important;
+}
+.dark-theme .modal-footer .custom-btn-two-cancel:hover, .dark-theme .modal-footer .custom-btn-two-cancel:active, 
+.dark-theme .modal-footer .custom-btn-two-cancel:focus {
+  color: #202124 !important;
+  background-color: #fff !important;
+  border: 1.4px solid #7f7f80 !important;
+}
+.dark-theme  .modal-backdrop.in {
+  opacity: .8 !important;
+}
+
+/* Footer Section css */
+
+.dark-theme .footer .container-fluid {
+  background: #202124 !important;
+  color: #fff !important;
+  border-top: 3px solid #7f7f80 !important;
+}

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/EmployeeSynchronous/jquery-ui.css">
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:_dlc_DocId msdt:dt="string">ADMIN-1645029823-4642</mso:_dlc_DocId>
+<mso:_dlc_DocIdItemGuid msdt:dt="string">3c4e84d7-f190-411e-8f15-353bea8bc1c9</mso:_dlc_DocIdItemGuid>
+<mso:_dlc_DocIdUrl msdt:dt="string">https://adaptindia.sharepoint.com/sites/Titan_2_2_1_DEV/_layouts/15/DocIdRedir.aspx?ID=ADMIN-1645029823-4642, ADMIN-1645029823-4642</mso:_dlc_DocIdUrl>
+<mso:MediaServiceImageTags msdt:dt="string"></mso:MediaServiceImageTags>
+<mso:lcf76f155ced4ddcb4097134ff3c332f msdt:dt="string"></mso:lcf76f155ced4ddcb4097134ff3c332f>
+<mso:TaxCatchAll msdt:dt="string"></mso:TaxCatchAll>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor msdt:dt="string">Lakhan Kumar Sharma</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor>
+<mso:_ExtendedDescription msdt:dt="string"></mso:_ExtendedDescription>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author msdt:dt="string">Lakhan Kumar Sharma</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+<body>
+    <div class="form-group custom-form-group col-sm-12">
+       <label for="Project"><span class="color-red"></span></label>
+       <div class="col-sm-3">
+       	   <input id="txtDate" type="text" class="form-control" name="date" readonly="readonly">
+       </div>
+       <div class="col-sm-6">
+         <input type="button" class="btn" id="btnArchiveData" style="text-transform:uppercase;width:150px" value="Delete" title="Delete" >    
+    </div>
+  </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script>
+  var arrData=[]; 
+  var currentDlg=''; 
+  var url = _spPageContextInfo.webAbsoluteUrl+ "/_api/web/lists/getbytitle('NotificationCenter')/items?$Select=Id,Modified&$top=5&$orderBy=Id asc";
+    $(document).ready(function() {    		
+	    bindEvent();
+	    var listName = "NotificationCenter";
+	    var dlgTitle = 'Generating excelsheet...';
+        var dlgMsg = '<br />Please wait!!';
+        var dlgHeight = 200;
+        var dlgWidth = 400;
+        SP.SOD.executeFunc('sp.js', 'SP.ClientContext', function() {
+           //var waitingDialog = SP.UI.ModalDialog.showWaitScreenWithNoClose('Your action is in progress...');
+        });
+        //currentDlg = SP.UI.ModalDialog.showWaitScreenWithNoClose(dlgTitle, dlgMsg, dlgHeight, dlgWidth);
+        setTimeout(function () {
+            //GetItemObject(url);
+        }, 100);
+        
+	    $('#btnArchiveData').click(function(){               
+         
+         debugger
+         waitingDialog.show();               
+         var url = _spPageContextInfo.webAbsoluteUrl+ "/_api/web/lists/getbytitle('"+listName+"')/items?$Select=Id,Modified&$top=5&$orderBy=Id asc"
+         
+         arrData=[]
+         //SP.UI.ModalDialog.showWaitScreenWithNoClose('Deleting...');
+         //GetItemObject(url);
+         //setTimeout(window.location.reload(true),100000)
+         waitingDialog.hide();
+        }) 
+         
+  });
+  
+function bindEvent()
+{
+   SetCalendar();
+   
+   $('#txtDate').datepicker({
+			changeMonth: true,
+			changeYear: true,
+			yearRange: "-50:+50"
+		});		
+	$('#txtDate').datepicker("option", "dateFormat", "dd/mm/yy");
+	$('#txtDate').attr("readonly", "readonly");
+
+} 
+
+function SetCalendar()
+{
+	var d = new Date();	
+    today = d.getMonth()+1 + ' ' + d.getDate() + ' ' + d.getFullYear();
+    Validdate = d.getMonth()+1 + ' ' + d.getDate() + ' ' + (d.getFullYear()+1);
+     $('#txtDate').datepicker({
+        defaultDate: 0,
+        minDate: "-48m",
+        maxDate: 0,
+        dateFormat: 'dd/mm/yy',
+    }).datepicker("setDate", new Date()) ;  
+    
+        
+     $('#txtDate').change(function () {
+        var from = $('#txtDate').datepicker('getDate');
+        var date_diff = Math.ceil((from.getTime() - Date.parse(today)) / 86400000);
+        var maxDate_d = date_diff+10+'m';
+        date_diff = date_diff + 'd';
+        });    
+}
+
+
+function ConvertDateTimeFormat(date, delimiter) {
+    return date.split(delimiter)[1] + "" + delimiter + "" + date.split(delimiter)[0] + "" + delimiter + "" + date.split(delimiter)[2];
+}
+
+
+function GetItemObject(url) {
+        var itemObjectLen=0;
+
+        //Get json object based on filter
+       $.ajax({
+		url:url,
+		headers:{ Accept:'application/json;odata=verbose'},
+		async:false,
+		success:function (data) {
+			var items=data.d.results; 
+           
+           arrData= arrData.concat(items);
+           debugger;
+           var Next=data.d.__next;
+            
+           if(Next!=null){
+              GetItemObject(data.d.__next);            
+           }
+           console.log(arrData);
+           var filterDate=new Date($('#txtDate').val());
+           /*arrData=arrData.filter(function(data){
+               var modifiedDate=new Date(data.Modified);
+               
+               return modifiedDate<=filterDate
+           })*/
+           itemObjectLen=arrData.length;
+           debugger
+
+           /*if(itemObjectLen > 0){
+               var textMassage='';
+                var result = confirm("Are you sure to delete "+itemObjectLen+" items!");
+                $.each(items, function(i,item){                      
+					DeleteArchiveListData(item.Id); //Delete list items based on item id.
+					//console.log(item.Id);
+                  });
+              alert(itemObjectLen+" items deleted succusefully.");
+              }*/
+         }
+         //currentDlg.close();
+       });          
+}
+
+
+
+function DeleteArchiveListData(itemID) {
+         var listName='NotificationCenter'; 
+         $.ajax({  
+            url: _spPageContextInfo.webAbsoluteUrl+"/_api/web/lists/getbytitle('"+listName+"')/items(" + itemID+ ")",  
+            type: "POST",
+            async:false,  
+            contentType: "application/json;odata=verbose",  
+            headers: {  
+                "Accept": "application/json;odata=verbose",  
+                "X-RequestDigest": $("#__REQUESTDIGEST").val(),  
+                "IF-MATCH": "*",  
+                "X-HTTP-Method": "DELETE",  
+            },  
+            success: function(data) {  
+                //alert("success");  
+            },  
+            error: function(data) {  
+                //alert(data);  
+            }  
+        });
+}    
+    
+    </script>
+</body>
+</html>   

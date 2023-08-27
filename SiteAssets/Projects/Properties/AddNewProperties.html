@@ -1,0 +1,800 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled 1</title>
+<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/EmployeeSynchronous/jquery-ui.css"/>
+<style>
+
+.custom-panel {
+    margin: 10px 0;
+    border: 1px solid #d4d4d4;
+    background-color: #ffffff;
+    padding:0px 15px 10px 15px;
+}
+
+.start-box {
+    font-size: 18px;
+    color:#ff0000;
+    top: 0;
+}
+
+label.font-12 {
+    font-size: 14px !important;
+}
+
+.ms-webpart-chrome-title,
+.ms-webpart-titleText{
+ display:none;	
+}
+.panel-head {
+    color: #1b1b1b;
+    padding: 8px 15px;
+    background-color: #ffffff;
+}
+
+.panel-head h3{
+ margin:0;	
+}
+
+#SponsorTeamEmployeePicker .sp-peoplepicker-topLevel,
+#StackeholderTeamEmployeePicker .sp-peoplepicker-topLevel,
+#ProjectManagerEmployeePicker .sp-peoplepicker-topLevel{
+ min-height:34px;	
+}
+
+#SponsorTeamEmployeePicker .sp-peoplepicker-editorInput, 
+#StackeholderTeamEmployeePicker .sp-peoplepicker-editorInput, 
+#ProjectManagerEmployeePicker .sp-peoplepicker-editorInput{
+    border: none !important;
+    display: inline-block !important;
+    width: auto !important;
+}
+.group_coverbox {
+    width: 100%;
+    padding: 2px 6px;
+    border: 1px solid #ccc;
+    min-height: 34px;
+}
+.GroupImage {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-box-pack: flex-start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: flex-start;
+    justify-content: flex-start;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+.employeesection {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 2px;
+    border-radius: 4px;
+    position: relative;
+    background-color: #fff;
+}
+.empoyeeimg img {
+    width: 25px;
+    height: 25px;
+    margin-right: 3px;
+    border-radius: 50%;
+}
+
+
+/***march-14-23-*******/
+#InvestorCountDiv .employeesection .empoyeeimg img,
+#TeamMemberCountDiv .employeesection .empoyeeimg img{
+ width:25px;
+ height:25px;
+ cursor:pointer;
+ border:none;
+ box-shadow:none;	
+}
+
+#InvestorCountDiv .employeesection .empoyeeimg,
+#TeamMemberCountDiv .employeesection .empoyeeimg{
+ position:relative;
+ display: -webkit-box;
+display: -moz-box;
+display: -webkit-flex;
+display: -ms-flexbox;
+display: flex;
+
+-webkit-align-items: center;
+-ms-flex-align:center;
+align-items:center;	
+
+}
+
+#InvestorCountDiv .employeesection,
+#TeamMemberCountDiv .employeesection{
+  margin-right:13px;	
+}
+
+#InvestorCountDiv .employeesection .empoyeeimg span.grouping_teams,
+#TeamMemberCountDiv .employeesection .empoyeeimg span.grouping_teams{
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 50%;
+    line-height: 25px;
+    color: #1d6ec0;
+}
+
+.additional_doms table tr th {
+    font-weight: 600;
+    padding: 7px 5px;
+    border-top: 1px solid #ccc !important;
+    border-bottom: 0;
+}
+.additional_doms table tr th {
+    font-weight: 400;
+    position: sticky;
+    top: 0;
+    background: #f3f3f3;
+    z-index: 5;
+    border-top: 1px solid #ccc;
+    font-size: 13px;
+}
+#team_memebers .employeesection {
+    min-height: auto !important;
+}
+#team_memebers .employeesection {
+    padding: 0;
+}
+
+#team_memebers .employeesection .empoyeeimg img {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #c1c1c1;
+    box-shadow: 0px 1px 3px #afadad;
+    border-radius: 50%;
+}
+
+.additional_doms {
+overflow: auto;
+max-height: 60vh;
+}
+
+.additional_doms::-webkit-scrollbar-thumb {
+border: 2px solid transparent;
+border-radius: 10px;
+background-color: #666;
+background-clip: content-box;
+-webkit-background-clip: content-box;
+
+}
+
+
+.additional_doms::-webkit-scrollbar-thumb:hover {
+background-color: #666;;
+background-clip: border-box;
+-webkit-background-clip: border-box;
+
+}
+
+.additional_doms::-webkit-scrollbar {
+width: 8px;
+height: 8px;
+background-color: transparent;
+}
+
+.additional_doms table tr th {
+    font-weight: 600;
+    padding: 7px 5px;
+    border-top: 1px solid #ccc !important;
+    border-bottom: 0;
+}
+
+.additional_doms table tr td:last-child,
+.additional_doms table tr th:last-child{
+text-align:left;
+}
+.additional_doms table {
+    margin-bottom: 0;
+    border: 1px solid #ccc;
+    border-collapse: inherit;
+    border-top-color: transparent;
+}
+.employeeinfo h4 {
+    font-size: 13px;
+    margin: 0;
+    color: #333;
+}
+.employeeinfo {
+    padding: 5px 10px;
+}
+.incrase_row {
+    width: 35px;
+    min-width: auto;
+    height: 36px;
+    border-radius: 50% !important;
+    text-align: center;
+    line-height: 30px;
+    padding: 0;
+    font-size: 25px !important;
+    margin-left: auto;
+    display: block;
+    margin-top: 10px;
+    padding: 0;
+}
+
+.additional_doms table tr td {
+    font-size: 13px;
+    padding: 5px;
+    vertical-align: middle;
+    border-top: 1px solid #ccc;
+}
+
+button.close-round {
+    background: #fff;
+    color: #333;
+    min-width: 1em !important;
+}
+
+
+#AssaginTaskTeam.form-control {
+    padding: 0;
+    border-radius: 0 15px 15px 0;
+    float: right;
+    width: 100%;
+    border: none;
+    transition-delay: overflow 2s;
+    transition: 0.3s;
+    overflow: hidden;
+    opacity:0;
+}
+.searchingbox {
+    position: relative;
+    width: 100%;
+    height: 37px;
+}
+.employee_list .searchingbox {
+    margin-bottom: 1px;
+}
+.searchingbox button {
+    width: 36px;
+    height: 36px;
+    position: absolute;
+    bottom: 2px;
+    background-color: #0b73cc;
+    border-radius: 50%;
+    min-width: 20px;
+    display: block;
+    right: -1px;
+    color: #fff;
+    border: none !important;
+}
+.addingsec.activateds {
+    transition: 1s ease;
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+}
+#AssaginTaskTeam.form-control.activateds {
+    transition: 0.5s;
+    padding: 0 38px 0 0;
+    width: 100%;
+    border: 1px solid #ccc;
+    overflow: visible;
+    opacity:1;
+}
+#AssaginTaskTeam .sp-peoplepicker-topLevel {
+    min-height: 30px !important;
+    border: none;
+    padding:0 !important;
+}
+
+#AssaginTaskTeam_TopSpan input {
+    max-width: 100% !important;
+    min-height: 31px !important;
+    border:none !important;
+}
+
+#add-team-modal .modal-content label{
+	font-size:13px;
+}
+
+.col-sm-6.parentremove {
+    padding: 0 2px !important;
+}
+#userList .employeesection {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 5px;
+    border-radius: 4px;
+    position: relative;
+    background-color: #fff;
+    margin-bottom: 5px;
+    min-height: 95px;
+}
+.crosebox {
+    position: absolute;
+    width: 18px;
+    display: block;
+    height: 18px;
+    top: 10px;
+    right: 3px;
+    background: #fff;
+    border-radius: 50%;
+    color: #000;
+    text-align: center;
+    line-height: 18px;
+    cursor: pointer;
+    opacity: 0;
+    transition: 0.3s;
+    box-shadow: 1px 0px 5px #00000073;
+}
+
+.employeesection:hover .crosebox {
+    opacity: 1;
+}
+.empoyeeimg img {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #c1c1c1;
+    box-shadow: 0px 1px 4px #afadad;
+    border-radius: 50%;
+}
+.employeeinfo {
+    padding: 5px 10px;
+}
+.employeeinfo h3 {
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+}
+.employeeinfo span {
+    font-size: 12px;
+}
+
+.fullcoverbox {
+    padding: 10px 0px;
+    border: 1px solid #cccccc96;
+    margin-top: 2px;
+    max-height: 194px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.scrollbr_nw::-webkit-scrollbar-thumb{
+background: #4b4b4b;
+border:2px solid transparent;
+background-clip:content-box; 
+-webkit-background-clip:content-box;
+border-radius: 5px;
+}
+
+.scrollbr_nw::-webkit-scrollbar-thumb:hover{
+background-clip: border-box;
+-webkit-background-clip: border-box;
+}
+
+.scrollbr_nw::-webkit-scrollbar{
+width:8px;
+height:8px;
+
+}
+
+#team_memebers .employeesection{
+ min-height:auto !important;	
+}
+
+#team_memebers .employeesection .empoyeeimg img {
+ border:none !important;    
+}
+#tableTempProjects tr td .GroupImage .employeesection{
+ min-height:auto;	
+}
+
+.color-red2 {
+    color: #ff0000;
+}
+
+#MemberTblBody tr td a.custom-edit-btn {
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 50%;
+    border: 0;
+    padding: 0;
+    transition: all 0.3s;
+    background-color: #e7e7e7;
+    margin: 0 2px;
+    display:inline-block;
+}
+
+#MemberTblBody tr td a.custom-edit-btn:hover{
+	background:#d5d5d5;
+}
+
+h3.heading_nams {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #515151;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #7ac0f2;
+    display: inline-block;
+    line-height: 28px;
+    background: #eeeeee;
+    padding: 0 15px;
+}
+
+#team_memebers tr td:nth-last-child(1),
+#team_memebers tr td:nth-last-child(3){
+ text-align:center;	
+}
+
+a.custom-edit-btn{
+ text-align:center;
+ cursor:pointer;	
+}
+
+@media all and (max-width: 991px) and (min-width: 520px){
+	
+.full_widthmang{
+ width:70%; 	
+}
+
+}
+
+@media all and (max-width: 519px) and (min-width: 320px){
+	
+.full_widthmang{
+ width:95%; 	
+}
+
+}
+
+
+</style>
+
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:_dlc_DocId msdt:dt="string">ADMIN-1645029823-5319</mso:_dlc_DocId>
+<mso:_dlc_DocIdItemGuid msdt:dt="string">b5e54c0e-f4dc-49cd-be30-85c5f2af8f35</mso:_dlc_DocIdItemGuid>
+<mso:_dlc_DocIdUrl msdt:dt="string">https://adaptindia.sharepoint.com/sites/Titan_2_2_1_DEV/_layouts/15/DocIdRedir.aspx?ID=ADMIN-1645029823-5319, ADMIN-1645029823-5319</mso:_dlc_DocIdUrl>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor msdt:dt="string">Sunil Kumar</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor>
+<mso:Order msdt:dt="string">531900.000000000</mso:Order>
+<mso:_ExtendedDescription msdt:dt="string"></mso:_ExtendedDescription>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author msdt:dt="string">Lakhan Kumar Sharma</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author>
+<mso:ContentTypeId msdt:dt="string">0x010100888F714E82EDFB4390B58950E6EEDFE5</mso:ContentTypeId>
+<mso:MediaServiceImageTags msdt:dt="string"></mso:MediaServiceImageTags>
+<mso:lcf76f155ced4ddcb4097134ff3c332f msdt:dt="string"></mso:lcf76f155ced4ddcb4097134ff3c332f>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+
+<body>
+	<div class="container-fluid">
+		<div class="custom-panel custom-panel-box">
+		<div class="panel-head">
+            <h3 class="m-0" data-localize="NewProperty">Property</h3>
+        </div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group custom-form-group">
+	                    <label for="" class="font-12" data-localize="PropertyName" value="">Property Name</label><sup class="start-box">*</sup>
+	                    <input type="text" class="form-control" id="txtProjectName" maxlength="250"/>
+                   </div>
+                   
+                    <div class="form-group custom-form-group">
+					    <label for="" class="font-12" data-localize="Reference" value="">Reference:</label>
+					    <input type="text" maxlength="150" class="form-control" id="txtProjectCode" onkeyup="this.value=this.value.replace(/[^a-zA-Z0-9]/g, '')"/>
+					</div>
+					
+					<div class="form-group custom-form-group">
+					    <label for="" class="font-12" data-localize="PropertyAddress">Property Address:</label>
+					    <input type="text" maxlength="250" id="txtAddress" class="form-control"/>
+					</div>
+				</div><!---col6 ed--->
+            	<div class="col-md-6">
+            		 <div class="form-group custom-form-group">
+                        <label for="" class="font-12" data-localize="PropertyCoordinator">Property Coordinator:</label><sup class="start-box">*</sup>
+                        <div id="ProjectManagerEmployeePicker" class=""></div>
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        <label for="" class="font-12" data-localize="TeamMembers">Team Members:</label><sup class="start-box">*</sup>
+                        <div id="StackeholderTeamEmployeePicker" class=""></div>
+                        <div class="group_coverbox" id="TeamMemberCountDiv" style="display:none;">
+                        	<div class="GroupImage" id="getTeamMember">
+  
+								  <div class="employeesection" data-toggle="modal" data-target="#team_memebers">
+								    <div class="empoyeeimg" style="float: left;">
+								      <img src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/Projects/Properties/img/users.png" alt=""/>
+								       <span id="teamMembersUserCount" class="grouping_teams"></span>
+								    </div>
+								  </div>
+								  
+								</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group custom-form-group">
+                        <label for="" class="font-12" data-localize="Investors">Investors:</label>
+                        <div id="SponsorTeamEmployeePicker" class=""></div>
+                        <div class="group_coverbox" id="InvestorCountDiv" style="display:none;">
+                        	<div class="GroupImage" id="getInvestors">
+  
+								  <div class="employeesection" data-toggle="modal" data-target="#team_memebers">
+								    <div class="empoyeeimg" style="float: left;">
+								      <img src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/Projects/Properties/img/users.png" alt=""/>
+								      <span id="InvestorsUserCount" class="grouping_teams"></span>
+								    </div>
+								  </div>
+								</div>
+                        </div>
+                    </div>
+            	</div><!---col-md6--->
+            	<div class="col-md-6" id="DivStatus" style="display:none">
+            		<div class="form-group custom-form-group"  >
+		                <label for="" class="font-12" data-localize="Status">Status:</label>
+		                <select class="form-control" id="ProjectStatus">
+							   <option value="Live" selected="selected">Active</option>
+								<option value="Terminated">Inactive</option>
+								<!--<option value="OnHold">OnHold</option>
+							    <option value="Completed">Completed</option>-->
+						</select>
+	                </div>
+            	</div>
+
+            	<div class="col-md-12">
+            		<div class="form-group custom-form-group">
+		                <label for="" class="font-12" data-localize="ProjectDetails">Property Details:</label>
+		                <textarea class="form-control details-box-h" id="txtDescription" rows="5"  style="resize:none;" placeholder="Enter Details"></textarea>
+	                </div>
+            	</div>
+            	<div class="col-md-12" style="text-align:center;">
+            		 <button type="button" class="btn custom-btn mr-8 w-68" id="createNewProjectSite">Submit</button>
+            		 <button type="button" class="btn custom-btn mr-8 w-68"  id="btnUpdatePrpperties" style="display:none;">Update</button>
+                     <button type="button" class="btn custom-btn custom-btn-two-cancel w-68" id="cancelNewProject">Close</button>            	
+                </div>
+			</div>
+		</div>
+	</div>
+	
+	
+<!--------popup area-------->
+
+<!----team_memebers---->
+<div id="team_memebers" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close close-round" data-dismiss="modal">
+          <span class="close-icon">&times;</span>
+        </button>
+        <h4 class="modal-title" id="viewModalHeaders">Team Memebers</h4>
+      </div>
+      <div class="modal-body">
+          <div class="additional_doms">
+            <table class="table">
+              <thead>
+                  <tr>
+                    <th style="width:39%" data-localize="Name">Name</th>
+                    <th style="width:10%" data-localize="Designation">Designation</th>
+                    <th style="width:18%;display:none" data-localize="Validity">Validity</th>
+                    <th style="width:18%; text-align:center;" data-localize="Permission">Permission</th>
+                    <th style="width:10%" data-localize="Status">Status</th>
+                    <th style="width:12%; text-align:center;" data-localize="Action">Action</th>
+                  </tr>
+              </thead>
+              <tbody id="MemberTblBody">
+                  
+              </tbody>
+            </table>
+          </div>
+          <button type="button" class="btn custom-btn incrase_row"  id="addNewMembers" data-toggle="modal" data-target="#add-team-modal">+</button>
+      </div>
+     <div class="modal-footer" style="text-align: center; margin-top:0;">
+        <button class="btn custom-btn wpx-80" data-dismiss="modal">Ok</button>
+      </div>
+    </div>
+ </div>
+</div>
+<!-- team_memebers ed---->
+	
+  <!-- add team Modal -->
+    <div class="modal fade" id="add-team-modal" role="dialog">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close close-round" data-dismiss="modal"><span class="close-icon">×</span></button>
+                    <h4 class="modal-title" id="TeamMemberHeader">Add Team Member</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+
+                        <div class="form-group col-sm-12 col-xs-12" id="editmodeaccount" style="display: none;">
+                            <label id="selectedUserName"></label>
+                            <label id="selectedUserID" style="display:block"></label>
+                        </div>
+
+                        <div class="col-sm-6 col-xs-12">
+                            <div class="form-group custom-form-group">
+                                <label data-localize="Role">Role<span class="color-red2">*</span> :</label>
+                                <input class="form-control" type="text" id="MemberRole">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xs-12">
+                            <div class="form-group custom-form-group">
+                                <label data-localize="Status">Status<span class="color-red2">*</span> :</label>
+                                <select class="form-control" disabled="disabled" id="MemberStatus">
+                                    <option value="Active">Active</option>
+                                    <option value="Released">Released</option>
+                                    <option value="Terminated" style="display:none">Terminated</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xs-12" style="display:none">
+                            <div class="form-group custom-form-group">
+                                <label>From Date:</label>
+                                <input class="form-control" type="text" readonly="readonly" id="fromDate"/>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xs-12">
+                            <div class="form-group custom-form-group" style="display:none">
+                                <label>To Date:</label>
+                                <input class="form-control" type="text" readonly="readonly" id="ToDate"/>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xs-12" style="display:none;" id="divReleasedDate">
+                            <div class="form-group custom-form-group">
+                                <label>Release Date:</label>
+                                <input class="form-control" type="text" id="ReleaseDate"/>
+                            </div>
+                        </div>
+                        
+                        <div class="col-sm-12 col-xs-12">
+                            <div class="form-group custom-form-group">
+                                <label data-localize="Permission">Permission:</label>
+                                <select class="form-control" id="ddlPermission">
+									<option value="Edit">Edit</option>
+									<option value="Read">Read</option>
+									<option value="Restricted View">Restricted View</option>
+								</select>
+                            </div>
+                        </div>
+                        
+                       <div class="employee_list col-md-12 userBox" id="userList">
+						
+                            <div class="col-md-12" style="position: relative; border:1px solid #ccc;">
+
+                                <div class="row fullcoverbox scrollbr_nw" style="border:none">
+                                    <div id="userHTMLBox"></div>
+                                </div><!--row ed-->
+                                
+                               <div class="row">
+                                    <div class="col-md-7 pull-right full_widthmang" style="margin-top:5px;">
+                                        <div class="searchingbox">
+                                            <div id="AssaginTaskTeam" class="form-control"></div>
+                                            <button type="button" class="addingsec"><i class="fa fa-plus"></i></button>
+                                        </div>
+                                    </div>
+                                </div><!--row ed child-->
+
+                            </div><!--12 ed-->
+
+                        </div><!--employee list-->
+
+                    </div>
+                </div>
+                <div class="modal-footer" style="text-align:center; margin-top:0;">
+                    <button class="btn custom-btn mr-8 wpx-80" id="btnsubmit" type="button">Submit</button>
+                    <button class="btn custom-btn mr-8 wpx-80" id="btnupdate" type="button" style="display:none;">Update</button>
+                    <!------<button class="btn custom-btn-two-cancel wpx-80" id="btnCancelTeam" data-dismiss="modal">Cancel</button>------>
+                    <button class="btn custom-btn-two-cancel wpx-80" id="" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+<!---- edit_permission ---->
+<div id="edit_permission" class="modal fade" role="dialog" style="background:rgba(0,0,0,0.5)">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close close-round" data-dismiss="modal">
+          <span class="close-icon">&times;</span>
+        </button>
+        <h4 class="modal-title">Edit</h4>
+      </div>
+      <div class="modal-body">
+        <h3 class="heading_nams" id="lableUserName"></h3>
+        
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+                  <label>Role</label><span class="color-red2">*</span>:
+                  <input type="text" id="txtEditRole" class="form-control"/>
+                  <input type="hidden" id="txtEditId"  class="form-control"/>
+                  <input type="hidden" id="txtUserId"  class="form-control"/>
+              </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+                  <label>Status</label><span class="color-red2">*</span>:
+                   <select class="form-control" id="ddlEditStatus">
+                      <option value="Active">Active</option>
+                      <option value="Terminated">Inactive</option>
+                  </select>
+              </div>
+          </div>
+          <div class="col-sm-12">
+            <div class="form-group">
+                  <label>Permission</label>:
+                  <select class="form-control" id="ddlEdit">
+                  
+                  </select>
+              </div>
+          </div>  
+        </div>
+      </div>
+      <div class="modal-footer" style="text-align:center; margin-top:0;">
+        <button type="button" id="btnUpdateMamber" class="btn custom-btn">Submit</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+	
+	
+	<script type="text/javascript" src="/_layouts/15/clientforms.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/Projects/Properties/AddNewProperties.js"></script>
+	
+<script>
+
+$(function(){
+
+ $('.addingsec').click(function(){
+ 
+ 	$(this).siblings('#AssaginTaskTeam').toggleClass('activateds');
+ 	$(this).toggleClass('activateds');
+ 	$('#AssaginTaskTeam.form-control .sp-peoplepicker-initialHelpText').toggleClass('activateds'); 
+ 	
+ });
+ 
+}); 
+</script>	
+	
+</body>
+</html>
