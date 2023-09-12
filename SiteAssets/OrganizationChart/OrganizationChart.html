@@ -693,7 +693,23 @@ body::-webkit-scrollbar-thumb {
         return dfds.promise();
     }
 </script>
+<script>
 
+ $(window).on('load', function () {
+ 
+ setTimeout(function()
+ {
+	GetOrgChartEmployeesAjaxCall();
+    $("#txtComp").text(txtCompanyName);
+            $("#txtDept").text($("#Department :selected").text());
+            $("#txtLoc").text($("#OfficeLocation :selected").text());
+            $("#txtComp").text($("#ddlFilterCompany :selected").text());
+            $('clipPath rect').attr('rx', '100');
+			//$('.get-oc-c').attr('style', 'background-color: '' !important');
+	},1000);
+});
+
+</script>
 
 <div style="clear:both"></div>
 
