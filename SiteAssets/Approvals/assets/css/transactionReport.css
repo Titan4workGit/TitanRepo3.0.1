@@ -1623,6 +1623,14 @@ span.left_mg_pad{
 }
 
 
+#stepsapprovers .flexitem.step_gap {
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+
 @media(min-width:767px){
 
 #new_history .modal-dialog.widthajust {

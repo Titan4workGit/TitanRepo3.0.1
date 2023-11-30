@@ -3740,8 +3740,8 @@ body.modal-open{
 						
 						
 						<div class="row" style="margin:0;">
-							<div class="col-md-12" style="text-align:right">
-							 <a href="#" class="view_formnow" id="redirForm"  target="_blank" style="display:none !important;">View the Form</a>
+							<div class="col-md-12" style="text-align:right; display:none;">
+							 <a href="#" class="btn custom-btn" id="redirForm"  target="_blank" style="color:#fff; display:none;">Advanced Setup</a>
 							</div>
 							<div class="col-md-12">
 								<div class="employee_process_details">
@@ -4933,7 +4933,7 @@ body.modal-open{
               <select name="" class="form-control" id="ddlPorcFilt"></select>
             </div>
           </div>
-          <div class="form-group row no-gutter">
+          <div class="form-group row no-gutter hideInDoc">
             <label class="col-md-2" style="margin-top:7px;">Category:</label>
             <div class="col-md-10">
               <select name="" class="form-control" id="ddlCatFilt"></select>
@@ -4949,8 +4949,6 @@ body.modal-open{
                 <option value="Department">Department</option>
                 <option value="Office">Office</option>
                 <option value="Group">Group</option>
-                <option value="Client">Client</option>
-                <option value="Guest User">Guest User</option>
                 <option value="Selective">Selective</option>
               </select>
             </div>  
@@ -5403,12 +5401,12 @@ body.modal-open{
                   <a href="#" class="linkopts" onclick="getProcess('delAllReq',this)">Delete all Requests</a>
                   <span class="workingloader ">Working...</span>
                 </div>
-                <div class="form-group linkmag" style="display:none !important;">
+                <div class="form-group linkmag">
                   <label></label>
                   <a href="#" class="linkopts">Copy Direct Link</a>
                   <span class="workingloader ">Working...</span>
                 </div>
-                <div class="form-group linkmag" style="display:none !important;">
+                <div class="form-group linkmag">
                   <label></label>
                   <a href="#" class="linkopts">Transaction Report</a>
                   <span class="workingloader">Working...</span>
@@ -8538,12 +8536,12 @@ function insertDocumnetApprovalMaster(){
 	 } 
 	 
 var arr=[];  
-var dataAsArr;   	 
+var dataAsArr;   var response = response || []; 	 
 function getAllTemplate() {     
-    var siteURL;   
+    var siteURL;  arr=[]; 
     var templatedata ='';  
         siteURL = _spPageContextInfo.siteAbsoluteUrl;  
-        var apiPath = siteURL + "/_api/lists/getbytitle('ApprovalProcessMaster')/items?$select=*,Department/Title,GuestClient/Title,OfficeLocation/Title,Group/Title,PublishedBy/EMail&$expand=Department,GuestClient,OfficeLocation,Group,PublishedBy&$orderby= PublishedOn desc";  
+        var apiPath = siteURL + "/_api/lists/getbytitle('ApprovalProcessMaster')/items?$top=5000&$select=*,Department/Title,GuestClient/Title,OfficeLocation/Title,Group/Title,PublishedBy/EMail&$expand=Department,GuestClient,OfficeLocation,Group,PublishedBy&$orderby= PublishedOn desc";  
         $.ajax({  
             url: apiPath,  
             headers: {  
@@ -8552,13 +8550,18 @@ function getAllTemplate() {
             async: false,  
             success: function(data) {  
                 var items; // Data will have user object  
-                var results; // console.log(data);
-                
-                items = data.d;  
+                var results=[]; // console.log(data);
+				response =data.d.results// response.concat(data.d.results);
+				
+              /*  if (data.d.__next) {
+                    url = data.d.__next;
+                    getAllTemplate();
+                }*/
+                items = response;  
                     if (items != null) {  
-                        results = items.results ; var html='';var docHtml='';var predHtml='';
-                        dataAsArr= items.results ;
-                        arr=results;
+                        results = response ; var html='';var docHtml='';var predHtml='';
+                        dataAsArr= response ;
+                        arr=response;
                         var Processes = arr.filter(val => {
 						    return  val.ProcessType=="Process";
 						});

@@ -726,11 +726,11 @@ div.ms-webpart-cell-vertical-inline-table{
  border:none !important;    
 }
 
-.remove-group-btn, .remove-group-btn:focus {
+/* .remove-group-btn, .remove-group-btn:focus {
     background: none !important;
     border-color: none !important;
     border-radius: 50% !important;
-}
+} */
 
 /**jan/7/22**/
 
@@ -1680,6 +1680,8 @@ font-weight:600 !important;
   margin-top: 1px;
 }
 
+
+/**********
 #approvalDeactiveModal .modal-content,
 #approvalRejectionModal .modal-content,
 #approvalForwardModal .modal-content,
@@ -1692,6 +1694,24 @@ font-weight:600 !important;
 user-select: none;
 		
 }
+
+
+#approvalDeactiveModal .modal-content .richText .richText-editor,
+#approvalRejectionModal .modal-content .richText .richText-editor,
+#approvalForwardModal .modal-content .richText .richText-editor,
+#approvalNotificationModal .modal-content .richText .richText-editor{
+
+-webkit-user-select: text;
+-webkit-touch-callout: text;
+-moz-user-select: text;
+-ms-user-select: text;
+user-select: text;
+
+}
+
+
+*********/
+
 
 #pie svg .p0_arc{
   cursor:pointer !important;	
@@ -1729,7 +1749,7 @@ img[id^="StatusImageApprovalTaskList"]{
 
 
 .newremarking::-webkit-scrollbar-thumb{
-border: 2px solid transparent;
+border: 1px solid transparent;
 border-radius: 10px;
 background-color: #666;
 background-clip: content-box;
@@ -1746,7 +1766,7 @@ background-clip: border-box;
 .newremarking::-webkit-scrollbar{
 width: 8px;
 height: 8px;
-background-color: transparent;
+background-color: #e2e2e2;
 }
 
 #ForwardbyRemark{
@@ -1966,7 +1986,8 @@ margin-top:15px;
 
 #PDFAREA .form-control,
 #PDFAREA .form-control[readonly].my-read-only{
-    background-color: #ffffff78 !important;
+    background-color: #fff !important;
+    box-shadow: none !important;
 }
 
 .chip-box.flexing_none{
@@ -2529,17 +2550,23 @@ top: -1px;
  width:148px !important;	
 }
 
+
+
 @media(min-width:768px){
 
 #Bottam-Report-Area .report_area{
- width:80%;
+ width:90%;
  margin:0 auto;	
+ clear:both;
+ display:block;
 }
 
 #Bottam-History-Area .timebox {
-    width:80%;
+    width:90%;
     margin: 0 auto;
+    display:block;
 }
+
 	
 }
 
@@ -3274,11 +3301,11 @@ top: -1px;
 	                        <div class="col-md-6 col-sm-6">
 	                        	<div class="form-group">
 	                        		<label>Scope</label>
-	                        		<select class="form-control" id="InboxScope">
+	                        		<select class="form-control" id="InboxScope" onchange="SetInboxFilterDDL(this.value)">
 	                        			<option value="Current Request" selected="selected">Current Request</option>
 	                        			<option value="I had taken action">I had taken action</option>
 	                        			<option value="Upcoming Request">Upcoming Request</option>
-	                        			<option></option>
+	                        			
 	                        		</select>
 	                        		<!----<a type="button" class="" onclick="ActionTakenPerform()" style="cursor:pointer; margin:5px 0;">I had taken action</a>---->
 	                          	    <!---<a type="button" class="" onclick="UpcomingApprovals()" style="cursor:pointer; margin:5px 0;">Upcoming Requests</a>--->
@@ -3299,7 +3326,7 @@ top: -1px;
     <!-- Approval Action Modal -->
     <div class="modal fade approval-action-modal" id="approvalActionModal" role="dialog">
         <div class="modal-dialog modal-md">
-            <div class="modal-content">
+            <div class="modal-content" onCopy="return false">
                 <div class="modal-header">
                     <button type="button" class="close close-round" data-dismiss="modal"><span
                             class="close-icon">&times;</span></button>
@@ -3456,7 +3483,7 @@ top: -1px;
     <!-- Approval Rejection Modal -->
     <div class="modal fade approval-rejection-modal" id="approvalRejectionModal" role="dialog">
         <div class="modal-dialog modal-md">
-            <div class="modal-content">
+            <div class="modal-content" onCopy="return false">
                 <div class="modal-header">
                     <button type="button" class="close close-round" data-dismiss="modal"><span
                             class="close-icon">&times;</span></button>
@@ -3531,7 +3558,7 @@ top: -1px;
     <!-- Approval forward Modal -->
     <div class="modal fade approval-forward-modal" id="approvalForwardModal" role="dialog" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog modal-md">
-            <div class="modal-content">
+            <div class="modal-content" onCopy="return false">
                 <div class="modal-header">
                     <button type="button" class="close close-round" data-dismiss="modal">
                     <span class="close-icon">&times;</span></button>
@@ -3681,7 +3708,7 @@ top: -1px;
     <!-- Approval Notification Modal -->
     <div class="modal fade approval-notification-modal" id="approvalNotificationModal" role="dialog">
         <div class="modal-dialog modal-md">
-            <div class="modal-content">
+            <div class="modal-content" onCopy="return false">
                 <div class="modal-header">
                     <button type="button" class="close close-round" data-dismiss="modal"><span
                             class="close-icon">&times;</span></button>
@@ -4346,7 +4373,7 @@ top: -1px;
                                     <div class="detail-title ellipsis-2"><span id="StatusTextProcessApproval"></span><img class="ml5" width="20px" src="" alt="" id="StatusImgProcessApproval"></div>                 
                                     
                                 </li>
-                                <li>
+                                <li id="CurrentStepLI">
                                     <label class="detail-label">Current Step:</label>
                                     <div class="detail-title ellipsis-2">
                                         <span id="CurrentStep"></span>
@@ -4977,7 +5004,7 @@ top: -1px;
   <div class="modal-dialog">
 
     <!-- Modal content-->
-    <div class="modal-content">
+    <div class="modal-content" onCopy="return false">
       <div class="modal-header">
         <h4 class="modal-title">Cancellation</h4>
       </div>
@@ -5765,8 +5792,6 @@ $(function(){
     $('.'+storeval).slideDown();
 
   });
-
-//$( ".datepickup" ).datepicker();
 
 });
 

@@ -21,8 +21,10 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/ProcessApproval/ApprovalEntry/jSignature.min.js"></script>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/ProcessApproval/ApprovalEntry/DigitalSignature.js"></script>	
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js" ></script>
-	<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/ProcessApproval/assets/js/dom-to-image.js"></script>	
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/ProcessApproval/assets/js/dom-to-image.js"></script>
+	<!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>-->
 	<script type="text/javascript" src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+	<!--<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-3.4.1.js"></script>-->
 
 	<style>
 		@font-face{
@@ -1704,7 +1706,7 @@ overflow: hidden;
 							</div>
 						</div><!---col-md-6-->
 					</div><!--row ed-->	
-						<div class="pl15 pr15 pb15 text-center btnmanage btngroupsetting">
+						<div class="pl15 pr15 pb15 text-center btnmanage btngroupsetting" onCopy="return false">
 						    <a href="#" class="new_attachmenbtn" data-toggle="modal" data-target="#additional_document" style="color:#1d6ec0; text-decoration:none; display:inline-block; padding:5px 5px;">Attached Document(s) : <span class="countingbx">0</span></a>
 							<!--	<button type="button" class="btn custom-btn" id="savenewrequest">Submit</button>  -->
 							<a type="button" class="btn custom-btn" id="AttachDocs"data-toggle="modal" data-target="#Approval_doc" onclick="NewDocPopUp('New');"><img src="https://cdn.jsdelivr.net/gh/Titan4workGit/TitanRepo3.0.1@latest/SiteAssets/ProcessApproval/assets/images/attachfiles.png"> Attachments</a>
@@ -2014,7 +2016,7 @@ overflow: hidden;
 		<!-- Approval Action Modal -->
     <div class="modal fade approval-action-modal" id="approvalActionModal" role="dialog" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog modal-md">
-            <div class="modal-content">
+            <div class="modal-content" onCopy="return false">
                 <div class="modal-header">
                     <button type="button" class="close close-round" data-dismiss="modal"><span
                             class="close-icon">×</span></button>
@@ -2111,7 +2113,7 @@ overflow: hidden;
     <!-- Approval Rejection Modal -->
     <div class="modal fade approval-rejection-modal" id="approvalRejectionModal" role="dialog">
         <div class="modal-dialog modal-md">
-            <div class="modal-content">
+            <div class="modal-content" onCopy="return false">
                 <div class="modal-header">
                     <button type="button" class="close close-round" data-dismiss="modal"><span
                             class="close-icon">×</span></button>
@@ -2169,7 +2171,7 @@ overflow: hidden;
 <!-- Approval Reviewed Modal -->
     <div class="modal fade approval-rejection-modal" id="approvalEditModal" role="dialog">
         <div class="modal-dialog modal-md">
-            <div class="modal-content">
+            <div class="modal-content" onCopy="return false">
                 <div class="modal-header">
                     <button type="button" class="close close-round" data-dismiss="modal"><span
                             class="close-icon">×</span></button>
@@ -2201,7 +2203,7 @@ overflow: hidden;
 <!-- rever_multistep -->
 <div id="rever_multistep" class="modal fade" role="dialog">
 	<div class="modal-dialog modal-lg">
-    	<div class="modal-content">
+    	<div class="modal-content" onCopy="return false">
       		<div class="modal-header">
         		<button type="button" class="close close-round" data-dismiss="modal">
           			<span class="close-icon">&times;</span>
@@ -2245,7 +2247,7 @@ overflow: hidden;
   <div class="modal-dialog modal-md">
 
     <!-- Modal content-->
-    <div class="modal-content">
+    <div class="modal-content" onCopy="return false">
       <div class="modal-header">
         <button type="button" class="close close-round" data-dismiss="modal">
          <span class="close-icon">&times;</span>
@@ -2771,7 +2773,7 @@ overflow: hidden;
   <div class="modal-dialog">
 
     <!-- Modal content-->
-    <div class="modal-content">
+    <div class="modal-content" onCopy="return false">
       <div class="modal-header">
         <button type="button" class="close close-round" data-dismiss="modal">
           <span class="close-icon">&times;</span>
@@ -2804,14 +2806,14 @@ overflow: hidden;
 		 <div class="wrapfildsinside mangflexlabel">
           <label for="">Attach For</label>
           <div class="fieldbx">
-            <select id="e_Signature_optis" class="form-control" disabled>
+            <select id="e_Signature_optis" class="form-control" disabled="disabled">
               <option value="supporting_document">Supporting Document</option>
               <option value="required_e_signature">Required e-signature</option>
             </select>
           </div>
         </div>
         
-        <div class="action_signaturebx supporting_document" style="display:none !important;">
+        <div class="action_signaturebx supporting_document" style="display:none;">
           <div class="wrapfildsinside mangflexlabel">
           	<label>Restricted Access</label>
           	<div class="fieldbx flexing_both">
@@ -2831,7 +2833,7 @@ overflow: hidden;
 
        </div>
         
-		<div class="action_signaturebx required_e_signature" style="margin-bottom:19px; display:none !important;">
+		<div class="action_signaturebx required_e_signature" style="margin-bottom:19px; display:none;">
 		
         <div class="wrapfildsinside">
           <label for="">Signature of</label>
@@ -2976,7 +2978,7 @@ overflow: hidden;
         </div>
       </div>
       <div class="modal-footer" style="text-align: center; margin:0; padding:10px;">
-        <button type="button" class="btn custom-btn" data-dismiss="modal">Close</button>
+        <button type="button" class="custom-btn-two-cancel" data-dismiss="modal">Close</button>
       </div>
     </div>
 
@@ -3099,9 +3101,9 @@ overflow: hidden;
           <label style="display:inline-block;">Action</label>:<span style="color:#ff0000">*</span>
           <select name="" class="form-control" id="RntimeStepAction">
             <option value="Select" selected="selected">--Select--</option>
-            <option value="Edit Data" style="display:none !important;">Edit & Approve</option>
-            <option value="Edit & Sign" style="display:none !important;">Edit & Sign</option>
-            <option value="Edit Only" style="display:none !important;">Edit Only</option>
+            <option value="Edit Data" style="display:none;">Edit & Approve</option>
+            <option value="Edit & Sign" style="display:none;">Edit & Sign</option>
+            <option value="Edit Only" style="display:none;">Edit Only</option>
             <option value="Review Only">Review Only</option>
             <option value="Review & Sign">Review & Sign</option>
             <option value="Review & Approve">Review & Approve</option>
@@ -3580,7 +3582,9 @@ $("#ReviewedRequestSubmit").click(function () {
 					for(var k=0; k<EnsureActive.length; k++)
 					{
 						var QueryResultCheckActive=[];
-						if(EnsureActive[k].Type == 'Tenant')
+						var QueryCheckActive =  _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('Employees')/items?$select=*&$filter=LogonName/EMail eq '"+EnsureActive[k].Email+"' and Status eq 'Active'";
+								QueryResultCheckActive = RequestGetdata(QueryCheckActive);
+						/*if(EnsureActive[k].Type == 'Tenant')
 						{
 							var QueryCheckActive =  _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('Employees')/items?$select=*&$filter=LogonName/EMail eq '"+EnsureActive[k].Email+"' and Status eq 'Active'";
 								QueryResultCheckActive = RequestGetdata(QueryCheckActive);
@@ -3589,7 +3593,7 @@ $("#ReviewedRequestSubmit").click(function () {
 						{
 							var QueryCheckActive =  _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('ExternalUsers')/items?$select=*&$filter=LoginName/EMail eq '"+EnsureActive[k].Email+"' and Status eq 'Active'";
 								QueryResultCheckActive = RequestGetdata(QueryCheckActive);
-						}							
+						}	*/						
 						if(QueryResultCheckActive.length>0)
 						{
 							ExStatus = true;
@@ -3658,7 +3662,10 @@ $("#ReviewedRequestSubmit").click(function () {
 						for(var k=0; k<EnsureActive.length; k++)
 						{
 							var QueryResultCheckActive=[];
-							if(EnsureActive[k].Type == 'Tenant')
+							var QueryCheckActive =  _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('Employees')/items?$select=*&$filter=LogonName/EMail eq '"+EnsureActive[k].Email+"' and Status eq 'Active'";
+									QueryResultCheckActive = RequestGetdata(QueryCheckActive);
+
+							/*if(EnsureActive[k].Type == 'Tenant')
 							{
 								var QueryCheckActive =  _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('Employees')/items?$select=*&$filter=LogonName/EMail eq '"+EnsureActive[k].Email+"' and Status eq 'Active'";
 									QueryResultCheckActive = RequestGetdata(QueryCheckActive);
@@ -3667,7 +3674,7 @@ $("#ReviewedRequestSubmit").click(function () {
 							{
 								var QueryCheckActive =  _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('ExternalUsers')/items?$select=*&$filter=LoginName/EMail eq '"+EnsureActive[k].Email+"' and Status eq 'Active'";
 									QueryResultCheckActive = RequestGetdata(QueryCheckActive);
-							}
+							}*/
 								
 							if(QueryResultCheckActive.length>0)
 							{
@@ -3880,7 +3887,7 @@ function saverecord()
 	}
 	ischeckk = false;
 	var fileData = [];
-	$("#appenddyamicboxes > .dynamicdatatexboxes.active").each(function () {
+	$("#appenddyamicboxes > .dynamicdatatexboxes.active:not(.hide)").each(function () {
 	var key = $(this).find(".columnnametxt.active").attr("value");
 	//itemProperties[key] = $(this).find(".dynamicvalfeachcls").val();
 	var vval = '';	
@@ -4601,7 +4608,7 @@ var GetImageBuffer = function (SignImage)
 			var Passingtoken='';
 			QueryEmpResult = [];	
 			var txtCompanyId = titanForWork.getQueryStringParameter("CompanyId");
-    		var EmpQuery = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('Employees')/items?$select=*,LogonName/EMail,LogonName/Title,LogonName/Id,LogonName/FirstName,LogonName/LastName,LogonName/EMail,Department/ID,Department/DepartmentName,Department/Title,Company/ID,ManagerLoginName/ID,ManagerLoginName/Title,IndirectManager/ID,IndirectManager/Title, OfficeLocation/ID,OfficeLocation/Title&$orderby= FullName asc &$expand=LogonName,Department,Company,ManagerLoginName,IndirectManager,OfficeLocation &$filter= Company/ID eq '" + txtCompanyId + "' and LogonName/Id eq '"+_spPageContextInfo.userId+"' and Status eq 'Active'";	
+    		var EmpQuery = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('Employees')/items?$select=*,LogonName/EMail,LogonName/Title,LogonName/Id,LogonName/FirstName,LogonName/LastName,LogonName/EMail,Department/ID,Department/DepartmentName,Department/Title,Company/ID,Company/Title,ManagerLoginName/ID,ManagerLoginName/Title,IndirectManager/ID,IndirectManager/Title, OfficeLocation/ID,OfficeLocation/Title&$orderby= FullName asc &$expand=LogonName,Department,Company,ManagerLoginName,IndirectManager,OfficeLocation &$filter= Company/ID eq '" + txtCompanyId + "' and LogonName/Id eq '"+_spPageContextInfo.userId+"' and Status eq 'Active'";	
     		QueryEmpResult = RequestGetdata(EmpQuery);
 		
 			if(window.location.href.indexOf("?")> -1) 
@@ -4920,14 +4927,22 @@ var GetImageBuffer = function (SignImage)
 							}							
 						}
 						else if(FilteredRec.length > 0)
-						{
+						{	
+							for(var e=0;e<FilteredRec.length;e++)	{
+								if(FilteredRec[e].EditScope == 'Invisible'){
+									if(datarepeter.ColumnType == 'Table')
+									{
+										PermissionStatus = '';										
+										VisiblePermissionClass = 'hide';						
+									}else{							
+										PermissionStatus = ''; //'disabled="disabled"';	
+										VisiblePermissionClass = 'hide';						
+									}
+								}else{
+									PermissionStatus = '';	
+								}
+							 }
 							
-							if(FilteredRec[0].EditScope == 'Invisible'){							
-								PermissionStatus = 'disabled="disabled"';	
-								VisiblePermissionClass = 'hide';						
-							}else{
-								PermissionStatus = '';	
-							}
 						}
 					}
 					/*else{
@@ -4944,12 +4959,20 @@ var GetImageBuffer = function (SignImage)
 						datatypeval ='onchange="checkColVisibility(\''+datarepeter.ConditionForVisible+'\',\''+datarepeter.ColumnName+'\', \''+datarepeter.VisibleFields+'\');"';
 						//saveclassset += 'hide ';						
 					}*/
+					
 					var ChangeableCols = datarepeter.ChangeableFieldsId.results;
 					if(ChangeableCols.length > 0){
 						for(f=0;f<ChangeableCols.length;f++){
 							ChangebleFileds.push(ChangeableCols[f]);
 						}
 					}
+					if(datarepeter.ScriptForValueChange != '' && datarepeter.ScriptForValueChange != null){
+							var script = datarepeter.ScriptForValueChange; 
+							ScriptArray.push({'Id':datarepeter.ID, 'Script':datarepeter.ScriptForValueChange})
+							datatypeval += 'onchange="ExecuteCode('+datarepeter.ID+')"';  //(\''+script+'\')"';
+						//	$('#'+resultColumns[i].ColumnName).change(ExecuteCode(resultColumns[i].ID));
+						//	$('#'+datarepeter.ColumnName).bind("change",function() {ExecuteCode(datarepeter.ID) });
+					}	
 					if (datarepeter.DefaultValue != null && datarepeter.DefaultValue != undefined && datarepeter.DefaultValue != "") {
 						valuefordefault += datarepeter.DefaultValue ? datarepeter.DefaultValue : "";
 						AutoFilledCols.push({'ColName' : datarepeter.ColumnName , 'ColValue' : valuefordefault });
@@ -5042,11 +5065,14 @@ var GetImageBuffer = function (SignImage)
 							}
 							var serialNum = 0;
 							var NewSerail= '';							
-							
+							//classset += datarepeter.ColumnName;
                              //var templatehelptext= "", saveclassset = ""; headerstyle = ""; classset = ""; classRich = "";
 							 if(datarepeter.ColumnType == "FixedText" || datarepeter.ColumnType == "Multiline"){
+								//classset += datarepeter.ColumnName 
+								 
 								 if(datarepeter.ColumnType == "FixedText"){
 								 	saveclassset += "dynamicdatatexboxes2 ";
+								 	
 								 	if(datarepeter.Width == 'Column Width'){
 								 		saveclassset += "col-md-4";
 								 	}else{
@@ -5055,7 +5081,7 @@ var GetImageBuffer = function (SignImage)
 									//templatehelptext += "<textarea "+PermissionStatus+" class='dynamicvalfeachcls2 form-control' readonly value='" + valueinMulti + "' rows='5' id='" + datarepeter.ColumnName + "'>"+valueinMulti+"</textarea>";\
 									templatehelptext += "<div "+PermissionStatus+" class='dynamicvalfeachcls2' readonly value='" + valueinMulti + "' id='" + datarepeter.ColumnName + "'>"+valueinMulti+"</div>";
 								 }else{
-								 	saveclassset += " dynamicdatatexboxes "+datarepeter.MLEHeight+" ";							 	
+								 	saveclassset += " dynamicdatatexboxes "+datarepeter.MLEHeight+"  "+datarepeter.ColumnName+" ";							 	
 								 	
 								 	if(datarepeter.Width == 'Column Width'){
 								 		if(pagenumbers == 2){
@@ -5077,7 +5103,7 @@ var GetImageBuffer = function (SignImage)
 										
 										//$('.richText-editor').html(valuefordefault )
 										//templatehelptext += "<textarea "+PermissionStatus+" class='dynamicvalfeachcls form-control "+ classRich +" "+ classset +"' value='" + valuefordefault + "' rows='5' style='max-height : 100px' id='" + datarepeter.ColumnName + "' coltype ='"+datarepeter.ColumnType+"'></textarea>";
-										templatehelptext += "<div class='dynamicvalfeachcls form-control "+ classRich +" "+ classset +" ' "+PermissionStatus+" style='height:100% !important;min-height : 100px' id='" + datarepeter.ColumnName + "' coltype ='"+datarepeter.ColumnType+"' ></div>";
+										templatehelptext += "<div class='dynamicvalfeachcls form-control "+ classRich +" "+ classset +" ' "+PermissionStatus+" style='height:100% !important;min-height : 100px' id='" + datarepeter.ColumnName + "' coltype ='"+datarepeter.ColumnType+"' >"+valuefordefault +"</div>";
 									}else{
 										
 										templatehelptext += "<div class='dynamicvalfeachcls form-control "+ classRich +"' "+PermissionStatus+" style='height:100% !important;min-height : 100px' id='" + datarepeter.ColumnName + "' coltype ='"+datarepeter.ColumnType+"' >"+valuefordefault +"</div>";
@@ -5196,7 +5222,7 @@ var GetImageBuffer = function (SignImage)
 									NewSerail  = valuefordefault;									
 								}
 								AutoFilledCols.push({'ColName' : datarepeter.ColumnName , 'ColValue' : NewSerail  });
-								templatehelptext += "<input type='text' "+PermissionStatus+"  coltype ='"+datarepeter.ColumnType+"' class='dynamicvalfeachcls form-control "+ datetypevalstop + " " + classset +"' " + datatypeval + " value='" + NewSerail + "' id='" + datarepeter.ColumnName + "' />";
+								templatehelptext += "<input type='text' "+PermissionStatus+"  coltype ='"+datarepeter.ColumnType+"' class='dynamicvalfeachcls form-control "+ datetypevalstop + " "+VisiblePermissionClass+" " + classset +"' " + datatypeval + " value='" + NewSerail + "' id='" + datarepeter.ColumnName + "' />";
 							}						
 							else{
 								saveclassset += "dynamicdatatexboxes";
@@ -5230,7 +5256,7 @@ var GetImageBuffer = function (SignImage)
 								}else{
 								templatehelptext += "<input type='text' "+PermissionStatus+"  coltype ='"+datarepeter.ColumnType+"'  class='dynamicvalfeachcls " + classset +" form-control "+ datetypevalstop + "' " + datatypeval + " value='" + valuefordefault + "' id='" + datarepeter.ColumnName + coltitle +"' "+datalimitset +" "+setnumberlimit+" "+urltext+"  />";
 								}
-							}
+							}							
 							if(datarepeter.ColumnType == "Table"){
 								var tbLedtScope = $.grep(QueryResult, function(v) {
 									return v.ColumnIDId == datarepeter.ID && (v.ObjectType == 'Table' || v.ObjectType == 'Column');
@@ -5247,16 +5273,16 @@ var GetImageBuffer = function (SignImage)
 								//if(tbLedtScope.length > 0){}
 								
 								if(datarepeter.DefaultValue == 'Rows' && Passingtoken == 'Initiation'){
-									getTableInitialData(datarepeter.ID,datarepeter.Width,PermissionStatus,tbLedtScope);
+									getTableInitialData(datarepeter.ID,datarepeter.Width,PermissionStatus,tbLedtScope,VisiblePermissionClass);
 								}else{
-	                                appenedtableformat(datarepeter.ID,CurrTenplateID,PermissionStatus, datarepeter.Width,tbLedtScope );
+	                                appenedtableformat(datarepeter.ID,CurrTenplateID,PermissionStatus, datarepeter.Width,tbLedtScope,VisiblePermissionClass );
 	                            }
 							}
 							else{
 							
 							if (pagenumbers == 1) {
 								if (datarepeter.Mandatory) {
-									dynamictempalte = "<div class='col-md-12 col-sm-6 col-xs-12 "+saveclassset+" "+classset +" "+VisiblePermissionClass+"' id='"+datarepeter.Id+"'>\
+									dynamictempalte = "<div class='col-md-12 col-sm-6 col-xs-12 "+saveclassset+" "+classset +" "+VisiblePermissionClass+" mandatory' id='"+datarepeter.Id+"'>\
 													<div class='form-group custom-form-group' style='"+headerstyle+"'>\
 														<label class='columnnametxt "+colorset+" "+ classset +"' value='" + datarepeter.ColumnName + "' mandatorycol='true' alerttext='" + datarepeter.Title + "'>" + datarepeter.Title + "  <span style='color:red'>*</style></label>\
 														"+templatehelptext+"\
@@ -5278,7 +5304,7 @@ var GetImageBuffer = function (SignImage)
 							}
 							else if (pagenumbers == 2) {
 								if (datarepeter.Mandatory) {
-									dynamictempalte = "<div class='col-md-6 col-sm-6 col-xs-12 "+saveclassset+" "+classset +" "+VisiblePermissionClass+"' id='"+datarepeter.Id+"'>\
+									dynamictempalte = "<div class='col-md-6 col-sm-6 col-xs-12 "+saveclassset+" "+classset +" "+VisiblePermissionClass+" mandatory' id='"+datarepeter.Id+"'>\
 													<div class='form-group custom-form-group' style='"+headerstyle+"'>\
 														<label class='columnnametxt "+colorset+" "+ classset +"' value='" + datarepeter.ColumnName + "' mandatorycol='true' alerttext='" + datarepeter.Title + "'>" + datarepeter.Title + "  <span style='color:red'>*</style></label>\
 															"+templatehelptext+"\
@@ -5299,7 +5325,7 @@ var GetImageBuffer = function (SignImage)
 							}
 							else if (pagenumbers == 3) {
 								if (datarepeter.Mandatory) {
-									dynamictempalte = "<div class='col-md-4 col-sm-6 col-xs-12 "+saveclassset+" "+classset +" "+VisiblePermissionClass+"' id='"+datarepeter.Id+"'>\
+									dynamictempalte = "<div class='col-md-4 col-sm-6 col-xs-12 "+saveclassset+" "+classset +" "+VisiblePermissionClass+" mandatory' id='"+datarepeter.Id+"'>\
 													<div class='form-group custom-form-group' style='"+headerstyle+"'>\
 														<label class='columnnametxt "+colorset+" "+ classset +"' value='" + datarepeter.ColumnName + "' mandatorycol='true' alerttext='" + datarepeter.Title + "'>" + datarepeter.Title + "  <span style='color:red'>*</style></label>\
 															"+templatehelptext+"\
@@ -5320,7 +5346,7 @@ var GetImageBuffer = function (SignImage)
 							}
 							else {
 								if (datarepeter.Mandatory) {
-									dynamictempalte = "<div class='col-md-4 col-sm-6 col-xs-12 "+saveclassset+" "+classset +" "+VisiblePermissionClass+"' id='"+datarepeter.Id+"'>\
+									dynamictempalte = "<div class='col-md-4 col-sm-6 col-xs-12 "+saveclassset+" "+classset +" "+VisiblePermissionClass+" mandatory' id='"+datarepeter.Id+"'>\
 													<div class='form-group custom-form-group' style='"+headerstyle+"'>\
 														<label class='columnnametxt "+colorset+" "+classset +"' value='" + datarepeter.ColumnName + "' mandatorycol='true' alerttext='" + datarepeter.Title + "'>" + datarepeter.Title + "  <span style='color:red'>*</style></label>\
 															"+templatehelptext+"\
@@ -5357,7 +5383,8 @@ var GetImageBuffer = function (SignImage)
 						});
 						SetCalculateValue();
 						SetSummarizedValue();						
-						SetDatpickerNdropDown(resultCol,'','','',QueryDataRetResult,'',PermissionStatus);							
+						SetDatpickerNdropDown(resultCol,'','','',QueryDataRetResult,'',PermissionStatus);
+						
 											
 					}					
 					if(personCols.length > 0){
@@ -5563,7 +5590,7 @@ var GetImageBuffer = function (SignImage)
 				//	$.uniqueSort(multiDdp);
 					MultiselectDropdown(window.MultiselectDropdownOptions);				
 				//}
-				
+				if(VisibleOnchangeCondition.length > 0){checkColVisibility('')}							
 			}
 			// this is end or new change code in botla peraiah
 			function selectddrval(idval, appendval){
@@ -5959,7 +5986,7 @@ function ColumnValueByColumnName(QueryResult, _ProcessType) {
 		$("#RemarksApprovalContent").val('');
 		$(".custom-image-label").css("display", "block");
 		$(".approval_image_preview").css("display", "none");
-		$('.preup_load').toggleClass('ative_now');
+		// $('.preup_load').toggleClass('ative_now'); comment by sunil
 		SelectedSignImages='';
 	}
 
@@ -6002,7 +6029,9 @@ function ApprovedRequest()
 					for(var k=0; k<EnsureActive.length; k++)
 					{
 						var QueryResultCheckActive=[];
-						if(EnsureActive[k].Type == 'Tenant')
+						var QueryCheckActive =  _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('Employees')/items?$select=*&$filter=LogonName/EMail eq '"+EnsureActive[k].Email+"' and Status eq 'Active'";
+								QueryResultCheckActive = RequestGetdata(QueryCheckActive);
+						/*if(EnsureActive[k].Type == 'Tenant')
 						{
 							var QueryCheckActive =  _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('Employees')/items?$select=*&$filter=LogonName/EMail eq '"+EnsureActive[k].Email+"' and Status eq 'Active'";
 								QueryResultCheckActive = RequestGetdata(QueryCheckActive);
@@ -6011,7 +6040,7 @@ function ApprovedRequest()
 						{
 							var QueryCheckActive =  _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('ExternalUsers')/items?$select=*&$filter=LoginName/EMail eq '"+EnsureActive[k].Email+"' and Status eq 'Active'";
 								QueryResultCheckActive = RequestGetdata(QueryCheckActive);
-						}
+						}*/
 							
 						if(QueryResultCheckActive.length>0)
 						{
@@ -6030,33 +6059,41 @@ function ApprovedRequest()
 		}
 	}
 	else
-	{
+	{		
 		ExStatus = true;
 	}
 	//$('#overlaysearch').show();
+	
 	ActiveBtnStatus = 'ApprovedSign';
 	if(ExStatus == true)
 	{
-		if($("#ApprovedChkbox").prop('checked') == true)
+		//if($("#ApprovedChkbox").prop('checked') == true)
+		if($('#ApprovedChkbox')[0].checked == true)
 		{				
-			var ActiveSingTypeRadio = $('input[name="SignTypeRadio"]:checked').val();
+			//var ActiveSingTypeRadio = $('input[name="SignTypeRadio"]:checked').val();
+			var ActiveSingTypeRadio = $('input[name=SignTypeRadio]:radio:checked').val()
+			
         	if(ActiveSingTypeRadio == 'SignText')
         	{
         		var SignText = $("#SingTextType").val();
         			SignText.trim();
         		if(SignText.length>0)
-        		{   
+        		{        			
         			var node = document.getElementById('SingTextType');
-					domtoimage.toPng(node).then (function (dataUrl) {
+					var TestCondition = domtoimage.toPng(node).then (function(dataUrl){
 						var ImgUrl = dataUrl;
 						var img = new Image();
 			    		var file = dataURLtoFile(ImgUrl, $("#SingTextType").val().trim() + window.btoa("_AdaptSignature") + ".png");
 			    		SignImage=[];
 			    		SignImage.push(file);
+			    		
 		    			saverecord();
 					})
-        			//saverecord();
-        		}
+					.catch(function (error) {
+						saverecord();
+  	    				console.error('oops, something went wrong!', error);
+  					});
+				}
         		else
         		{
         			alert("Please Type Your Signature.");
@@ -6066,24 +6103,31 @@ function ApprovedRequest()
         	else if(ActiveSingTypeRadio == 'SignImage')
         	{
         		if(SignImage.length>0 || SelectedSignImages != '')
-        		{
-        			var node = document.getElementById('SignImgPreview');
-					domtoimage.toPng(node).then (function (dataUrl) {
-						var ImgUrl = dataUrl;
-						var img = new Image();
-    					var file = dataURLtoFile(ImgUrl, _spPageContextInfo.userDisplayName + window.btoa("_AdaptSignature") + ".png");
-    					SignImage=[];
-    					SignImage.push(file);
-    					
-    					saverecord();
-    					//Approvedreq(Action);
-					})        			
-        			//saverecord();        			
+        		{       			    				
+    				var request = new XMLHttpRequest();
+    				var ImageUrl = $('#SignImgPreview').attr('src');
+					request.open('GET',ImageUrl, true);
+					request.responseType = 'blob';
+					request.onload = function() {
+				    	var reader = new FileReader();
+				    	reader.readAsDataURL(request.response);
+				    	reader.onload =  function(e){
+			        		console.log('DataURL:', e.target.result);
+			        		var ImgUrl = e.target.result;
+							var img = new Image();
+			    			var file = dataURLtoFile(ImgUrl, _spPageContextInfo.userDisplayName + window.btoa("_AdaptSignature") + ".png");
+			        		console.log(file);
+			        		SignImage=[];
+    						SignImage.push(file);
+    						
+    						saverecord();
+						};
+					};
+					request.send();      		
         		}
         		else
         		{
-        			alert("Please Select Your Signature Image.");
-        			
+        			alert("Please Select Your Signature Image.");        			
         		}
         	}
         	else if(ActiveSingTypeRadio == 'SignDraw')
@@ -6211,7 +6255,7 @@ function initializePeoplePickerStakeholder(peoplePickerElementId)
 
 
 function onChangeTask(HTMLID, PplPickerId, UserBoxId) 
-{
+{debugger;
 	var picker = SPClientPeoplePicker.SPClientPeoplePickerDict[HTMLID];
     picker.OnValueChangedClientScript = function (elementId, userInfo) {
     user = '';
@@ -6237,7 +6281,9 @@ function onChangeTask(HTMLID, PplPickerId, UserBoxId)
 				for(var k=0; k<EnsureActive.length; k++)
 				{
 					var QueryResultCheckActive=[];
-					if(EnsureActive[k].Type == 'Tenant')
+					var QueryCheckActive =  _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('Employees')/items?$select=*&$filter=LogonName/EMail eq '"+EnsureActive[k].Email+"' and Status eq 'Active'";
+							QueryResultCheckActive = RequestGetdata(QueryCheckActive);
+					/*if(EnsureActive[k].Type == 'Tenant')
 					{
 						var QueryCheckActive =  _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('Employees')/items?$select=*&$filter=LogonName/EMail eq '"+EnsureActive[k].Email+"' and Status eq 'Active'";
 							QueryResultCheckActive = RequestGetdata(QueryCheckActive);
@@ -6246,7 +6292,7 @@ function onChangeTask(HTMLID, PplPickerId, UserBoxId)
 					{
 						var QueryCheckActive =  _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('ExternalUsers')/items?$select=*&$filter=LoginName/EMail eq '"+EnsureActive[k].Email+"' and Status eq 'Active'";
 							QueryResultCheckActive = RequestGetdata(QueryCheckActive);
-					}
+					}*/
 							
 					if(QueryResultCheckActive.length>0)
 					{
@@ -8099,7 +8145,10 @@ function ValidateExistingApprovers(HTMLID, PplPickerId, UserBoxId)
 						for(var k=0; k<EnsureActive.length; k++)
 						{
 							var QueryResultCheckActive=[];
-							if(EnsureActive[k].Type == 'Tenant')
+							var QueryCheckActive =  _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('Employees')/items?$select=*&$filter=LogonName/EMail eq '"+EnsureActive[k].Email+"' and Status eq 'Active'";
+									QueryResultCheckActive = RequestGetdata(QueryCheckActive);
+
+							/*if(EnsureActive[k].Type == 'Tenant')
 							{
 								var QueryCheckActive =  _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('Employees')/items?$select=*&$filter=LogonName/EMail eq '"+EnsureActive[k].Email+"' and Status eq 'Active'";
 									QueryResultCheckActive = RequestGetdata(QueryCheckActive);
@@ -8108,7 +8157,7 @@ function ValidateExistingApprovers(HTMLID, PplPickerId, UserBoxId)
 							{
 								var QueryCheckActive =  _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('ExternalUsers')/items?$select=*&$filter=LoginName/EMail eq '"+EnsureActive[k].Email+"' and Status eq 'Active'";
 									QueryResultCheckActive = RequestGetdata(QueryCheckActive);
-							}
+							}*/
 								
 							if(QueryResultCheckActive.length>0)
 							{
@@ -8433,6 +8482,7 @@ function GetForwardHistory()
 			$('.preup_load').toggleClass('ative_now');
 		});
 	 	$('button[data-toggle="tooltip"]').tooltip(); 
+	 	$('input[data-toggle="tooltip"]').tooltip();
 	});
 
 </script>		
@@ -8449,6 +8499,7 @@ $(function(){
 
 
 $(document).ready(function(){
+	
 	initializePeoplePicker("ForwardUserPicker1", 'Single'); 
 	
 	$("#ReturnStakeholderList_TopSpan").keyup(function () {
@@ -8563,7 +8614,10 @@ function SetNextApprovers()
 					for(var k=0; k<EnsureActive.length; k++)
 					{
 						var QueryResultCheckActive=[];
-						if(EnsureActive[k].Type == 'Tenant')
+						var QueryCheckActive =  _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('Employees')/items?$select=*&$filter=LogonName/EMail eq '"+EnsureActive[k].Email+"' and Status eq 'Active'";
+								QueryResultCheckActive = RequestGetdata(QueryCheckActive);
+
+						/*if(EnsureActive[k].Type == 'Tenant')
 						{
 							var QueryCheckActive =  _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('Employees')/items?$select=*&$filter=LogonName/EMail eq '"+EnsureActive[k].Email+"' and Status eq 'Active'";
 								QueryResultCheckActive = RequestGetdata(QueryCheckActive);
@@ -8572,7 +8626,7 @@ function SetNextApprovers()
 						{
 							var QueryCheckActive =  _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('ExternalUsers')/items?$select=*&$filter=LoginName/EMail eq '"+EnsureActive[k].Email+"' and Status eq 'Active'";
 								QueryResultCheckActive = RequestGetdata(QueryCheckActive);
-						}
+						}*/
 							
 						if(QueryResultCheckActive.length>0)
 						{
@@ -8872,6 +8926,20 @@ $('.modal').on("hidden.bs.modal", function (e) {
     }
 
   })
+  
+  $("input").hover(function() {
+	    if (this.value.length > 0) {	   	    
+	    	if((this.value.length + 1) * 8 > this.clientWidth){
+	           // this.style.width = ((this.value.length + 1) * 8) + 'px';
+	           this.setAttribute('data-toggle','tooltip');
+	           this.setAttribute('title', this.value);  	          
+	        } else {
+	        	console.log(this.style.width);
+	            //this.style.width = ((this.getAttribute('placeholder').length + 1) * 8) + 'px';
+	           // alert(this.style.width)
+	        }
+	     }
+	});
 
 });
 
@@ -8919,8 +8987,8 @@ function SaveApprovalDocs(action){
 			stp = 'Initiation'
 			stpId = 0;
 		}
-		ApprovalDocs.push({'filename' : fileName, 'purpose':purpose, 'Remarks' : Remarks, 'SignOf': SignOf, 'ddpmulstp': ddpmulstp, 'SingleStpval':SingleStpval, 'singleslct': singleslct, 'watermrk' : watermrk ,'watermrkval' : watermrkval, 'extn' : extn, 'attachfor' : AttachFor, 'Step': stp, 'StepID': stpId, 'File' : fileInput[0].files[i], 'IsRestrict ': IsRestrict ,'RestrictSteps' : restrictSteps, 'Status' : 'New', 'UserName' : _spPageContextInfo.userDisplayName,'Email' : _spPageContextInfo.userEmail})
-		AllDocs.push({'Id' :filecountset ,'filename' : fileName, 'purpose':purpose, 'Remarks' : Remarks, 'SignOf': SignOf, 'ddpmulstp': ddpmulstp, 'SingleStpval':SingleStpval, 'singleslct': singleslct, 'watermrk' : watermrk ,'watermrkval' : watermrkval, 'extn' : extn, 'attachfor' : AttachFor, 'Step': stp, 'StepID': stpId, 'File' : fileInput[0].files[i], 'IsRestrict': IsRestrict, 'RestrictSteps' : restrictSteps , 'Status' : 'New', 'UserName' : _spPageContextInfo.userDisplayName,'Email' : _spPageContextInfo.userEmail})
+		ApprovalDocs.push({'filename' : fileName, 'purpose':purpose, 'Remarks' : Remarks, 'SignOf': SignOf, 'ddpmulstp': ddpmulstp, 'SingleStpval':SingleStpval, 'singleslct': singleslct, 'watermrk' : watermrk ,'watermrkval' : watermrkval, 'extn' : extn, 'attachfor' : AttachFor, 'Step': stp, 'StepID': stpId, 'File' : fileInput[0].files[i], 'IsRestrict ': IsRestrict ,'RestrictSteps' : restrictSteps, 'Status' : 'New', 'UserName' : _spPageContextInfo.userDisplayName,'Email' : _spPageContextInfo.userEmail,'Date': ''})
+		AllDocs.push({'Id' :filecountset ,'filename' : fileName, 'purpose':purpose, 'Remarks' : Remarks, 'SignOf': SignOf, 'ddpmulstp': ddpmulstp, 'SingleStpval':SingleStpval, 'singleslct': singleslct, 'watermrk' : watermrk ,'watermrkval' : watermrkval, 'extn' : extn, 'attachfor' : AttachFor, 'Step': stp, 'StepID': stpId, 'File' : fileInput[0].files[i], 'IsRestrict': IsRestrict, 'RestrictSteps' : restrictSteps , 'Status' : 'New', 'UserName' : _spPageContextInfo.userDisplayName,'Email' : _spPageContextInfo.userEmail,'Date': ''})
 		}else{
 		alert(fileName + ' should not be uploaded. This file may be malicious.  Please select another file.');
 		return false;
@@ -8980,7 +9048,8 @@ function BindApprovalDoc(ApprovalDoc, id, action, stp){
 	    ApprovalDochtml += '<td><p class="purpose_text" id="filePurpose">'+ApprovalDoc[i].purpose+'</p></td>'
 	    ApprovalDochtml += '<td><p class="remarkmultilines" id="fileRemarks">'+ApprovalDoc[i].Remarks+'</p></td>'
 	    ApprovalDochtml += '<td><div class="flexitem"><div class="imgsetion"><div class="empoyeeimg" style="float:left;"><img title="'+ApprovalDoc[i].UserName+'" src="'+Authorattachment+'" alt="" data-themekey="#"></div></div><div class="imagecontent"><h4>'+ApprovalDoc[i].UserName+'</h4><a href="#" style="cursor: auto;">'+ApprovalDoc[i].Email+'</a></div></div></td>'
-	    ApprovalDochtml += '<td>'+ApprovalDoc[i].Step+'<br>'+moment(new Date).format('LLL')+'</td>'
+	    var dt = ApprovalDoc[i].Date ? ApprovalDoc[i].Date : new Date;
+	    ApprovalDochtml += '<td>'+ApprovalDoc[i].Step+'<br>'+moment(dt).format('LLL')+'</td>'
 	    let resultstp = stp.includes(ApprovalDoc[i].Step);
 	    if(stp == ApprovalDoc[i].Step || resultstp ){	
 	    	if(ApprovalDoc[i].Status == 'New'){
@@ -10798,6 +10867,19 @@ function getIPAddress(){
         }
     };
     
+}
+
+
+
+function GetBase64Image(img) {
+  var canvas = document.createElement("canvas");
+  canvas.width = img.width;
+  canvas.height = img.height;
+  var ctx = canvas.getContext("2d");
+  ctx.drawImage(img, 0, 0);
+  var dataURL = canvas.toDataURL("image/png");
+  return dataURL.replace(/^data:image\/?[A-z]*;base64,/);
+  return dataURL;
 }
 
  

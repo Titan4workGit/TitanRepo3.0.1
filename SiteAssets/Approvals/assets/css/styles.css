@@ -380,11 +380,24 @@ button.close {
     overflow: hidden;
     transition: all 0.5s;
 }
+img[id^="StatusImageApprovalProcessList"], 
+img[id^="StatusImageApprovalTaskList"] {
+    width: 20px !important;
+}
+
+.empoyeeimg img {
+    width: 25px !important;
+    height: 25px !important;
+    border-radius: 50%;
+}
+
+
 .approval-dashboard-user-card-img img {
-    width: 100%;
-    height: 100%;
+    width: 25px !important;
+    height: 25px !important;
     object-fit: contain;
 }
+
 .approval-dashboard-user-card-info {
     padding-left: 10px;
     width: calc(100% - 40px);
@@ -514,6 +527,7 @@ button.close {
 }
 .members-card-head>img {
     width: 100%;
+    min-width: 100% !important;
     height: 100%;
     object-fit: contain;
 }
@@ -734,11 +748,18 @@ button.close {
     padding-right: 15px;
 }
 .process-print-top-right-container {
-    width: 20%;
+    max-width: 20%;
+}
+.process-print-top-right-container img {
+    width: 100px;
 }
 
 .process-print-top-center-container {
-    width: 40%;
+     -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
 }
 
 .process-print-top-company-logo {
@@ -748,11 +769,22 @@ button.close {
     text-align:center;
 }
 .process-print-top-company-logo img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+    width: 100% !important;    
     object-position: right;
 }
+
+#Bottam-History-Area{
+ clear:both;	
+}
+
+#Bottam-History-Area .timebox ul.mainlst > li{
+ min-height:118px;	
+}
+
+.flex_twosec .img_lefsectiom img{
+ min-width:30px !important;	
+}
+
 .process-print-top-company-name,
 .process-print-top-office-address {
     text-align: center;
@@ -909,6 +941,25 @@ margin-bottom:7px;
 .signbox{
  word-wrap: break-word;
  word-break: break-word;  
+}
+
+#ApprovaloutboxChip .upload-chip,
+#ApprovalinboxChip .upload-chip{
+    max-width:220px; 
+    overflow:hidden; 
+    white-space:nowrap; 
+    text-overflow:ellipsis;
+}
+
+#PDFAREA #Bottam-History-Area .timebox ul.mainlst > li::after{
+ display:none !important;   
+}
+
+.process-approve-signature-img {
+    height: 70px !important;
+    object-fit: contain;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 
@@ -1074,8 +1125,7 @@ margin-bottom:7px;
 }
 
 
-#ProcessApprovalFormSetup .custom-table thead tr:first-child th,
-#ProcessApprovalFormSetup .custom-table tbody tr:last-child td{
+#ProcessApprovalFormSetup .custom-table thead tr:first-child th{
  background:#f1f1f1;	
 }
 
@@ -1095,7 +1145,9 @@ margin-bottom:7px;
 #ProcessApprovalFormSetup .custom-table>thead>tr>th{
   font-size: 12px;
   font-weight:400;
+  border:1px solid #cacaca !important}
 }
+
 #ProcessApprovalFormSetup .custom-table>tbody>tr.Total-row th{
  background:#f1f1f1 !important; 	
  font-size:12px !important;
@@ -1511,7 +1563,7 @@ col-md-11.wraping_only{
     position: absolute;
     top: 500px;
     left: 50%;
-    z-index: -1;
+    z-index: 0;
     transform: translate(-50%, -50%) rotate(-45deg);
     font-weight: 600;
     width: 100%;
@@ -1594,9 +1646,21 @@ cursor:pointer;
 #PDFAREA .custom-form-group .form-control.mulitlin_sectin {
     border-radius: 0;
     box-shadow: none;
-    min-height: 100px;
-    max-height: 100px;
-    overflow: auto;
+   overflow:visible;
+   height:auto;
+   min-height:100px;
+}
+
+#PDFAREA .custom-form-group .form-control.mulitlin_sectin div[class^="ExternalClass"] table{
+ width:100% !important;
+ table-layout: fixed;	
+}
+
+#PDFAREA .custom-form-group .form-control.mulitlin_sectin div[class^="ExternalClass"] table td,
+#PDFAREA .custom-form-group .form-control.mulitlin_sectin div[class^="ExternalClass"] table th{
+
+ border:1px solid #c5c2c2;
+ overflow-wrap: break-word;	
 }
 
 .wrapping_qr_contentbox{
@@ -1895,12 +1959,28 @@ position: relative;
     overflow: hidden;
     display: inline-block;
     max-width: 174px !important;
-    line-height:1.4
+    line-height:1.4;
 }
 #supporting_documents .imgsetion img {
     width: 32px;
+    width: 32px !important;
     border-radius: 50%;
     height: 32px;
+}
+
+#new_history .imgsetion img{
+ min-width:35px !important;	
+}
+
+.history-defaultbtn img{
+ width:16px !important;	
+}
+img#StatusImgProcessApproval{
+ width:20px !important;	
+}
+
+#new_forwarding_pro .imgsetion img{
+ width:35px !important;	
 }
 
 #supporting_documents .timlineheight {
@@ -2259,9 +2339,12 @@ span.frwd_time {
 
 
 @media(max-width:1199px){
- .approval_doms table {
-    min-width: 1000px;
+
+#supporting_documentation table, 
+ .approval_doms table{
+    min-width: 1000px !important;
 }
+
 }
 
 
@@ -2464,7 +2547,17 @@ max-height:200px !important;
 overflow:auto;
 }
 
- 
+.dashboard-icon-info{
+ min-width:20px !important;	
+} 
+
+#tablenavInbox div img,
+#tablenavoutbox div img{
+ min-width:16px !important;	
+}
+.full-expand-panel .detail-view-icon-info{
+ min-width:20px !important;	
+}
 
 #PDFAREA .custom-form-group .form-control.mulitlin_sectin.units-6{
 min-height:300px !important;
@@ -2486,7 +2579,54 @@ overflow:auto;
 }
 
 
-#PDFAREA .custom-form-group .form-control.mulitlin_sectin.auto_view_height{
+#PDFAREA .custom-form-group .form-control.mulitlin_sectin.auto_view_height {
     max-height: 100% !important;
     height: auto !important;
+    min-height: 100px;
 }
+
+#Bottam-Report-Area{
+ min-width:100%;
+ clear:both;	
+}
+
+
+@media (min-width: 768px){
+
+#Bottam-Report-Area .report_area {
+    width: 90%;
+    margin: 0 auto;
+    clear:both;
+    display:block;
+}
+
+}
+
+
+
+
+/****sept 20 23*****/
+
+
+.privorityicon img {
+    width: 20px;
+    min-width: 20px !important;
+}
+
+
+#ProcessApprovalFormSetup {
+    background-color: #fff;
+}
+
+
+#approvalhistory .imgsetion img {
+    width: 35px;
+    border-radius: 50%;
+    height: 35px;
+    min-width: 35px !important;
+}
+
+.empoyeeimg{
+ min-width:25px !important;	
+}
+

@@ -138,6 +138,7 @@ button.close {
 }
 .new-request-top-left-img img {
     width: 50px;
+    min-width: 50px;
     object-fit: contain;
 }
 .new-request-top-left-text {
@@ -179,8 +180,19 @@ button.close {
 
 .new-request-top-left-main .new-request-top-left-img img {
     width: 70px;
+    min-width: 70px !important;
     border-radius:5px;
 }
+
+.modal_links li a img{
+ width:22px !important;	
+}
+
+.btngroupsetting .btn-danger img,
+.btngroupsetting .custom-btn img{
+ min-width:19px !important;	
+}
+
 .new-request-top-left-main .new-request-top-left-text .new-request-top-left-title-pera {
     font-size: 14px;
 }
@@ -574,6 +586,10 @@ button.close {
     transition: all 0.5s;
 }
 
+.members-card-head img {
+    min-width: 100% !important;
+}
+
 .text-ellipsis {
     white-space: nowrap;
     overflow: hidden;
@@ -718,6 +734,7 @@ button.close {
 .imgsetion,
 .imgsetion img {
     width: 35px;
+    min-width: 35px !important;
     border-radius: 50%;
     height: 35px;
 }
@@ -876,7 +893,7 @@ button.close {
     border: 2px solid #c1c1c1;
     box-shadow: 0px 1px 4px #afadad;
     border-radius: 50%;
-    min-width: 35px;
+    min-width: 35px !important;
     margin-right: 7px;
 }
 #forward_stpings .employeeinfo h3 {
@@ -1473,7 +1490,7 @@ align-items: end;
 
 .signbox{
  margin-bottom:7px;
- text-align:right;
+ text-align:center;
  word-wrap: break-word;
  word-break: break-word;	
 }
@@ -1725,6 +1742,8 @@ justify-content: center;
 margin-bottom:0px;	
 }
 
+
+
 @media (min-width:768px){
 
 #review_structure .modal-dialog {
@@ -1924,11 +1943,18 @@ textarea[disabled],
 select[disabled], 
 .sp-peoplepicker-topLevelDisabled, 
 .ms-inputBoxDisabled {
-    color:#858585 !important;
     border-color: #c3c3c3 !important;
     background-color: #eeeeee !important;
+    -webkit-text-fill-color: rgba(0, 0, 0, 0.5); 
+   -webkit-opacity: 1; 
+   color: rgba(0, 0, 0, 0.5) !important;
 }
 
+
+.signature-box #SingTextType{
+	padding:0 !important;
+	max-width:300px; 			
+}
 
 @media (min-width: 1200px){
 #forwarding_process .modal-dialog {
@@ -2722,6 +2748,7 @@ background-color: transparent;
 .infosets img{
  border-radius:50% !important;
  width:24px;
+ min-width:24px !important;
  height:24px;	
 }
 
@@ -3234,6 +3261,7 @@ background-color: transparent;
 
 #tbdyAppDoc td .titlewrp img {
     width: 21px;
+    min-width: 21px !important;
     position: absolute;
     left: 2px;
     height: 21px;
@@ -3257,6 +3285,9 @@ background-color: transparent;
 #RntimeStepUsers input.sp-peoplepicker-editorInput[type=text]{
  border:none !important;	
 }
+
+
+/********
 
 #forward_stpings .modal-content,
 #approvalRejectionModal .modal-content,
@@ -3282,6 +3313,40 @@ background-color: transparent;
 user-select: none;	
 
 }
+
+******/
+
+
+******/
+
+
+/***only rich text***/
+
+#forward_stpings .modal-content .richText .richText-editor,
+#approvalRejectionModal .modal-content .richText .richText-editor,
+#rever_multistep .modal-content .richText .richText-editor,
+#approvalEditModal .modal-content .richText .richText-editor{
+    
+	-webkit-user-select: text;
+	-webkit-touch-callout: text;
+	-moz-user-select: text;
+	-ms-user-select: text;
+	user-select: text;
+
+}
+
+#approvalActionModal .modal-content .richText .richText-editor{
+
+-webkit-user-select: text;
+-webkit-touch-callout: text;
+-moz-user-select: text;
+-ms-user-select: text;
+user-select: text;	
+
+}
+
+
+/***only rich text ed***/
 
 
 @media(min-width:768px){
@@ -3740,6 +3805,31 @@ min-width: 125px;
     max-height: 98px !important;
 }
 
+.modal-footer .btn.custom-btn,
+.modal-footer .btn.custom-btn-two-cancel,
+.modal-footer .custom-btn-two-cancel{
+ min-width:90px;
+}
+
+a#gettemplatenameid {
+    user-select: text;
+    -webkit-user-select: text;
+}
+
+.preup_load ul li{
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack:center;
+	justify-content:center;			
+}
+
+#new_history .col-sm-6.flexitem .signbox {
+    width: 100%;
+    text-align: center;
+}
+
+
+
 @media(min-width: 992px){
 
 .forward_to.row .col-md-8{
@@ -3809,5 +3899,21 @@ min-width: 125px;
 }
 
 
+
+
+
+/******sept/12/23********/
+
+select option{
+ background:#fff;	
+}
+
+@media(max-width:991px){
+	
+.wrapping_dynamic table{
+ min-width:1100px !important;	
+}
+
+}
 
 
